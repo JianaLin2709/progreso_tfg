@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende chino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/leccion.css?v=11">
+</head>
+<body class="lesson-page">
+  <header class="topbar">
+    <button class="back-button" type="button" aria-label="Volver al vocabulario">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6M9 12h11"/></svg>
+      <span>Volver al vocabulario</span>
+    </button>
+
+    <div class="course-progress">
+      <div class="course-title"><strong id="course-hsk">HSK 1</strong><span>›</span><span id="course-unit">Unidad 1: Saludos y presentaciones</span></div>
+    </div>
+
+  </header>
+
+  <main class="lesson-surface">
+    <div class="progress-row" aria-label="Progreso de la unidad">
+      <div class="progress-track-wrap">
+        <img class="progress-rabbit" src="../img/leccion-conejo.png" alt="" aria-hidden="true">
+        <div class="progress-track"><span id="progress-fill"></span></div>
+      </div>
+      <span id="progress-text">1 / 10</span>
+    </div>
+    <section class="intro">
+      <div class="intro-title">
+        <img src="../img/leccion-destello.png" alt="" aria-hidden="true">
+        <h1>Aprende el vocabulario</h1>
+        <img src="../img/leccion-destello.png" alt="" aria-hidden="true">
+      </div>
+      <p>Haz clic en el botón de audio para escuchar la palabra</p>
+      <p class="audio-status" id="audio-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="word-card" aria-labelledby="word">
+      <img class="card-decoration card-sprout" src="../img/leccion-brote.png" alt="" aria-hidden="true">
+      <button class="favorite" type="button" aria-label="Añadir a favoritos" aria-pressed="false">
+        <img src="../img/leccion-estrella.png" alt="" aria-hidden="true">
+      </button>
+      <div class="word-content">
+        <span class="eyebrow" id="word-position">PALABRA 1 DE 10</span>
+        <h2 id="word" lang="zh-Hans">你好</h2>
+        <div class="pronunciation">
+          <span id="pinyin">nǐ hǎo</span>
+          <button class="audio-button" id="word-audio" type="button" aria-label="Escuchar pronunciación">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.5H3v7h3.8L11 19V5Zm4.5 3.2a5 5 0 0 1 0 7.6M18 5.5a9 9 0 0 1 0 13"/></svg>
+          </button>
+        </div>
+        <p class="translation" id="translation">hola</p>
+      </div>
+    </section>
+
+    <section class="example-card">
+      <span class="example-label">Ejemplo</span>
+      <div class="example-text">
+        <strong id="example-chinese" lang="zh-Hans">你好，我叫安娜。</strong>
+        <span id="example-pinyin">nǐ hǎo, wǒ jiào ānnà.</span>
+        <p id="example-spanish">Hola, me llamo Ana.</p>
+      </div>
+      <button class="audio-button small" id="example-audio" type="button" aria-label="Escuchar el ejemplo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.5H3v7h3.8L11 19V5Zm4.5 3.2a5 5 0 0 1 0 7.6M18 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+    </section>
+
+    <nav class="lesson-nav" aria-label="Navegación de la lección">
+      <button class="nav-button secondary" id="previous-button" type="button"><span class="arrow">‹</span>Anterior</button>
+      <span class="counter" id="lesson-counter">1 / 10</span>
+      <button class="nav-button primary" id="next-button" type="button"><span class="button-label">Siguiente</span><span class="arrow">›</span></button>
+    </nav>
+
+    <section class="completion-card" id="completion-card" hidden aria-live="polite">
+      <div class="completion-icon">✓</div>
+      <h2 id="completion-title">¡Unidad completada!</h2>
+      <p id="completion-message">Has aprendido las primeras palabras de saludos y presentaciones de HSK 1.</p>
+      <button class="nav-button primary" id="restart-button" type="button">Repasar de nuevo</button>
+      <div class="completion-actions" id="level-completion-actions" hidden>
+        <button class="nav-button secondary" id="review-hsk-button" type="button">Seguir repasando HSK 1</button>
+        <button class="nav-button primary" id="next-hsk-button" type="button">Pasar a HSK 2</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="../js/leccion.js?v=32"></script>
+</body>
+</html>

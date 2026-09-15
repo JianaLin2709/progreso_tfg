@@ -1,0 +1,355 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 182.508617,
+  "entradas": {
+    "米饭": {
+      "palabra": {
+        "texto": "米饭",
+        "inicio": 0,
+        "fin": 0.702
+      },
+      "ejemplo": {
+        "texto": "我每天都吃米饭。",
+        "inicio": 2.504,
+        "fin": 4.024
+      }
+    },
+    "面条": {
+      "palabra": {
+        "texto": "面条",
+        "inicio": 6.409,
+        "fin": 7.167
+      },
+      "ejemplo": {
+        "texto": "我很喜欢吃面条。",
+        "inicio": 8.966,
+        "fin": 10.518
+      }
+    },
+    "面包": {
+      "palabra": {
+        "texto": "面包",
+        "inicio": 12.909,
+        "fin": 13.621
+      },
+      "ejemplo": {
+        "texto": "我早上吃面包。",
+        "inicio": 15.416,
+        "fin": 16.752
+      }
+    },
+    "蔬菜": {
+      "palabra": {
+        "texto": "蔬菜",
+        "inicio": 19.161,
+        "fin": 19.946
+      },
+      "ejemplo": {
+        "texto": "蔬菜很健康。",
+        "inicio": 21.744,
+        "fin": 23.113
+      }
+    },
+    "番茄": {
+      "palabra": {
+        "texto": "番茄",
+        "inicio": 25.516,
+        "fin": 26.319
+      },
+      "ejemplo": {
+        "texto": "我喜欢吃番茄。",
+        "inicio": 28.116,
+        "fin": 29.588
+      }
+    },
+    "茄子": {
+      "palabra": {
+        "texto": "茄子",
+        "inicio": 31.968,
+        "fin": 32.73
+      },
+      "ejemplo": {
+        "texto": "茄子很好吃。",
+        "inicio": 34.527,
+        "fin": 35.789
+      }
+    },
+    "黄瓜": {
+      "palabra": {
+        "texto": "黄瓜",
+        "inicio": 38.214,
+        "fin": 38.921
+      },
+      "ejemplo": {
+        "texto": "我买了两根黄瓜。",
+        "inicio": 40.729,
+        "fin": 42.214
+      }
+    },
+    "蘑菇": {
+      "palabra": {
+        "texto": "蘑菇",
+        "inicio": 44.597,
+        "fin": 45.282
+      },
+      "ejemplo": {
+        "texto": "汤里有蘑菇。",
+        "inicio": 47.084,
+        "fin": 48.22
+      }
+    },
+    "青椒": {
+      "palabra": {
+        "texto": "青椒",
+        "inicio": 50.615,
+        "fin": 51.383
+      },
+      "ejemplo": {
+        "texto": "我不吃青椒。",
+        "inicio": 53.178,
+        "fin": 54.356
+      }
+    },
+    "辣椒": {
+      "palabra": {
+        "texto": "辣椒",
+        "inicio": 56.765,
+        "fin": 57.51
+      },
+      "ejemplo": {
+        "texto": "这个辣椒很辣。",
+        "inicio": 59.308,
+        "fin": 60.616
+      }
+    },
+    "沙拉菜": {
+      "palabra": {
+        "texto": "沙拉菜",
+        "inicio": 63.014,
+        "fin": 63.963
+      },
+      "ejemplo": {
+        "texto": "沙拉菜很新鲜。",
+        "inicio": 65.771,
+        "fin": 67.317
+      }
+    },
+    "水果": {
+      "palabra": {
+        "texto": "水果",
+        "inicio": 69.712,
+        "fin": 70.526
+      },
+      "ejemplo": {
+        "texto": "我每天都吃水果。",
+        "inicio": 72.329,
+        "fin": 73.899
+      }
+    },
+    "橘子": {
+      "palabra": {
+        "texto": "橘子",
+        "inicio": 76.303,
+        "fin": 77.041
+      },
+      "ejemplo": {
+        "texto": "我吃了一个橘子。",
+        "inicio": 78.842,
+        "fin": 80.212
+      }
+    },
+    "橙子": {
+      "palabra": {
+        "texto": "橙子",
+        "inicio": 82.614,
+        "fin": 83.341
+      },
+      "ejemplo": {
+        "texto": "橙子很甜。",
+        "inicio": 85.145,
+        "fin": 86.265
+      }
+    },
+    "西瓜": {
+      "palabra": {
+        "texto": "西瓜",
+        "inicio": 88.657,
+        "fin": 89.391
+      },
+      "ejemplo": {
+        "texto": "夏天我喜欢吃西瓜。",
+        "inicio": 91.207,
+        "fin": 92.989
+      }
+    },
+    "哈密瓜": {
+      "palabra": {
+        "texto": "哈密瓜",
+        "inicio": 95.398,
+        "fin": 96.265
+      },
+      "ejemplo": {
+        "texto": "这个哈密瓜很甜。",
+        "inicio": 98.07,
+        "fin": 99.671
+      }
+    },
+    "芒果": {
+      "palabra": {
+        "texto": "芒果",
+        "inicio": 102.053,
+        "fin": 102.779
+      },
+      "ejemplo": {
+        "texto": "她喜欢喝芒果汁。",
+        "inicio": 104.583,
+        "fin": 106.164
+      }
+    },
+    "草莓": {
+      "palabra": {
+        "texto": "草莓",
+        "inicio": 108.546,
+        "fin": 109.279
+      },
+      "ejemplo": {
+        "texto": "这些草莓很新鲜。",
+        "inicio": 111.095,
+        "fin": 112.742
+      }
+    },
+    "香蕉": {
+      "palabra": {
+        "texto": "香蕉",
+        "inicio": 115.134,
+        "fin": 115.918
+      },
+      "ejemplo": {
+        "texto": "我每天吃一根香蕉。",
+        "inicio": 117.715,
+        "fin": 119.401
+      }
+    },
+    "苹果": {
+      "palabra": {
+        "texto": "苹果",
+        "inicio": 121.811,
+        "fin": 122.579
+      },
+      "ejemplo": {
+        "texto": "桌子上有一个苹果。",
+        "inicio": 124.38,
+        "fin": 126.164
+      }
+    },
+    "桃子": {
+      "palabra": {
+        "texto": "桃子",
+        "inicio": 128.579,
+        "fin": 129.29
+      },
+      "ejemplo": {
+        "texto": "这个桃子很甜。",
+        "inicio": 131.095,
+        "fin": 132.506
+      }
+    },
+    "泥猴桃": {
+      "palabra": {
+        "texto": "泥猴桃",
+        "inicio": 134.878,
+        "fin": 135.717
+      },
+      "ejemplo": {
+        "texto": "我买了三个泥猴桃。",
+        "inicio": 137.517,
+        "fin": 139.076
+      }
+    },
+    "肉": {
+      "palabra": {
+        "texto": "肉",
+        "inicio": 141.476,
+        "fin": 142.006
+      },
+      "ejemplo": {
+        "texto": "我不吃肉。",
+        "inicio": 143.803,
+        "fin": 144.753
+      }
+    },
+    "鱼": {
+      "palabra": {
+        "texto": "鱼",
+        "inicio": 147.165,
+        "fin": 147.663
+      },
+      "ejemplo": {
+        "texto": "今天晚上我们吃鱼。",
+        "inicio": 149.47,
+        "fin": 151.302
+      }
+    },
+    "水": {
+      "palabra": {
+        "texto": "水",
+        "inicio": 153.694,
+        "fin": 154.293
+      },
+      "ejemplo": {
+        "texto": "请给我一杯水。",
+        "inicio": 156.09,
+        "fin": 157.444
+      }
+    },
+    "茶": {
+      "palabra": {
+        "texto": "茶",
+        "inicio": 159.845,
+        "fin": 160.382
+      },
+      "ejemplo": {
+        "texto": "我妈妈喜欢喝茶。",
+        "inicio": 162.191,
+        "fin": 163.767
+      }
+    },
+    "酒": {
+      "palabra": {
+        "texto": "酒",
+        "inicio": 166.14,
+        "fin": 166.676
+      },
+      "ejemplo": {
+        "texto": "他不喝酒。",
+        "inicio": 168.483,
+        "fin": 169.458
+      }
+    },
+    "咖啡": {
+      "palabra": {
+        "texto": "咖啡",
+        "inicio": 171.877,
+        "fin": 172.597
+      },
+      "ejemplo": {
+        "texto": "我早上喝一杯咖啡。",
+        "inicio": 174.404,
+        "fin": 176.071
+      }
+    },
+    "饮料": {
+      "palabra": {
+        "texto": "饮料",
+        "inicio": 178.472,
+        "fin": 179.179
+      },
+      "ejemplo": {
+        "texto": "你想喝什么饮料？",
+        "inicio": 180.981,
+        "fin": 182.412
+      }
+    }
+  }
+}

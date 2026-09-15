@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Ejercicios · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css?v=37">
+  <link rel="stylesheet" href="../css/ejercicios.css?v=6">
+</head>
+<body class="dashboard-page exercises-dashboard" data-root-prefix="../">
+  <div class="app-shell">
+    <aside class="learning-sidebar">
+      <div class="sidebar-profile profile-summary">
+        <span class="sidebar-avatar">
+          <img class="sidebar-avatar-character" src="../img/panda-selector.png" alt="">
+        </span>
+        <strong>Ni Hao!</strong>
+        <span id="sidebar-level">HSK 1</span>
+        <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
+        <a class="active" href="ejercicios.html?v=17"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
+        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
+        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
+      </nav>
+      <div class="sidebar-note">
+        <span>Pequeños pasos,<br>grandes logros</span>
+        <strong aria-hidden="true">🌷</strong>
+      </div>
+      <a class="sidebar-resume" id="continue-learning" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+    </aside>
+
+    <main class="learning-main exercises-panel">
+      <section class="exercise-intro" aria-labelledby="exercise-title">
+        <span class="practice-breadcrumb"><img src="../img/nav-practicar.png" alt="">› <strong>Practicar</strong></span>
+        <div class="intro-copy">
+          <span class="title-spark" aria-hidden="true">‹</span>
+          <div>
+            <h1 id="exercise-title">Elige tu nivel de dificultad</h1>
+            <p>Selecciona el reto que mejor se adapte a ti. Puedes cambiarlo cuando quieras.</p>
+          </div>
+          <span class="title-spark right" aria-hidden="true">›</span>
+        </div>
+      </section>
+
+      <section class="difficulty-grid" aria-label="Nivel de dificultad">
+        <button class="difficulty-card easy is-selected" type="button" data-difficulty="easy" aria-pressed="true">
+          <img class="difficulty-icon" src="../img/dificultad-facil.png" alt="">
+          <span class="difficulty-copy"><strong>Fácil</strong><small>Para empezar<br>con calma</small></span>
+          <span class="selected-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="difficulty-card medium" type="button" data-difficulty="medium" aria-pressed="false">
+          <img class="difficulty-icon" src="../img/dificultad-media.png" alt="">
+          <span class="difficulty-copy"><strong>Medio</strong><small>Un desafío<br>moderado</small></span>
+          <span class="selected-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="difficulty-card hard" type="button" data-difficulty="hard" aria-pressed="false">
+          <img class="difficulty-icon" src="../img/dificultad-dificil.png" alt="">
+          <span class="difficulty-copy"><strong>Difícil</strong><small>Para mentes<br>entrenadas</small></span>
+          <span class="selected-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="difficulty-card expert" type="button" data-difficulty="expert" aria-pressed="false">
+          <img class="difficulty-icon" src="../img/dificultad-experto.png" alt="">
+          <span class="difficulty-copy"><strong>Experto</strong><small>El reto definitivo</small></span>
+          <span class="selected-check" aria-hidden="true">✓</span>
+        </button>
+      </section>
+
+      <section class="exercise-catalog" aria-labelledby="available-title">
+        <div class="catalog-heading">
+          <div>
+            <span class="section-label">Ponte a prueba</span>
+            <h2 id="available-title">Ejercicios disponibles</h2>
+          </div>
+        </div>
+        <div class="exercise-grid" id="exercise-grid" aria-live="polite"></div>
+        <p class="empty-state" id="exercise-empty" hidden>No hay ejercicios de esta categoría para el nivel seleccionado.</p>
+      </section>
+
+    </main>
+  </div>
+  <script type="module" src="../js/ejercicios.js?v=24"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 47.076621,
+  "entradas": {
+    "狗": {
+      "palabra": {
+        "texto": "狗",
+        "inicio": 0.005,
+        "fin": 0.491
+      },
+      "ejemplo": {
+        "texto": "我家有一只狗。",
+        "inicio": 2.292,
+        "fin": 3.565
+      }
+    },
+    "猫": {
+      "palabra": {
+        "texto": "猫",
+        "inicio": 5.965,
+        "fin": 6.466
+      },
+      "ejemplo": {
+        "texto": "那只猫在睡觉。",
+        "inicio": 8.268,
+        "fin": 9.704
+      }
+    },
+    "兔": {
+      "palabra": {
+        "texto": "兔",
+        "inicio": 12.13,
+        "fin": 12.643
+      },
+      "ejemplo": {
+        "texto": "兔子喜欢吃胡萝卜。",
+        "inicio": 14.445,
+        "fin": 16.139
+      }
+    },
+    "羊": {
+      "palabra": {
+        "texto": "羊",
+        "inicio": 18.542,
+        "fin": 19.058
+      },
+      "ejemplo": {
+        "texto": "山上有很多羊。",
+        "inicio": 20.856,
+        "fin": 22.33
+      }
+    },
+    "蛇": {
+      "palabra": {
+        "texto": "蛇",
+        "inicio": 24.719,
+        "fin": 25.332
+      },
+      "ejemplo": {
+        "texto": "我很怕蛇。",
+        "inicio": 27.141,
+        "fin": 28.218
+      }
+    },
+    "猪": {
+      "palabra": {
+        "texto": "猪",
+        "inicio": 30.63,
+        "fin": 31.139
+      },
+      "ejemplo": {
+        "texto": "农场里有三只猪。",
+        "inicio": 32.927,
+        "fin": 34.471
+      }
+    },
+    "牛": {
+      "palabra": {
+        "texto": "牛",
+        "inicio": 36.854,
+        "fin": 37.39
+      },
+      "ejemplo": {
+        "texto": "这头牛正在吃草。",
+        "inicio": 39.192,
+        "fin": 40.868
+      }
+    },
+    "鱼": {
+      "palabra": {
+        "texto": "鱼",
+        "inicio": 43.277,
+        "fin": 43.776
+      },
+      "ejemplo": {
+        "texto": "水里有很多鱼。",
+        "inicio": 45.583,
+        "fin": 47.002
+      }
+    }
+  }
+}

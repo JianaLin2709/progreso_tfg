@@ -1,0 +1,91 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 41.316621,
+  "entradas": {
+    "花": {
+      "palabra": {
+        "texto": "花",
+        "inicio": 0.024,
+        "fin": 0.51
+      },
+      "ejemplo": {
+        "texto": "花园里有很多花。",
+        "inicio": 2.31,
+        "fin": 3.673
+      }
+    },
+    "草": {
+      "palabra": {
+        "texto": "草",
+        "inicio": 6.006,
+        "fin": 6.523
+      },
+      "ejemplo": {
+        "texto": "小羊正在吃草。",
+        "inicio": 8.32,
+        "fin": 9.675
+      }
+    },
+    "木": {
+      "palabra": {
+        "texto": "木",
+        "inicio": 12.036,
+        "fin": 12.507
+      },
+      "ejemplo": {
+        "texto": "这张桌子是木头做的。",
+        "inicio": 14.297,
+        "fin": 16.194
+      }
+    },
+    "土": {
+      "palabra": {
+        "texto": "土",
+        "inicio": 18.545,
+        "fin": 19.058
+      },
+      "ejemplo": {
+        "texto": "孩子们在土里种花。",
+        "inicio": 20.856,
+        "fin": 22.555
+      }
+    },
+    "叶": {
+      "palabra": {
+        "texto": "叶",
+        "inicio": 24.904,
+        "fin": 25.404
+      },
+      "ejemplo": {
+        "texto": "秋天树叶变黄了。",
+        "inicio": 27.195,
+        "fin": 28.902
+      }
+    },
+    "火": {
+      "palabra": {
+        "texto": "火",
+        "inicio": 31.282,
+        "fin": 31.798
+      },
+      "ejemplo": {
+        "texto": "请不要玩火。",
+        "inicio": 33.59,
+        "fin": 34.677
+      }
+    },
+    "树": {
+      "palabra": {
+        "texto": "树",
+        "inicio": 37.035,
+        "fin": 37.585
+      },
+      "ejemplo": {
+        "texto": "学校门口有一棵大树。",
+        "inicio": 39.394,
+        "fin": 41.24
+      }
+    }
+  }
+}

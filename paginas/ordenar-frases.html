@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Ordena la frase · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ordenar-frases.css?v=4">
+</head>
+<body>
+  <main class="sentence-game">
+    <header class="game-heading">
+      <a class="back-link" href="ejercicios.html?v=11" aria-label="Volver a ejercicios"><span aria-hidden="true">←</span> Volver</a>
+      <div class="title-copy">
+        <span class="eyebrow">练习 · PRÁCTICA</span>
+        <h1>Ordena la frase en chino</h1>
+        <p>Arrastra las palabras o púlsalas para formar una frase correcta.</p>
+      </div>
+      <div class="score-card" aria-label="Puntuación">
+        <span class="score-star" aria-hidden="true">★</span>
+        <span><small>Puntuación</small><strong id="score">0</strong></span>
+      </div>
+    </header>
+
+    <p><span class="difficulty-badge" id="difficulty-badge">Fácil</span></p>
+
+    <section class="game-card" id="game-card" aria-labelledby="phrase-progress">
+      <div class="progress-row">
+        <strong id="phrase-progress">Frase 1 de 10</strong>
+        <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+      </div>
+
+      <div class="word-bank" id="word-bank" aria-label="Palabras disponibles"></div>
+
+      <div class="drop-label"><span>Construye la frase aquí</span></div>
+      <div class="answer-zone" id="answer-zone" aria-label="Respuesta ordenada"></div>
+      <p class="game-feedback" id="game-feedback" role="status" aria-live="polite"></p>
+    </section>
+
+    <nav class="game-actions" id="game-actions" aria-label="Acciones del ejercicio">
+      <button class="action-button hint-button" id="hint-button" type="button"><span aria-hidden="true">💡</span> Pista</button>
+      <button class="action-button reset-button" id="reset-button" type="button"><span aria-hidden="true">↻</span> Reiniciar</button>
+      <button class="action-button check-button" id="check-button" type="button" disabled><span aria-hidden="true">✓</span> <span id="check-label">Comprobar</span></button>
+    </nav>
+
+    <section class="completion-card" id="completion-card" hidden aria-live="polite">
+      <div class="completion-icon" aria-hidden="true">好</div>
+      <span class="eyebrow">¡EJERCICIO COMPLETADO!</span>
+      <h2 id="completion-title">¡Muy buen trabajo!</h2>
+      <p id="completion-message">Has completado todas las frases.</p>
+      <strong><span id="final-score">0</span> puntos</strong>
+      <div class="completion-actions">
+        <button id="play-again" type="button">Practicar de nuevo</button>
+        <a href="ejercicios.html?v=11">Volver a ejercicios</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../js/ordenar-frases.js?v=5"></script>
+</body>
+</html>

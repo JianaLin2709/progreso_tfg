@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Lecturas · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css?v=37">
+  <link rel="stylesheet" href="../css/explora.css?v=5">
+</head>
+<body class="dashboard-page readings-dashboard" data-root-prefix="../">
+  <div class="app-shell">
+    <aside class="learning-sidebar">
+      <div class="sidebar-profile profile-summary">
+        <span class="sidebar-avatar">
+          <img class="sidebar-avatar-character" src="../img/panda-selector.png" alt="">
+        </span>
+        <strong>Ni Hao!</strong>
+        <span id="sidebar-level">HSK 1</span>
+        <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a class="active" href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
+        <a href="ejercicios.html?v=17"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
+        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
+        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
+      </nav>
+      <div class="sidebar-note">
+        <span>Pequeños pasos,<br>grandes logros</span>
+        <strong aria-hidden="true">🌷</strong>
+      </div>
+      <a class="sidebar-resume" id="continue-learning" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+    </aside>
+
+    <main class="learning-main readings-panel">
+      <section id="reading-list-view">
+        <header class="explore-heading">
+          <span class="reading-breadcrumb"><span aria-hidden="true">‹</span><img src="../img/nav-lecturas.png" alt="">Lecturas</span>
+          <h1>Lecturas <span aria-hidden="true">🌸</span></h1>
+          <p>Textos breves para mejorar tu comprensión y descubrir vocabulario nuevo.</p>
+        </header>
+
+        <div class="reading-toolbar">
+          <div class="reading-filters" id="reading-filters" aria-label="Filtrar lecturas">
+            <button class="reading-filter is-active" type="button" data-difficulty="all" aria-pressed="true">Todas</button>
+            <button class="reading-filter" type="button" data-difficulty="Fácil" aria-pressed="false">Fácil</button>
+            <button class="reading-filter" type="button" data-difficulty="Intermedio" aria-pressed="false">Intermedio</button>
+            <button class="reading-filter" type="button" data-difficulty="Difícil" aria-pressed="false">Difícil</button>
+          </div>
+        </div>
+
+        <div class="reading-list" id="reading-list" aria-live="polite"></div>
+        <p class="reading-empty" id="reading-empty" hidden>No hay lecturas en este nivel todavía.</p>
+      </section>
+
+      <section class="reading-detail" id="reading-detail-view" hidden>
+        <div class="detail-topbar">
+          <a class="back-to-readings" href="explora.html?v=9"><span aria-hidden="true">←</span> Volver a todas las lecturas</a>
+          <div class="reading-controls" aria-label="Controles de lectura">
+            <div class="font-controls" aria-label="Tamaño del texto">
+              <button type="button" data-font="decrease" aria-label="Reducir texto">A−</button>
+              <button type="button" data-font="reset" aria-label="Restablecer texto">A</button>
+              <button type="button" data-font="increase" aria-label="Aumentar texto">A+</button>
+            </div>
+            <button class="pinyin-toggle is-active" id="pinyin-toggle" type="button" aria-pressed="true"><span aria-hidden="true">pīn</span> Pinyin</button>
+          </div>
+        </div>
+
+        <article class="reading-article">
+          <header class="article-heading">
+            <span class="article-series" id="article-series"></span>
+            <div class="article-title-row">
+              <div>
+                <h1 id="article-title" lang="zh-Hans"></h1>
+                <p class="article-title-pinyin pinyin-content" id="article-title-pinyin"></p>
+              </div>
+            </div>
+            <div class="article-meta" id="article-meta"></div>
+          </header>
+          <div class="reading-copy" id="reading-copy"></div>
+          <div class="word-translation" id="word-translation" role="status" hidden></div>
+          <footer class="article-footer">
+            <a class="finish-reading" href="explora.html?v=9">Terminar lectura <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="../js/explora.js?v=12"></script>
+</body>
+</html>

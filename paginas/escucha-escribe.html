@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Escucha y escribe · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/escucha-escribe.css?v=2">
+</head>
+<body>
+  <main class="listening-game">
+    <header class="game-header">
+      <a href="ejercicios.html?v=11"><span aria-hidden="true">←</span> Volver</a>
+      <div class="title-copy">
+        <span>听写 · DICTADO</span>
+        <h1>Escucha y escribe</h1>
+        <p>Reproduce la frase y escribe exactamente lo que oyes en chino.</p>
+      </div>
+      <div class="score-card"><span aria-hidden="true">★</span><small>Puntuación<strong id="score">0</strong></small></div>
+    </header>
+
+    <section class="question-card" id="question-card">
+      <div class="question-meta">
+        <span class="difficulty-badge" id="difficulty-badge">Fácil</span>
+        <strong id="question-count">Frase 1 de 10</strong>
+      </div>
+
+      <div class="audio-area">
+        <button class="listen-button" id="listen-button" type="button" aria-label="Reproducir la frase en chino">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M13 25h10l13-11c2-2 5-.5 5 2v32c0 2.5-3 4-5 2L23 39H13c-3 0-5-2-5-5v-4c0-3 2-5 5-5Z"/><path class="sound-wave" d="M47 23c5 5 5 13 0 18M53 17c9 8 9 22 0 30"/></svg>
+        </button>
+        <strong id="audio-instruction">Pulsa el botón para escuchar la grabación</strong>
+        <span id="play-count">Puedes reproducirla todas las veces que necesites.</span>
+      </div>
+
+      <div class="answer-area">
+        <span class="answer-label" id="answer-label">Escribe lo que has oído:</span>
+        <div class="input-row">
+          <div class="word-slots" id="word-slots" role="group" aria-labelledby="answer-label"></div>
+          <button id="check-button" type="button" disabled>Comprobar</button>
+        </div>
+        <div class="support-row">
+          <button id="hint-button" type="button">Pista en español</button>
+          <p id="feedback" role="status" aria-live="polite"></p>
+          <button id="next-button" type="button" hidden>Siguiente <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="question-dots" id="question-dots" aria-label="Progreso del ejercicio"></nav>
+
+    <section class="completion-card" id="completion-card" hidden>
+      <div class="completion-icon" aria-hidden="true">听</div>
+      <h2>¡Dictado completado!</h2>
+      <p>Has terminado las diez frases de este nivel.</p>
+      <strong><span id="final-score">0</span> / 100 puntos</strong>
+      <div><button id="restart-button" type="button">Practicar de nuevo</button><a href="ejercicios.html?v=11">Volver a ejercicios</a></div>
+    </section>
+  </main>
+  <script type="module" src="../js/escucha-escribe.js?v=2"></script>
+</body>
+</html>

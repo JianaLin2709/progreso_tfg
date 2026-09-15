@@ -1,0 +1,43 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "entradas": {
+    "你好": {
+      "palabra": { "texto": "你好", "inicio": 0, "fin": 0.83 },
+      "ejemplo": { "texto": "你好，我叫安娜。", "inicio": 2.9, "fin": 4.36 }
+    },
+    "再见": {
+      "palabra": { "texto": "再见", "inicio": 6.4, "fin": 7.2 },
+      "ejemplo": { "texto": "老师，再见！", "inicio": 9.26, "fin": 10.63 }
+    },
+    "我/我们": {
+      "palabra": { "texto": "我", "inicio": 12.67, "fin": 13.38 },
+      "ejemplo": { "texto": "我是学生。", "inicio": 15.44, "fin": 16.5 }
+    },
+    "你/你们": {
+      "palabra": { "texto": "你", "inicio": 18.54, "fin": 19.23 },
+      "ejemplo": { "texto": "你叫什么名字？", "inicio": 21.28, "fin": 22.44 }
+    },
+    "她/她们": {
+      "palabra": { "texto": "她", "inicio": 24.48, "fin": 25.19 },
+      "ejemplo": { "texto": "她叫李月。", "inicio": 27.25, "fin": 28.33 }
+    },
+    "他/他们": {
+      "palabra": { "texto": "他", "inicio": 30.37, "fin": 31.08 },
+      "ejemplo": { "texto": "他是我的朋友。", "inicio": 33.14, "fin": 34.33 }
+    },
+    "它": {
+      "nota": "Se reutiliza el tā aislado de 他, con la misma pronunciación.",
+      "palabra": { "texto": "它", "inicio": 30.37, "fin": 31.08 },
+      "ejemplo": { "texto": "它是我的宠物猫。", "inicio": 36.37, "fin": 37.88 }
+    },
+    "名字": {
+      "palabra": { "texto": "名字", "inicio": 39.91, "fin": 40.68 },
+      "ejemplo": { "texto": "你叫什么名字？", "inicio": 42.73, "fin": 43.83 }
+    },
+    "姓氏": {
+      "palabra": { "texto": "姓氏", "inicio": 45.86, "fin": 46.73 },
+      "ejemplo": { "texto": "你的姓氏是？", "inicio": 48.79, "fin": 49.93 }
+    }
+  }
+}

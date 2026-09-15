@@ -1,0 +1,127 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 62.364626,
+  "entradas": {
+    "学校": {
+      "palabra": {
+        "texto": "学校",
+        "inicio": 0,
+        "fin": 0.773
+      },
+      "ejemplo": {
+        "texto": "我每天去学校。",
+        "inicio": 2.579,
+        "fin": 3.942
+      }
+    },
+    "医院": {
+      "palabra": {
+        "texto": "医院",
+        "inicio": 6.365,
+        "fin": 7.068
+      },
+      "ejemplo": {
+        "texto": "他在医院工作。",
+        "inicio": 8.87,
+        "fin": 10.179
+      }
+    },
+    "商场": {
+      "palabra": {
+        "texto": "商场",
+        "inicio": 12.603,
+        "fin": 13.392
+      },
+      "ejemplo": {
+        "texto": "我们去商场买东西。",
+        "inicio": 15.191,
+        "fin": 16.789
+      }
+    },
+    "餐馆": {
+      "palabra": {
+        "texto": "餐馆",
+        "inicio": 19.173,
+        "fin": 19.929
+      },
+      "ejemplo": {
+        "texto": "这家餐馆很好。",
+        "inicio": 21.733,
+        "fin": 23.218
+      }
+    },
+    "酒吧": {
+      "palabra": {
+        "texto": "酒吧",
+        "inicio": 25.622,
+        "fin": 26.315
+      },
+      "ejemplo": {
+        "texto": "晚上他们去酒吧。",
+        "inicio": 28.121,
+        "fin": 29.562
+      }
+    },
+    "游乐园": {
+      "palabra": {
+        "texto": "游乐园",
+        "inicio": 31.96,
+        "fin": 32.865
+      },
+      "ejemplo": {
+        "texto": "周末我们去游乐园。",
+        "inicio": 34.655,
+        "fin": 36.472
+      }
+    },
+    "健身房": {
+      "palabra": {
+        "texto": "健身房",
+        "inicio": 38.857,
+        "fin": 39.819
+      },
+      "ejemplo": {
+        "texto": "我爸爸在健身房运动。",
+        "inicio": 41.604,
+        "fin": 43.553
+      }
+    },
+    "银行": {
+      "palabra": {
+        "texto": "银行",
+        "inicio": 45.964,
+        "fin": 46.666
+      },
+      "ejemplo": {
+        "texto": "银行在学校旁边。",
+        "inicio": 48.466,
+        "fin": 50.087
+      }
+    },
+    "家": {
+      "palabra": {
+        "texto": "家",
+        "inicio": 52.485,
+        "fin": 53.002
+      },
+      "ejemplo": {
+        "texto": "我现在回家。",
+        "inicio": 54.817,
+        "fin": 55.988
+      }
+    },
+    "车站": {
+      "palabra": {
+        "texto": "车站",
+        "inicio": 58.389,
+        "fin": 59.132
+      },
+      "ejemplo": {
+        "texto": "我在车站等你。",
+        "inicio": 60.93,
+        "fin": 62.282
+      }
+    }
+  }
+}

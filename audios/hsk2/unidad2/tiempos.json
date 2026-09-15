@@ -1,0 +1,67 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 29.076621,
+  "entradas": {
+    "月": {
+      "palabra": {
+        "texto": "月",
+        "inicio": 0.003,
+        "fin": 0.54
+      },
+      "ejemplo": {
+        "texto": "这个月我很忙。",
+        "inicio": 2.345,
+        "fin": 3.634
+      }
+    },
+    "星期": {
+      "palabra": {
+        "texto": "星期",
+        "inicio": 6.024,
+        "fin": 6.827
+      },
+      "ejemplo": {
+        "texto": "今天星期几？",
+        "inicio": 8.631,
+        "fin": 9.983
+      }
+    },
+    "年": {
+      "palabra": {
+        "texto": "年",
+        "inicio": 12.367,
+        "fin": 12.904
+      },
+      "ejemplo": {
+        "texto": "明年我去中国。",
+        "inicio": 14.704,
+        "fin": 16.331
+      }
+    },
+    "周末": {
+      "palabra": {
+        "texto": "周末",
+        "inicio": 18.742,
+        "fin": 19.443
+      },
+      "ejemplo": {
+        "texto": "周末我不工作。",
+        "inicio": 21.242,
+        "fin": 22.533
+      }
+    },
+    "号 / 日": {
+      "palabra": {
+        "texto": "号 / 日",
+        "inicio": 24.957,
+        "fin": 25.673
+      },
+      "ejemplo": {
+        "texto": "今天是五月十号。",
+        "inicio": 27.479,
+        "fin": 28.999
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 77.052608,
+  "entradas": {
+    "上衣": {
+      "palabra": {
+        "texto": "上衣",
+        "inicio": 0.002,
+        "fin": 0.773
+      },
+      "ejemplo": {
+        "texto": "这件上衣很好看。",
+        "inicio": 2.57,
+        "fin": 4.157
+      }
+    },
+    "外套": {
+      "palabra": {
+        "texto": "外套",
+        "inicio": 6.563,
+        "fin": 7.291
+      },
+      "ejemplo": {
+        "texto": "外面很冷，穿上外套吧。",
+        "inicio": 9.091,
+        "fin": 11.288
+      }
+    },
+    "裙子": {
+      "palabra": {
+        "texto": "裙子",
+        "inicio": 13.671,
+        "fin": 14.43
+      },
+      "ejemplo": {
+        "texto": "她穿了一条红裙子。",
+        "inicio": 16.233,
+        "fin": 17.865
+      }
+    },
+    "裤子": {
+      "palabra": {
+        "texto": "裤子",
+        "inicio": 20.264,
+        "fin": 20.978
+      },
+      "ejemplo": {
+        "texto": "这条裤子太长了。",
+        "inicio": 22.783,
+        "fin": 24.297
+      }
+    },
+    "连衣裙": {
+      "palabra": {
+        "texto": "连衣裙",
+        "inicio": 26.692,
+        "fin": 27.634
+      },
+      "ejemplo": {
+        "texto": "她买了一条连衣裙。",
+        "inicio": 29.42,
+        "fin": 31.04
+      }
+    },
+    "鞋子": {
+      "palabra": {
+        "texto": "鞋子",
+        "inicio": 33.421,
+        "fin": 34.179
+      },
+      "ejemplo": {
+        "texto": "这双鞋子很舒服。",
+        "inicio": 35.983,
+        "fin": 37.603
+      }
+    },
+    "帽子": {
+      "palabra": {
+        "texto": "帽子",
+        "inicio": 40.007,
+        "fin": 40.706
+      },
+      "ejemplo": {
+        "texto": "他戴着一顶帽子。",
+        "inicio": 42.508,
+        "fin": 43.902
+      }
+    },
+    "围巾": {
+      "palabra": {
+        "texto": "围巾",
+        "inicio": 46.302,
+        "fin": 47.005
+      },
+      "ejemplo": {
+        "texto": "这条围巾是蓝色的。",
+        "inicio": 48.795,
+        "fin": 50.748
+      }
+    },
+    "手套": {
+      "palabra": {
+        "texto": "手套",
+        "inicio": 53.15,
+        "fin": 53.943
+      },
+      "ejemplo": {
+        "texto": "冬天要戴手套。",
+        "inicio": 55.747,
+        "fin": 57.191
+      }
+    },
+    "耳环": {
+      "palabra": {
+        "texto": "耳环",
+        "inicio": 59.621,
+        "fin": 60.332
+      },
+      "ejemplo": {
+        "texto": "她戴着一对耳环。",
+        "inicio": 62.133,
+        "fin": 63.581
+      }
+    },
+    "项链": {
+      "palabra": {
+        "texto": "项链",
+        "inicio": 65.973,
+        "fin": 66.758
+      },
+      "ejemplo": {
+        "texto": "这条项链很漂亮。",
+        "inicio": 68.558,
+        "fin": 70.182
+      }
+    },
+    "手链": {
+      "palabra": {
+        "texto": "手链",
+        "inicio": 72.582,
+        "fin": 73.384
+      },
+      "ejemplo": {
+        "texto": "这是我的新手链。",
+        "inicio": 75.183,
+        "fin": 76.964
+      }
+    }
+  }
+}

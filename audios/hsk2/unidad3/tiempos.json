@@ -1,0 +1,91 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 40.116621,
+  "entradas": {
+    "什么": {
+      "palabra": {
+        "texto": "什么",
+        "inicio": 0,
+        "fin": 0.684
+      },
+      "ejemplo": {
+        "texto": "你想吃什么？",
+        "inicio": 2.492,
+        "fin": 3.593
+      }
+    },
+    "什么时候": {
+      "palabra": {
+        "texto": "什么时候",
+        "inicio": 6.001,
+        "fin": 6.953
+      },
+      "ejemplo": {
+        "texto": "你什么时候回家？",
+        "inicio": 8.742,
+        "fin": 10.131
+      }
+    },
+    "多少": {
+      "palabra": {
+        "texto": "多少",
+        "inicio": 12.531,
+        "fin": 13.236
+      },
+      "ejemplo": {
+        "texto": "这个多少钱？",
+        "inicio": 15.033,
+        "fin": 16.241
+      }
+    },
+    "哪里": {
+      "palabra": {
+        "texto": "哪里",
+        "inicio": 18.628,
+        "fin": 19.315
+      },
+      "ejemplo": {
+        "texto": "你住在哪里？",
+        "inicio": 21.104,
+        "fin": 22.249
+      }
+    },
+    "怎么": {
+      "palabra": {
+        "texto": "怎么",
+        "inicio": 24.635,
+        "fin": 25.266
+      },
+      "ejemplo": {
+        "texto": "这个字怎么读？",
+        "inicio": 27.07,
+        "fin": 28.313
+      }
+    },
+    "哪个": {
+      "palabra": {
+        "texto": "哪个",
+        "inicio": 30.703,
+        "fin": 31.428
+      },
+      "ejemplo": {
+        "texto": "你想买哪个？",
+        "inicio": 33.232,
+        "fin": 34.387
+      }
+    },
+    "谁": {
+      "palabra": {
+        "texto": "谁",
+        "inicio": 36.798,
+        "fin": 37.378
+      },
+      "ejemplo": {
+        "texto": "他是谁？",
+        "inicio": 39.195,
+        "fin": 40.052
+      }
+    }
+  }
+}

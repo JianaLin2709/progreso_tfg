@@ -1,0 +1,175 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 80.172608,
+  "entradas": {
+    "妈妈": {
+      "palabra": {
+        "texto": "妈妈",
+        "inicio": 0,
+        "fin": 0.556
+      },
+      "ejemplo": {
+        "texto": "我是妈妈的女儿。",
+        "inicio": 2.366,
+        "fin": 3.498
+      }
+    },
+    "爸爸": {
+      "palabra": {
+        "texto": "爸爸",
+        "inicio": 5.902,
+        "fin": 6.437
+      },
+      "ejemplo": {
+        "texto": "我是爸爸的儿子。",
+        "inicio": 8.253,
+        "fin": 9.36
+      }
+    },
+    "姐姐": {
+      "palabra": {
+        "texto": "姐姐",
+        "inicio": 11.77,
+        "fin": 12.34
+      },
+      "ejemplo": {
+        "texto": "我有一个姐姐。",
+        "inicio": 14.142,
+        "fin": 15.127
+      }
+    },
+    "妹妹": {
+      "palabra": {
+        "texto": "妹妹",
+        "inicio": 17.507,
+        "fin": 18.069
+      },
+      "ejemplo": {
+        "texto": "我有一个妹妹。",
+        "inicio": 19.893,
+        "fin": 20.841
+      }
+    },
+    "弟弟": {
+      "palabra": {
+        "texto": "弟弟",
+        "inicio": 23.254,
+        "fin": 23.721
+      },
+      "ejemplo": {
+        "texto": "我有一个弟弟。",
+        "inicio": 25.566,
+        "fin": 26.432
+      }
+    },
+    "哥哥": {
+      "palabra": {
+        "texto": "哥哥",
+        "inicio": 28.916,
+        "fin": 29.499
+      },
+      "ejemplo": {
+        "texto": "我有一个哥哥。",
+        "inicio": 31.303,
+        "fin": 32.259
+      }
+    },
+    "奶奶": {
+      "palabra": {
+        "texto": "奶奶",
+        "inicio": 34.666,
+        "fin": 35.284
+      },
+      "ejemplo": {
+        "texto": "她是我的奶奶。",
+        "inicio": 37.097,
+        "fin": 38.205
+      }
+    },
+    "爷爷": {
+      "palabra": {
+        "texto": "爷爷",
+        "inicio": 40.637,
+        "fin": 41.162
+      },
+      "ejemplo": {
+        "texto": "他是我的爷爷。",
+        "inicio": 42.972,
+        "fin": 43.96
+      }
+    },
+    "外婆": {
+      "palabra": {
+        "texto": "外婆",
+        "inicio": 46.365,
+        "fin": 47.055
+      },
+      "ejemplo": {
+        "texto": "她是我的外婆。",
+        "inicio": 48.872,
+        "fin": 50.036
+      }
+    },
+    "外公": {
+      "palabra": {
+        "texto": "外公",
+        "inicio": 52.424,
+        "fin": 53.052
+      },
+      "ejemplo": {
+        "texto": "他是我的外公。",
+        "inicio": 54.858,
+        "fin": 55.895
+      }
+    },
+    "阿姨": {
+      "palabra": {
+        "texto": "阿姨",
+        "inicio": 58.273,
+        "fin": 58.825
+      },
+      "ejemplo": {
+        "texto": "我阿姨是医生。",
+        "inicio": 60.629,
+        "fin": 61.667
+      }
+    },
+    "舅舅": {
+      "palabra": {
+        "texto": "舅舅",
+        "inicio": 64.032,
+        "fin": 64.622
+      },
+      "ejemplo": {
+        "texto": "我舅舅住在北京。",
+        "inicio": 66.455,
+        "fin": 67.648
+      }
+    },
+    "姑姑": {
+      "palabra": {
+        "texto": "姑姑",
+        "inicio": 70.029,
+        "fin": 70.558
+      },
+      "ejemplo": {
+        "texto": "我姑姑是老师。",
+        "inicio": 72.364,
+        "fin": 73.479
+      }
+    },
+    "叔叔": {
+      "palabra": {
+        "texto": "叔叔",
+        "inicio": 75.84,
+        "fin": 76.49
+      },
+      "ejemplo": {
+        "texto": "我叔叔有一个儿子。",
+        "inicio": 78.304,
+        "fin": 79.584
+      }
+    }
+  }
+}

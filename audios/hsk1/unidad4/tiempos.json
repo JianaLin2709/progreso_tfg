@@ -1,0 +1,163 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 78.204626,
+  "entradas": {
+    "眼睛": {
+      "palabra": {
+        "texto": "眼睛",
+        "inicio": 0,
+        "fin": 0.687
+      },
+      "ejemplo": {
+        "texto": "她的眼睛很漂亮。",
+        "inicio": 2.488,
+        "fin": 3.876
+      }
+    },
+    "鼻子": {
+      "palabra": {
+        "texto": "鼻子",
+        "inicio": 6.236,
+        "fin": 6.893
+      },
+      "ejemplo": {
+        "texto": "他的鼻子有点红。",
+        "inicio": 8.69,
+        "fin": 10.075
+      }
+    },
+    "耳朵": {
+      "palabra": {
+        "texto": "耳朵",
+        "inicio": 12.417,
+        "fin": 13.069
+      },
+      "ejemplo": {
+        "texto": "兔子的耳朵很长。",
+        "inicio": 14.871,
+        "fin": 16.284
+      }
+    },
+    "嘴巴": {
+      "palabra": {
+        "texto": "嘴巴",
+        "inicio": 18.619,
+        "fin": 19.289
+      },
+      "ejemplo": {
+        "texto": "请张开嘴巴。",
+        "inicio": 21.088,
+        "fin": 22.232
+      }
+    },
+    "脸": {
+      "palabra": {
+        "texto": "脸",
+        "inicio": 24.581,
+        "fin": 25.098
+      },
+      "ejemplo": {
+        "texto": "她的脸上有笑容。",
+        "inicio": 26.888,
+        "fin": 28.292
+      }
+    },
+    "头": {
+      "palabra": {
+        "texto": "头",
+        "inicio": 30.635,
+        "fin": 31.124
+      },
+      "ejemplo": {
+        "texto": "我的头有点疼。",
+        "inicio": 32.918,
+        "fin": 34.202
+      }
+    },
+    "手": {
+      "palabra": {
+        "texto": "手",
+        "inicio": 36.544,
+        "fin": 37.104
+      },
+      "ejemplo": {
+        "texto": "吃饭前要洗手。",
+        "inicio": 38.907,
+        "fin": 40.29
+      }
+    },
+    "手臂": {
+      "palabra": {
+        "texto": "手臂",
+        "inicio": 42.664,
+        "fin": 43.426
+      },
+      "ejemplo": {
+        "texto": "运动以后我的手臂很累。",
+        "inicio": 45.229,
+        "fin": 47.242
+      }
+    },
+    "脚": {
+      "palabra": {
+        "texto": "脚",
+        "inicio": 49.586,
+        "fin": 50.095
+      },
+      "ejemplo": {
+        "texto": "这双鞋让我的脚很疼。",
+        "inicio": 51.895,
+        "fin": 53.886
+      }
+    },
+    "腿": {
+      "palabra": {
+        "texto": "腿",
+        "inicio": 56.219,
+        "fin": 56.756
+      },
+      "ejemplo": {
+        "texto": "他的腿受伤了。",
+        "inicio": 58.553,
+        "fin": 59.796
+      }
+    },
+    "眉毛": {
+      "palabra": {
+        "texto": "眉毛",
+        "inicio": 62.139,
+        "fin": 62.809
+      },
+      "ejemplo": {
+        "texto": "她的眉毛很浓。",
+        "inicio": 64.607,
+        "fin": 65.838
+      }
+    },
+    "睫毛": {
+      "palabra": {
+        "texto": "睫毛",
+        "inicio": 68.18,
+        "fin": 68.884
+      },
+      "ejemplo": {
+        "texto": "她的睫毛很长。",
+        "inicio": 70.676,
+        "fin": 71.971
+      }
+    },
+    "头发": {
+      "palabra": {
+        "texto": "头发",
+        "inicio": 74.322,
+        "fin": 74.988
+      },
+      "ejemplo": {
+        "texto": "她有一头长头发。",
+        "inicio": 76.79,
+        "fin": 78.128
+      }
+    }
+  }
+}

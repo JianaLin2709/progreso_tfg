@@ -1,0 +1,139 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 65.388617,
+  "entradas": {
+    "早上": {
+      "palabra": {
+        "texto": "早上",
+        "inicio": 0,
+        "fin": 0.668
+      },
+      "ejemplo": {
+        "texto": "我每天早上喝咖啡。",
+        "inicio": 2.472,
+        "fin": 4.043
+      }
+    },
+    "晚上": {
+      "palabra": {
+        "texto": "晚上",
+        "inicio": 6.395,
+        "fin": 7.065
+      },
+      "ejemplo": {
+        "texto": "我晚上十一点睡觉。",
+        "inicio": 8.867,
+        "fin": 10.407
+      }
+    },
+    "中午": {
+      "palabra": {
+        "texto": "中午",
+        "inicio": 12.778,
+        "fin": 13.416
+      },
+      "ejemplo": {
+        "texto": "我中午十二点吃饭。",
+        "inicio": 15.203,
+        "fin": 16.652
+      }
+    },
+    "今天": {
+      "palabra": {
+        "texto": "今天",
+        "inicio": 19.0,
+        "fin": 19.712
+      },
+      "ejemplo": {
+        "texto": "今天我很忙。",
+        "inicio": 21.5,
+        "fin": 22.602
+      }
+    },
+    "明天": {
+      "palabra": {
+        "texto": "明天",
+        "inicio": 24.925,
+        "fin": 25.656
+      },
+      "ejemplo": {
+        "texto": "明天我们去学校。",
+        "inicio": 27.45,
+        "fin": 28.93
+      }
+    },
+    "昨天": {
+      "palabra": {
+        "texto": "昨天",
+        "inicio": 31.294,
+        "fin": 32.001
+      },
+      "ejemplo": {
+        "texto": "昨天我在家。",
+        "inicio": 33.804,
+        "fin": 34.93
+      }
+    },
+    "后天": {
+      "palabra": {
+        "texto": "后天",
+        "inicio": 37.292,
+        "fin": 37.982
+      },
+      "ejemplo": {
+        "texto": "后天我们去北京。",
+        "inicio": 39.772,
+        "fin": 41.278
+      }
+    },
+    "前天": {
+      "palabra": {
+        "texto": "前天",
+        "inicio": 43.604,
+        "fin": 44.337
+      },
+      "ejemplo": {
+        "texto": "前天我去了医院。",
+        "inicio": 46.128,
+        "fin": 47.673
+      }
+    },
+    "现在": {
+      "palabra": {
+        "texto": "现在",
+        "inicio": 50.02,
+        "fin": 50.735
+      },
+      "ejemplo": {
+        "texto": "我现在在家。",
+        "inicio": 52.526,
+        "fin": 53.589
+      }
+    },
+    "一会": {
+      "palabra": {
+        "texto": "一会",
+        "inicio": 55.948,
+        "fin": 56.617
+      },
+      "ejemplo": {
+        "texto": "我一会回来。",
+        "inicio": 58.411,
+        "fin": 59.428
+      }
+    },
+    "刚刚": {
+      "palabra": {
+        "texto": "刚刚",
+        "inicio": 61.798,
+        "fin": 62.432
+      },
+      "ejemplo": {
+        "texto": "我刚刚到家。",
+        "inicio": 64.229,
+        "fin": 65.321
+      }
+    }
+  }
+}

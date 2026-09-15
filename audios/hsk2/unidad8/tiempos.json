@@ -1,0 +1,115 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 57.732608,
+  "entradas": {
+    "卧室": {
+      "palabra": {
+        "texto": "卧室",
+        "inicio": 0.003,
+        "fin": 0.725
+      },
+      "ejemplo": {
+        "texto": "我的卧室很安静。",
+        "inicio": 2.528,
+        "fin": 4.007
+      }
+    },
+    "厨房": {
+      "palabra": {
+        "texto": "厨房",
+        "inicio": 6.402,
+        "fin": 7.141
+      },
+      "ejemplo": {
+        "texto": "妈妈在厨房做饭。",
+        "inicio": 8.931,
+        "fin": 10.558
+      }
+    },
+    "客厅": {
+      "palabra": {
+        "texto": "客厅",
+        "inicio": 12.967,
+        "fin": 13.719
+      },
+      "ejemplo": {
+        "texto": "我们在客厅看电视。",
+        "inicio": 15.516,
+        "fin": 17.19
+      }
+    },
+    "卫生间": {
+      "palabra": {
+        "texto": "卫生间",
+        "inicio": 19.616,
+        "fin": 20.521
+      },
+      "ejemplo": {
+        "texto": "卫生间在左边。",
+        "inicio": 22.318,
+        "fin": 23.816
+      }
+    },
+    "阳台": {
+      "palabra": {
+        "texto": "阳台",
+        "inicio": 26.207,
+        "fin": 26.966
+      },
+      "ejemplo": {
+        "texto": "阳台上有很多花。",
+        "inicio": 28.771,
+        "fin": 30.592
+      }
+    },
+    "车库": {
+      "palabra": {
+        "texto": "车库",
+        "inicio": 32.989,
+        "fin": 33.715
+      },
+      "ejemplo": {
+        "texto": "汽车停在车库里。",
+        "inicio": 35.502,
+        "fin": 37.191
+      }
+    },
+    "衣帽间": {
+      "palabra": {
+        "texto": "衣帽间",
+        "inicio": 39.591,
+        "fin": 40.465
+      },
+      "ejemplo": {
+        "texto": "衣服都在衣帽间里。",
+        "inicio": 42.265,
+        "fin": 44.127
+      }
+    },
+    "书房": {
+      "palabra": {
+        "texto": "书房",
+        "inicio": 46.527,
+        "fin": 47.323
+      },
+      "ejemplo": {
+        "texto": "爸爸在书房看书。",
+        "inicio": 49.117,
+        "fin": 50.766
+      }
+    },
+    "花园": {
+      "palabra": {
+        "texto": "花园",
+        "inicio": 53.202,
+        "fin": 53.954
+      },
+      "ejemplo": {
+        "texto": "孩子们在花园里玩。",
+        "inicio": 55.76,
+        "fin": 57.673
+      }
+    }
+  }
+}

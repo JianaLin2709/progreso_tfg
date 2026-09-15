@@ -1,0 +1,151 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 71.676621,
+  "entradas": {
+    "吃": {
+      "palabra": {
+        "texto": "吃",
+        "inicio": 0.002,
+        "fin": 0.532
+      },
+      "ejemplo": {
+        "texto": "我们一起吃饭吧。",
+        "inicio": 2.341,
+        "fin": 3.766
+      }
+    },
+    "喝": {
+      "palabra": {
+        "texto": "喝",
+        "inicio": 6.191,
+        "fin": 6.703
+      },
+      "ejemplo": {
+        "texto": "我想喝水。",
+        "inicio": 8.504,
+        "fin": 9.61
+      }
+    },
+    "玩": {
+      "palabra": {
+        "texto": "玩",
+        "inicio": 12.016,
+        "fin": 12.519
+      },
+      "ejemplo": {
+        "texto": "孩子们在外面玩。",
+        "inicio": 14.323,
+        "fin": 15.921
+      }
+    },
+    "穿": {
+      "palabra": {
+        "texto": "穿",
+        "inicio": 18.314,
+        "fin": 18.859
+      },
+      "ejemplo": {
+        "texto": "今天我穿白衬衫。",
+        "inicio": 20.667,
+        "fin": 22.274
+      }
+    },
+    "问": {
+      "palabra": {
+        "texto": "问",
+        "inicio": 24.68,
+        "fin": 25.187
+      },
+      "ejemplo": {
+        "texto": "我想问你一个问题。",
+        "inicio": 26.979,
+        "fin": 28.475
+      }
+    },
+    "养": {
+      "palabra": {
+        "texto": "养",
+        "inicio": 30.865,
+        "fin": 31.392
+      },
+      "ejemplo": {
+        "texto": "她养了一只猫。",
+        "inicio": 33.183,
+        "fin": 34.351
+      }
+    },
+    "放": {
+      "palabra": {
+        "texto": "放",
+        "inicio": 36.762,
+        "fin": 37.291
+      },
+      "ejemplo": {
+        "texto": "请把书放在桌子上。",
+        "inicio": 39.088,
+        "fin": 40.889
+      }
+    },
+    "想": {
+      "palabra": {
+        "texto": "想",
+        "inicio": 43.291,
+        "fin": 43.864
+      },
+      "ejemplo": {
+        "texto": "我想去中国。",
+        "inicio": 45.656,
+        "fin": 46.881
+      }
+    },
+    "指": {
+      "palabra": {
+        "texto": "指",
+        "inicio": 49.289,
+        "fin": 49.814
+      },
+      "ejemplo": {
+        "texto": "他指着那座楼。",
+        "inicio": 51.62,
+        "fin": 52.943
+      }
+    },
+    "坐": {
+      "palabra": {
+        "texto": "坐",
+        "inicio": 55.341,
+        "fin": 55.867
+      },
+      "ejemplo": {
+        "texto": "请坐在这里。",
+        "inicio": 57.665,
+        "fin": 58.873
+      }
+    },
+    "躺": {
+      "palabra": {
+        "texto": "躺",
+        "inicio": 61.279,
+        "fin": 61.791
+      },
+      "ejemplo": {
+        "texto": "他躺在床上休息。",
+        "inicio": 63.595,
+        "fin": 65.189
+      }
+    },
+    "站": {
+      "palabra": {
+        "texto": "站",
+        "inicio": 67.592,
+        "fin": 68.105
+      },
+      "ejemplo": {
+        "texto": "老师站在黑板前。",
+        "inicio": 69.908,
+        "fin": 71.606
+      }
+    }
+  }
+}

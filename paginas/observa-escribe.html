@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Observa y escribe · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css?v=37">
+  <link rel="stylesheet" href="../css/observa-escribe.css?v=3">
+</head>
+<body class="dashboard-page observation-dashboard">
+  <div class="app-shell">
+    <aside class="learning-sidebar">
+      <div class="sidebar-profile profile-summary">
+        <span class="sidebar-avatar"><img class="sidebar-avatar-character" src="../img/panda-selector.png" alt=""></span>
+        <strong>Ni Hao!</strong>
+        <span id="sidebar-level">HSK 1</span>
+        <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
+        <a class="active" href="ejercicios.html?v=19"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
+        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
+        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
+      </nav>
+      <div class="sidebar-note"><span>Pequeños pasos,<br>grandes logros</span><strong aria-hidden="true">🌷</strong></div>
+      <a class="sidebar-resume" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+    </aside>
+
+    <main class="learning-main observation-panel">
+      <header class="observation-header">
+        <nav aria-label="Ruta de navegación">
+          <a href="ejercicios.html?v=19">Practicar</a><span>›</span><span>Vocabulario</span><span>›</span><strong>Observa y escribe</strong>
+        </nav>
+        <div class="observation-title-row">
+          <div>
+            <h1>¿Qué hay en la imagen?</h1>
+            <p>Pulsa sobre tres objetos y escribe <strong>sus nombres en chino</strong>.</p>
+          </div>
+          <div class="observation-progress"><strong id="scene-progress-text">1 / 2</strong><span><i id="scene-progress-bar"></i></span></div>
+        </div>
+      </header>
+
+      <section class="instruction-card">
+        <button class="listen-instruction" id="listen-instruction" type="button" aria-label="Escuchar la instrucción">🔊</button>
+        <div><p id="scene-instruction">Observa el dormitorio y elige un objeto.</p><strong>Haz clic sobre un objeto para responder.</strong></div>
+      </section>
+
+      <section class="observation-workspace">
+        <figure class="scene-card" id="scene-card">
+          <img id="scene-image" src="../img/escena-dormitorio.png" alt="Dormitorio con cama, gato, escritorio, libros, plantas y otros objetos">
+          <div class="hotspot-layer" id="hotspot-layer"></div>
+        </figure>
+        <section class="answer-card" aria-labelledby="found-title">
+          <h2 id="found-title">Objetos encontrados</h2>
+          <p class="answer-help">Selecciona un objeto directamente en la imagen y escribe su nombre.</p>
+          <div class="found-slots" id="found-slots">
+            <div><span>1</span><strong>Sin descubrir</strong></div>
+            <div><span>2</span><strong>Sin descubrir</strong></div>
+            <div><span>3</span><strong>Sin descubrir</strong></div>
+          </div>
+          <p class="hint-message" id="hint-message" hidden>Fíjate en los muebles, los animales, las plantas y los objetos del escritorio.</p>
+          <p class="answer-feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+          <div class="answer-actions">
+            <button class="hint-button" id="hint-button" type="button" aria-expanded="false" aria-controls="hint-message">💡 Pista</button>
+            <strong class="found-counter"><span id="found-count">0</span> / 3</strong>
+          </div>
+        </section>
+      </section>
+
+      <section class="success-card" id="success-card" hidden>
+        <span aria-hidden="true">☆</span>
+        <div><strong>¡Muy bien!</strong><p>Has encontrado tres elementos distintos de la imagen.</p></div>
+        <button id="success-action" type="button">Siguiente imagen →</button>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="object-dialog" id="object-dialog" aria-labelledby="dialog-title">
+    <form id="object-form" novalidate>
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Cerrar">×</button>
+      <span class="dialog-icon" aria-hidden="true">✿</span>
+      <h2 id="dialog-title">¿Cómo se llama en chino?</h2>
+      <p>Escribe el nombre del objeto que has seleccionado.</p>
+      <label for="object-answer">Nombre en chino</label>
+      <input id="object-answer" type="text" lang="zh-Hans" inputmode="text" autocomplete="off" placeholder="Escribe aquí…">
+      <p class="dialog-feedback" id="dialog-feedback" role="status" aria-live="polite"></p>
+      <div class="dialog-actions">
+        <button id="dialog-cancel" type="button">Cancelar</button>
+        <button type="submit">Comprobar →</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="../js/observa-escribe.js?v=5"></script>
+</body>
+</html>

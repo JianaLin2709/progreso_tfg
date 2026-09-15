@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Traducción correcta · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/traduccion-correcta.css?v=1">
+</head>
+<body>
+  <main class="translation-game">
+    <header class="translation-header">
+      <a href="ejercicios.html?v=11"><span aria-hidden="true">←</span> Volver</a>
+      <div><span class="difficulty-label" id="difficulty-label">Fácil</span><strong>Traducción correcta</strong></div>
+      <span class="score"><small>Puntos</small><strong id="score">0</strong></span>
+    </header>
+
+    <section class="translation-card" id="question-card">
+      <div class="instructions">
+        <span class="instruction-dot" aria-hidden="true"></span>
+        <div>
+          <h1>¿Es correcta esta traducción?</h1>
+          <p>Lee la frase original y su traducción. Después elige una respuesta.</p>
+        </div>
+      </div>
+
+      <div class="comparison">
+        <article class="language-card">
+          <span id="original-label">Frase original · Chino</span>
+          <p id="original-text" lang="zh-Hans"></p>
+        </article>
+        <span class="swap-icon" aria-hidden="true">⇄</span>
+        <article class="language-card translation-side">
+          <span id="translation-label">Traducción · Español</span>
+          <p class="translation-words" id="translation-words"></p>
+        </article>
+      </div>
+
+      <section class="correction-prompt" id="correction-prompt" hidden>
+        <strong>¿Qué palabra de la traducción es incorrecta?</strong>
+        <span>Pulsa la palabra que debería cambiarse.</span>
+      </section>
+
+      <div class="decision-buttons" id="decision-buttons">
+        <button class="correct-button" type="button" data-answer="correct"><span aria-hidden="true">☺</span> Es correcta</button>
+        <button class="incorrect-button" type="button" data-answer="incorrect"><span aria-hidden="true">☹</span> No es correcta</button>
+      </div>
+
+      <div class="result-row">
+        <p id="feedback" role="status" aria-live="polite"></p>
+        <button id="next-button" type="button" hidden>Siguiente <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <nav class="question-dots" id="question-dots" aria-label="Progreso de preguntas"></nav>
+
+    <section class="translation-completion" id="completion" hidden>
+      <div aria-hidden="true">译</div>
+      <h2>¡Actividad completada!</h2>
+      <p>Has revisado las diez traducciones.</p>
+      <strong><span id="final-score">0</span> / 100 puntos</strong>
+      <div><button id="restart-button" type="button">Practicar de nuevo</button><a href="ejercicios.html?v=11">Volver a ejercicios</a></div>
+    </section>
+  </main>
+  <script type="module" src="../js/traduccion-correcta.js?v=2"></script>
+</body>
+</html>

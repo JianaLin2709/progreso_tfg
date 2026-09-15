@@ -1,0 +1,140 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 60.084626,
+  "entradas": {
+    "零": {
+      "palabra": {
+        "texto": "零",
+        "inicio": 0,
+        "fin": 0.525
+      },
+      "ejemplo": {
+        "texto": "今天是零度。",
+        "inicio": 2.316,
+        "fin": 3.537
+      }
+    },
+    "一": {
+      "palabra": {
+        "texto": "一",
+        "inicio": 5.951,
+        "fin": 6.454
+      },
+      "ejemplo": {
+        "texto": "我有一个苹果。",
+        "inicio": 8.255,
+        "fin": 9.491
+      }
+    },
+    "二": {
+      "palabra": {
+        "texto": "二",
+        "inicio": 11.915,
+        "fin": 12.425
+      },
+      "ejemplo": {
+        "texto": "今天是二号。",
+        "inicio": 14.23,
+        "fin": 15.477
+      }
+    },
+    "三": {
+      "palabra": {
+        "texto": "三",
+        "inicio": 17.283,
+        "fin": 17.633152
+      },
+      "ejemplo": {
+        "texto": "我有三本书。",
+        "inicio": 17.633152,
+        "fin": 18.707
+      },
+      "nota": "三 se pronuncia rápidamente seguida de la frase, sin pausa larga entre ambas."
+    },
+    "四": {
+      "palabra": {
+        "texto": "四",
+        "inicio": 21.105,
+        "fin": 21.677
+      },
+      "ejemplo": {
+        "texto": "现在四点。",
+        "inicio": 23.482,
+        "fin": 24.608
+      }
+    },
+    "五": {
+      "palabra": {
+        "texto": "五",
+        "inicio": 27.008,
+        "fin": 27.537
+      },
+      "ejemplo": {
+        "texto": "今天是五度。",
+        "inicio": 29.33,
+        "fin": 30.517
+      }
+    },
+    "六": {
+      "palabra": {
+        "texto": "六",
+        "inicio": 32.928,
+        "fin": 33.442
+      },
+      "ejemplo": {
+        "texto": "我有六个苹果。",
+        "inicio": 35.243,
+        "fin": 36.561
+      }
+    },
+    "七": {
+      "palabra": {
+        "texto": "七",
+        "inicio": 38.962,
+        "fin": 39.515
+      },
+      "ejemplo": {
+        "texto": "今天是七号。",
+        "inicio": 41.315,
+        "fin": 42.568
+      }
+    },
+    "八": {
+      "palabra": {
+        "texto": "八",
+        "inicio": 44.993,
+        "fin": 45.511
+      },
+      "ejemplo": {
+        "texto": "我有八本书。",
+        "inicio": 47.329,
+        "fin": 48.464
+      }
+    },
+    "九": {
+      "palabra": {
+        "texto": "九",
+        "inicio": 50.853,
+        "fin": 51.389
+      },
+      "ejemplo": {
+        "texto": "现在九点。",
+        "inicio": 53.195,
+        "fin": 54.319
+      }
+    },
+    "十": {
+      "palabra": {
+        "texto": "十",
+        "inicio": 56.721,
+        "fin": 57.329
+      },
+      "ejemplo": {
+        "texto": "他十岁。",
+        "inicio": 59.133,
+        "fin": 60.015
+      }
+    }
+  }
+}

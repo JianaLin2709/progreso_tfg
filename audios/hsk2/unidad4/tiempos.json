@@ -1,0 +1,163 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 77.868617,
+  "entradas": {
+    "上": {
+      "palabra": {
+        "texto": "上",
+        "inicio": 0.004,
+        "fin": 0.583
+      },
+      "ejemplo": {
+        "texto": "书在桌子上。",
+        "inicio": 2.382,
+        "fin": 3.636
+      }
+    },
+    "下": {
+      "palabra": {
+        "texto": "下",
+        "inicio": 6.047,
+        "fin": 6.607
+      },
+      "ejemplo": {
+        "texto": "猫在桌子下。",
+        "inicio": 8.403,
+        "fin": 9.61
+      }
+    },
+    "左": {
+      "palabra": {
+        "texto": "左",
+        "inicio": 11.996,
+        "fin": 12.543
+      },
+      "ejemplo": {
+        "texto": "银行在左边。",
+        "inicio": 14.342,
+        "fin": 15.594
+      }
+    },
+    "右": {
+      "palabra": {
+        "texto": "右",
+        "inicio": 17.998,
+        "fin": 18.529
+      },
+      "ejemplo": {
+        "texto": "学校在右边。",
+        "inicio": 20.332,
+        "fin": 21.672
+      }
+    },
+    "前": {
+      "palabra": {
+        "texto": "前",
+        "inicio": 24.056,
+        "fin": 24.631
+      },
+      "ejemplo": {
+        "texto": "车站在学校前面。",
+        "inicio": 26.433,
+        "fin": 28.097
+      }
+    },
+    "后": {
+      "palabra": {
+        "texto": "后",
+        "inicio": 30.513,
+        "fin": 31.041
+      },
+      "ejemplo": {
+        "texto": "餐馆在银行后面。",
+        "inicio": 32.845,
+        "fin": 34.525
+      }
+    },
+    "旁边": {
+      "palabra": {
+        "texto": "旁边",
+        "inicio": 36.927,
+        "fin": 37.641
+      },
+      "ejemplo": {
+        "texto": "医院在学校旁边。",
+        "inicio": 39.44,
+        "fin": 41.025
+      }
+    },
+    "这个": {
+      "palabra": {
+        "texto": "这个",
+        "inicio": 43.43,
+        "fin": 44.131
+      },
+      "ejemplo": {
+        "texto": "这个很好吃。",
+        "inicio": 45.933,
+        "fin": 47.189
+      }
+    },
+    "那个": {
+      "palabra": {
+        "texto": "那个",
+        "inicio": 49.578,
+        "fin": 50.277
+      },
+      "ejemplo": {
+        "texto": "那个是我的。",
+        "inicio": 52.083,
+        "fin": 53.186
+      }
+    },
+    "这里": {
+      "palabra": {
+        "texto": "这里",
+        "inicio": 55.592,
+        "fin": 56.269
+      },
+      "ejemplo": {
+        "texto": "我住在这里。",
+        "inicio": 58.065,
+        "fin": 59.233
+      }
+    },
+    "那里": {
+      "palabra": {
+        "texto": "那里",
+        "inicio": 61.636,
+        "fin": 62.307
+      },
+      "ejemplo": {
+        "texto": "银行在那里。",
+        "inicio": 64.108,
+        "fin": 65.27
+      }
+    },
+    "近": {
+      "palabra": {
+        "texto": "近",
+        "inicio": 67.666,
+        "fin": 68.212
+      },
+      "ejemplo": {
+        "texto": "我家离学校很近。",
+        "inicio": 70.004,
+        "fin": 71.533
+      }
+    },
+    "远": {
+      "palabra": {
+        "texto": "远",
+        "inicio": 73.916,
+        "fin": 74.467
+      },
+      "ejemplo": {
+        "texto": "医院离这里很远。",
+        "inicio": 76.259,
+        "fin": 77.792
+      }
+    }
+  }
+}

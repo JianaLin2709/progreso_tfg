@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Vocabulario · Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/inicio.css?v=37">
+</head>
+<body class="dashboard-page" data-root-prefix="../">
+  <div class="app-shell">
+    <aside class="learning-sidebar">
+      <div class="sidebar-profile profile-summary">
+        <span class="sidebar-avatar">
+          <img class="sidebar-avatar-character" src="../img/panda-selector.png" alt="">
+        </span>
+        <strong>Ni Hao!</strong>
+        <span id="sidebar-level">HSK 1</span>
+        <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a class="active" href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
+        <a href="ejercicios.html?v=17"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
+        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
+        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <span>Pequeños pasos,<br>grandes logros</span>
+        <strong aria-hidden="true">🌷</strong>
+      </div>
+      <a class="sidebar-resume" id="continue-learning" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+    </aside>
+
+    <main class="learning-main">
+      <div class="level-switcher">
+        <span class="level-switcher-label"><span aria-hidden="true">🌱</span> Nivel que quieres estudiar:</span>
+        <div class="hsk-select" id="hsk-selector">
+          <button class="hsk-select-trigger" id="hsk-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="hsk-options">
+            <img class="panda-option-icon" src="../img/panda-selector.png" alt="" aria-hidden="true">
+            <span id="hsk-selected-label">HSK 1</span>
+            <span class="hsk-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="hsk-options" id="hsk-options" role="listbox" hidden></div>
+        </div>
+      </div>
+
+      <section class="learning-path" id="hsk-one-path" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <script type="module" src="../js/inicio.js?v=34"></script>
+</body>
+</html>

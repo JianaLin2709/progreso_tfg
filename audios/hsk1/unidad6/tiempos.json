@@ -1,0 +1,163 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 77.905306,
+  "entradas": {
+    "是": {
+      "palabra": {
+        "texto": "是",
+        "inicio": 0,
+        "fin": 0.592
+      },
+      "ejemplo": {
+        "texto": "她是我的老师。",
+        "inicio": 2.654,
+        "fin": 3.927
+      }
+    },
+    "有": {
+      "palabra": {
+        "texto": "有",
+        "inicio": 5.97,
+        "fin": 6.648
+      },
+      "ejemplo": {
+        "texto": "我有一个哥哥。",
+        "inicio": 8.696,
+        "fin": 9.943
+      }
+    },
+    "叫": {
+      "palabra": {
+        "texto": "叫",
+        "inicio": 11.979,
+        "fin": 12.621
+      },
+      "ejemplo": {
+        "texto": "我叫安娜。",
+        "inicio": 14.663,
+        "fin": 15.628
+      }
+    },
+    "来": {
+      "palabra": {
+        "texto": "来",
+        "inicio": 17.674,
+        "fin": 18.358
+      },
+      "ejemplo": {
+        "texto": "明天来我家吧。",
+        "inicio": 20.407,
+        "fin": 21.75
+      }
+    },
+    "去": {
+      "palabra": {
+        "texto": "去",
+        "inicio": 23.778,
+        "fin": 24.387
+      },
+      "ejemplo": {
+        "texto": "我们一起去学校。",
+        "inicio": 26.427,
+        "fin": 27.894
+      }
+    },
+    "回": {
+      "palabra": {
+        "texto": "回",
+        "inicio": 29.897,
+        "fin": 30.677
+      },
+      "ejemplo": {
+        "texto": "我晚上八点回家。",
+        "inicio": 32.721,
+        "fin": 34.25
+      }
+    },
+    "看": {
+      "palabra": {
+        "texto": "看",
+        "inicio": 36.252,
+        "fin": 36.877
+      },
+      "ejemplo": {
+        "texto": "爸爸在看报纸。",
+        "inicio": 38.944,
+        "fin": 40.413
+      }
+    },
+    "听": {
+      "palabra": {
+        "texto": "听",
+        "inicio": 42.475,
+        "fin": 43.13
+      },
+      "ejemplo": {
+        "texto": "我喜欢听音乐。",
+        "inicio": 45.176,
+        "fin": 46.546
+      }
+    },
+    "说": {
+      "palabra": {
+        "texto": "说",
+        "inicio": 48.565,
+        "fin": 49.252
+      },
+      "ejemplo": {
+        "texto": "她会说汉语。",
+        "inicio": 51.301,
+        "fin": 52.549
+      }
+    },
+    "能": {
+      "palabra": {
+        "texto": "能",
+        "inicio": 54.584,
+        "fin": 55.271
+      },
+      "ejemplo": {
+        "texto": "我今天不能来。",
+        "inicio": 57.319,
+        "fin": 58.64
+      }
+    },
+    "要 ..": {
+      "palabra": {
+        "texto": "要 ..",
+        "inicio": 60.761,
+        "fin": 61.383
+      },
+      "ejemplo": {
+        "texto": "我要一杯茶。",
+        "inicio": 63.44,
+        "fin": 64.617
+      }
+    },
+    ".. 过": {
+      "palabra": {
+        "texto": ".. 过",
+        "inicio": 66.661,
+        "fin": 67.322
+      },
+      "ejemplo": {
+        "texto": "我去过北京。",
+        "inicio": 69.366,
+        "fin": 70.593
+      }
+    },
+    "不/没": {
+      "palabra": {
+        "texto": "不/没",
+        "inicio": 72.619,
+        "fin": 73.638
+      },
+      "ejemplo": {
+        "texto": "我不喝咖啡，也没吃早饭。",
+        "inicio": 75.687,
+        "fin": 77.882
+      }
+    }
+  }
+}
