@@ -4,7 +4,6 @@ const hintButton = document.querySelector('#hint-button');
 const hintMessage = document.querySelector('#hint-message');
 const successCard = document.querySelector('#success-card');
 const successAction = document.querySelector('#success-action');
-const listenButton = document.querySelector('#listen-instruction');
 const sceneCard = document.querySelector('#scene-card');
 const sceneImage = document.querySelector('#scene-image');
 const sceneInstruction = document.querySelector('#scene-instruction');
@@ -233,22 +232,6 @@ hintButton.addEventListener('click', () => {
   hintMessage.hidden = !show;
   sceneCard.classList.toggle('show-hotspots', show);
   hintButton.setAttribute('aria-expanded', String(show));
-});
-
-// Lee la instrucción en chino mediante la voz sintetizada del navegador.
-listenButton.addEventListener('click', () => {
-  if (!('speechSynthesis' in window)) {
-    feedback.textContent = 'Tu navegador no permite reproducir esta instrucción.';
-    return;
-  }
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance('请点击图片里的东西，然后用中文写出它的名字。');
-  utterance.lang = 'zh-CN';
-  utterance.rate = 0.82;
-  utterance.onstart = () => listenButton.classList.add('is-speaking');
-  utterance.onend = () => listenButton.classList.remove('is-speaking');
-  utterance.onerror = () => listenButton.classList.remove('is-speaking');
-  window.speechSynthesis.speak(utterance);
 });
 
 // Carga la primera escena al abrir el ejercicio.

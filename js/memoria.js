@@ -15,8 +15,6 @@ const requested = params.get('dificultad');
 const saved = localStorage.getItem('exercise-difficulty');
 const difficulty = Object.hasOwn(ranges, requested) ? requested : Object.hasOwn(ranges, saved) ? saved : 'easy';
 const levels = ranges[difficulty].map((id) => catalogoHSK.find((level) => level.id === id)).filter(Boolean);
-
-// Localiza el tablero, los contadores y los controles del juego.
 const board = document.querySelector('#memory-board');
 const attempts = document.querySelector('#attempts');
 const matched = document.querySelector('#matched-pairs');

@@ -1,54 +1,44 @@
-// Importa el catálogo de unidades y el reproductor de audio.
+// 1. IMPORTACIONES
+// **********************************************************
+
 import { catalogoHSK, obtenerUnidad } from './datos/catalogo-hsk.js?v=24';
 import { prepararAudioUnidad } from './audio-unidad.js?v=3';
 
-// Lee la unidad solicitada y activa el modo integrado cuando corresponde.
+
+// 2. CONFIGURACIÓN DE LA LECCIÓN
+// **********************************************************
+
 const parametros = new URLSearchParams(window.location.search);
 const embedded = parametros.get('embed') === '1';
-document.body.classList.toggle('is-embedded', embedded);
 const numeroHSK = Number(parametros.get('hsk')) || 1;
 const numeroUnidad = Number(parametros.get('unidad')) || 1;
 const unidadActual = obtenerUnidad(numeroHSK, numeroUnidad);
 
-// Detiene la carga si la unidad solicitada no existe.
 if (!unidadActual) {
   throw new Error(`No existe la unidad ${numeroUnidad} de HSK ${numeroHSK}.`);
 }
-// Prepara el vocabulario, la clave de guardado y la posición en el catálogo.
+
 const vocabulary = unidadActual.vocabulario;
-const storageKey = `hsk${unidadActual.hsk}-unit${unidadActual.id}`;
-const currentLevelIndex = catalogoHSK.findIndex((hsk) => hsk.id === unidadActual.hsk);
-const currentLevel = catalogoHSK[currentLevelIndex];
-const previousLevel = catalogoHSK[currentLevelIndex - 1];
-const currentUnitIndex = currentLevel.unidades.findIndex((unit) => unit.id === unidadActual.id);
-// Comprueba que el nivel anterior y la unidad anterior estén completados.
-const levelUnlocked = !previousLevel || previousLevel.unidades.every(
-  (unit) => localStorage.getItem(`hsk${previousLevel.id}-unit${unit.id}-completed`) === 'true'
-);
-const unitUnlocked = currentUnitIndex === 0 || localStorage.getItem(
-  `hsk${currentLevel.id}-unit${currentLevel.unidades[currentUnitIndex - 1].id}-completed`
-) === 'true';
 
-// Devuelve a vocabulario si se intenta acceder a una unidad bloqueada.
-if (!levelUnlocked || !unitUnlocked) {
-  localStorage.setItem('current-hsk', String(previousLevel?.id || currentLevel.id));
-  window.location.replace('./vocabulario.html');
-  throw new Error('Esta unidad todavía está bloqueada.');
-}
-
-// Recuerda el nivel actual y comprueba si hay otro nivel al que avanzar.
-localStorage.setItem('current-hsk', String(unidadActual.hsk));
-const lastUnit = currentLevel.unidades[currentLevel.unidades.length - 1];
-const nextLevel = catalogoHSK[currentLevelIndex + 1];
-const isLastUnitOfLevel = unidadActual.id === lastUnit.id;
-
-// Impide mostrar una lección que no contenga palabras.
 if (!vocabulary.length) {
   throw new Error(`La unidad ${unidadActual.id} de HSK ${unidadActual.hsk} todavía no tiene vocabulario.`);
 }
 
-// Localiza las tarjetas, los textos y los botones de la lección.
+const storageKey = `hsk${unidadActual.hsk}-unit${unidadActual.id}`;
+const currentLevelIndex = catalogoHSK.findIndex((hsk) => hsk.id === unidadActual.hsk);
+const currentLevel = catalogoHSK[currentLevelIndex];
+const currentUnitIndex = currentLevel.unidades.findIndex((unit) => unit.id === unidadActual.id);
+const nextUnit = currentLevel.unidades[currentUnitIndex + 1];
+const lastUnit = currentLevel.unidades[currentLevel.unidades.length - 1];
+const nextLevel = catalogoHSK[currentLevelIndex + 1];
+const isLastUnitOfLevel = unidadActual.id === lastUnit.id;
+
+
+// 3. ELEMENTOS HTML
+// **********************************************************
+
 const elements = {
+  body: document.body,
   wordCard: document.querySelector('.word-card'),
   exampleCard: document.querySelector('.example-card'),
   lessonNav: document.querySelector('.lesson-nav'),
@@ -68,28 +58,49 @@ const elements = {
   next: document.querySelector('#next-button'),
   nextLabel: document.querySelector('#next-button .button-label'),
   favorite: document.querySelector('.favorite'),
+  back: document.querySelector('.back-button'),
   courseHsk: document.querySelector('#course-hsk'),
   courseUnit: document.querySelector('#course-unit'),
   completionTitle: document.querySelector('#completion-title'),
   completionMessage: document.querySelector('#completion-message'),
   restart: document.querySelector('#restart-button'),
+  unitActions: document.querySelector('#unit-completion-actions'),
+  nextUnit: document.querySelector('#next-unit-button'),
   levelActions: document.querySelector('#level-completion-actions'),
   reviewHsk: document.querySelector('#review-hsk-button'),
   nextHsk: document.querySelector('#next-hsk-button')
 };
 
-// Muestra los títulos de la unidad y su mensaje de finalización.
-elements.courseHsk.textContent = currentLevel.nombre;
-elements.courseUnit.textContent = `Unidad ${unidadActual.id}: ${unidadActual.titulo}`;
-elements.completionMessage.textContent = `Has completado ${unidadActual.titulo} de HSK ${unidadActual.hsk}.`;
 
-// Recupera la posición y los favoritos, y prepara el audio de la palabra actual.
+// 4. ESTADO DE LA LECCIÓN
+// **********************************************************
+
 let currentIndex = Number(localStorage.getItem(`${storageKey}-position`)) || 0;
 currentIndex = Math.min(Math.max(currentIndex, 0), vocabulary.length - 1);
-const favorites = new Set(JSON.parse(localStorage.getItem(`${storageKey}-favorites`) || '[]'));
+
+function loadFavorites() {
+  try {
+    const savedFavorites = JSON.parse(
+      localStorage.getItem(`${storageKey}-favorites`) || '[]'
+    );
+
+    return new Set(Array.isArray(savedFavorites) ? savedFavorites : []);
+  } catch {
+    // Una versión anterior pudo dejar datos incompletos. No deben impedir
+    // que se inicialicen los controles de navegación de la lección.
+    localStorage.removeItem(`${storageKey}-favorites`);
+    return new Set();
+  }
+}
+
+const favorites = loadFavorites();
+
 const audioUnidad = prepararAudioUnidad(unidadActual, () => currentIndex);
 
-// Dibuja la palabra actual y su ejemplo, con animación opcional.
+
+// 5. FUNCIONES
+// **********************************************************
+
 function renderLesson(animate = false) {
   const entry = vocabulary[currentIndex];
   const number = currentIndex + 1;
@@ -99,7 +110,6 @@ function renderLesson(animate = false) {
     elements.exampleCard.classList.add('is-changing');
   }
 
-  // Actualiza los textos y el progreso tras la espera de la animación.
   window.setTimeout(() => {
     elements.position.textContent = `PALABRA ${number} DE ${vocabulary.length}`;
     elements.word.textContent = entry.hanzi;
@@ -110,65 +120,103 @@ function renderLesson(animate = false) {
     elements.exampleSpanish.textContent = entry.exampleSpanish;
     elements.progressText.textContent = `${number} / ${vocabulary.length}`;
     elements.counter.textContent = `${number} / ${vocabulary.length}`;
+
     const progressPercent = number / vocabulary.length * 100;
     elements.progressFill.style.width = `${progressPercent}%`;
     elements.progressRow.style.setProperty('--lesson-progress', `${progressPercent}%`);
     elements.previous.disabled = currentIndex === 0;
-    elements.nextLabel.textContent = currentIndex === vocabulary.length - 1 ? 'Finalizar' : 'Siguiente';
+    elements.nextLabel.textContent = currentIndex === vocabulary.length - 1
+      ? 'Finalizar'
+      : 'Siguiente';
 
-    // Actualiza el botón de favoritos y guarda la posición de estudio.
     const isFavorite = favorites.has(entry.hanzi);
     elements.favorite.classList.toggle('active', isFavorite);
     elements.favorite.setAttribute('aria-pressed', String(isFavorite));
-    elements.favorite.setAttribute('aria-label', isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos');
-    localStorage.setItem(`${storageKey}-position`, String(currentIndex));
+    elements.favorite.setAttribute(
+      'aria-label',
+      isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'
+    );
 
+    localStorage.setItem(`${storageKey}-position`, String(currentIndex));
     elements.wordCard.classList.remove('is-changing');
     elements.exampleCard.classList.remove('is-changing');
   }, animate ? 160 : 0);
 }
 
-// Detiene el audio y retrocede una palabra cuando es posible.
-elements.previous.addEventListener('click', () => {
+function showCompletion() {
+  localStorage.setItem(`${storageKey}-completed`, 'true');
+
+  if (isLastUnitOfLevel && nextLevel) {
+    localStorage.setItem(`hsk${unidadActual.hsk}-completed`, 'true');
+    elements.completionTitle.textContent = `¡Has completado ${currentLevel.nombre}!`;
+    elements.completionMessage.textContent = '¿Quieres seguir repasando este nivel o avanzar al siguiente?';
+    if (elements.unitActions) elements.unitActions.hidden = true;
+    elements.levelActions.hidden = false;
+    elements.reviewHsk.textContent = `Seguir repasando ${currentLevel.nombre}`;
+    elements.nextHsk.textContent = `Pasar a ${nextLevel.nombre}`;
+  }
+
+  elements.wordCard.hidden = true;
+  elements.exampleCard.hidden = true;
+  elements.lessonNav.hidden = true;
+  elements.completion.hidden = false;
+}
+
+function openNextUnit() {
+  if (!nextUnit) return;
+
   audioUnidad.detener();
+  const embeddedParameter = embedded ? '&embed=1' : '';
+  window.location.href = `./leccion.html?hsk=${currentLevel.id}&unidad=${nextUnit.id}${embeddedParameter}`;
+}
+
+function returnToVocabulary() {
+  audioUnidad.detener();
+
+  if (embedded) {
+    window.parent.postMessage({ type: 'hanzi-hub:close-lesson' }, '*');
+    return;
+  }
+
+  window.location.href = './vocabulario.html?v=37';
+}
+
+function openNextLevel() {
+  if (!nextLevel) return;
+
+  const firstUnit = nextLevel.unidades[0];
+  const embeddedParameter = embedded ? '&embed=1' : '';
+
+  localStorage.setItem('current-hsk', String(nextLevel.id));
+  window.location.href = `./leccion.html?hsk=${nextLevel.id}&unidad=${firstUnit.id}${embeddedParameter}`;
+}
+
+
+// 6. FUNCIONES DE LOS EVENTOS
+// **********************************************************
+
+function handlePreviousClick() {
+  audioUnidad.detener();
+
   if (currentIndex > 0) {
     currentIndex -= 1;
     renderLesson(true);
   }
-});
+}
 
-// Avanza una palabra o completa la unidad al llegar al final.
-elements.next.addEventListener('click', () => {
+function handleNextClick() {
   audioUnidad.detener();
+
   if (currentIndex < vocabulary.length - 1) {
     currentIndex += 1;
     renderLesson(true);
     return;
   }
 
-  // Guarda la finalización y prepara las opciones para pasar de nivel.
-  localStorage.setItem(`${storageKey}-completed`, 'true');
-  const canAdvanceToNextLevel = isLastUnitOfLevel && nextLevel;
+  showCompletion();
+}
 
-  if (canAdvanceToNextLevel) {
-    localStorage.setItem(`hsk${unidadActual.hsk}-completed`, 'true');
-    elements.completionTitle.textContent = `¡Has completado ${currentLevel.nombre}!`;
-    elements.completionMessage.textContent = '¿Quieres seguir repasando este nivel o avanzar al siguiente?';
-    elements.restart.hidden = true;
-    elements.levelActions.hidden = false;
-    elements.reviewHsk.textContent = `Seguir repasando ${currentLevel.nombre}`;
-    elements.nextHsk.textContent = `Pasar a ${nextLevel.nombre}`;
-  }
-
-  // Sustituye las tarjetas de estudio por el mensaje de finalización.
-  elements.wordCard.hidden = true;
-  elements.exampleCard.hidden = true;
-  elements.lessonNav.hidden = true;
-  elements.completion.hidden = false;
-});
-
-// Vuelve a la primera palabra para repasar sin borrar la finalización guardada.
-elements.restart.addEventListener('click', () => {
+function handleRestartClick() {
   audioUnidad.detener();
   currentIndex = 0;
   elements.completion.hidden = true;
@@ -176,44 +224,61 @@ elements.restart.addEventListener('click', () => {
   elements.exampleCard.hidden = false;
   elements.lessonNav.hidden = false;
   renderLesson();
-});
+}
 
-// Regresa a la ruta del nivel, tanto en modo integrado como en página completa.
-elements.reviewHsk.addEventListener('click', () => {
+function handleReviewHskClick() {
   localStorage.setItem('current-hsk', String(unidadActual.hsk));
-  if (embedded) {
-    window.parent.postMessage({ type: 'hanzi-hub:close-lesson' }, '*');
-    return;
-  }
-  window.location.href = './vocabulario.html';
-});
+  returnToVocabulary();
+}
 
-// Abre la primera unidad del siguiente nivel conservando el modo integrado.
-elements.nextHsk.addEventListener('click', () => {
-  if (!nextLevel) return;
-
-  const firstUnitOfNextLevel = nextLevel.unidades[0];
-  localStorage.setItem('current-hsk', String(nextLevel.id));
-  window.location.href = `./leccion.html?hsk=${nextLevel.id}&unidad=${firstUnitOfNextLevel.id}${embedded ? '&embed=1' : ''}`;
-});
-
-// Añade o quita la palabra actual de los favoritos guardados.
-elements.favorite.addEventListener('click', () => {
+function handleFavoriteClick() {
   const word = vocabulary[currentIndex].hanzi;
-  favorites.has(word) ? favorites.delete(word) : favorites.add(word);
+
+  if (favorites.has(word)) {
+    favorites.delete(word);
+  } else {
+    favorites.add(word);
+  }
+
   localStorage.setItem(`${storageKey}-favorites`, JSON.stringify([...favorites]));
   renderLesson();
-});
+}
 
-// Detiene el audio y vuelve a vocabulario al pulsar el botón de regreso.
-document.querySelector('.back-button').addEventListener('click', () => {
-  audioUnidad.detener();
-  if (embedded) {
-    window.parent.postMessage({ type: 'hanzi-hub:close-lesson' }, '*');
-    return;
-  }
-  window.location.href = './vocabulario.html';
-});
 
-// Muestra la primera palabra o la posición recuperada al iniciar.
-renderLesson();
+// 7. APLICACIÓN DE EVENTOS
+// **********************************************************
+
+function addEventListeners() {
+  elements.previous.addEventListener('click', handlePreviousClick);
+  elements.next.addEventListener('click', handleNextClick);
+  elements.restart.addEventListener('click', handleRestartClick);
+  elements.nextUnit?.addEventListener('click', openNextUnit);
+  elements.reviewHsk.addEventListener('click', handleReviewHskClick);
+  elements.nextHsk.addEventListener('click', openNextLevel);
+  elements.favorite.addEventListener('click', handleFavoriteClick);
+  elements.back.addEventListener('click', returnToVocabulary);
+}
+
+// 8. INICIALIZACIÓN
+// **********************************************************
+
+function saveCurrentLevel() {
+  localStorage.setItem('current-hsk', String(unidadActual.hsk));
+}
+
+function initializeLessonInformation() {
+  elements.body.classList.toggle('is-embedded', embedded);
+  elements.courseHsk.textContent = currentLevel.nombre;
+  elements.courseUnit.textContent = `Unidad ${unidadActual.id}: ${unidadActual.titulo}`;
+  elements.completionMessage.textContent = `Has completado ${unidadActual.titulo} de HSK ${unidadActual.hsk}.`;
+  if (elements.nextUnit) elements.nextUnit.hidden = !nextUnit;
+}
+
+function initializeLesson() {
+  saveCurrentLevel();
+  initializeLessonInformation();
+  addEventListeners();
+  renderLesson();
+}
+
+initializeLesson();

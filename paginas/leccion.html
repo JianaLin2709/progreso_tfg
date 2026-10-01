@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Aprende chino</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,13 +83,24 @@
       <div class="completion-icon">✓</div>
       <h2 id="completion-title">¡Unidad completada!</h2>
       <p id="completion-message">Has aprendido las primeras palabras de saludos y presentaciones de HSK 1.</p>
-      <button class="nav-button primary" id="restart-button" type="button">Repasar de nuevo</button>
+      <div class="completion-actions" id="unit-completion-actions">
+        <button class="nav-button secondary" id="restart-button" type="button">Repasar de nuevo</button>
+        <button class="nav-button primary" id="next-unit-button" type="button">Siguiente unidad</button>
+      </div>
       <div class="completion-actions" id="level-completion-actions" hidden>
         <button class="nav-button secondary" id="review-hsk-button" type="button">Seguir repasando HSK 1</button>
         <button class="nav-button primary" id="next-hsk-button" type="button">Pasar a HSK 2</button>
       </div>
     </section>
   </main>
-  <script type="module" src="../js/leccion.js?v=32"></script>
+  <script type="module">
+    const parametros = new URLSearchParams(window.location.search);
+
+    if(parametros.get('modo') === 'favoritos') {
+      import('../js/favoritos.js');
+    }else{
+      import('../js/leccion.js?v=34');
+    }
+  </script>
 </body>
 </html>

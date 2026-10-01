@@ -35,8 +35,6 @@
   background: #fffaf6;
   text-align: center;
 }
-.listen-instruction { width: 60px; height: 60px; flex: 0 0 60px; border: 1px solid #f3b3c0; border-radius: 50%; color: #e75476; background: #fff0f3; font-size: 25px; cursor: pointer; }
-.listen-instruction.is-speaking { animation: observationPulse .8s ease infinite alternate; }
 .instruction-card p { margin: 0 0 5px; color: #765b55; }
 .instruction-card strong { color: #311a18; font-size: 24px; }
 .observation-workspace { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(360px, .95fr); gap: 14px; }
@@ -120,7 +118,6 @@
 .dialog-actions { margin-top: 12px; display: grid; grid-template-columns: 1fr 1.35fr; gap: 10px; }
 .dialog-actions button { min-height: 46px; border: 1px solid #ef7994; border-radius: 99px; color: #dd5575; background: #fff; font-weight: 900; cursor: pointer; }
 .dialog-actions button[type="submit"] { color: #fff; background: linear-gradient(135deg,#f57895,#e95c7d); }
-@keyframes observationPulse { to { transform: scale(1.07); } }
 @media (max-width: 1100px) {
   .observation-workspace { grid-template-columns: 1fr; }
   .answer-card { min-height: 360px; }
@@ -138,4 +135,3 @@
   .found-counter { justify-self: stretch; }
   .object-dialog form { padding: 26px 20px 22px; }
 }
-@media (prefers-reduced-motion: reduce) { .listen-instruction.is-speaking { animation: none; } }

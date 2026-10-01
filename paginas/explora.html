@@ -6,14 +6,14 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Lecturas · Hanzi Hub</title>
+  <title>Lecturas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/inicio.css?v=37">
   <link rel="stylesheet" href="../css/explora.css?v=5">
 </head>
-<body class="dashboard-page readings-dashboard" data-root-prefix="../">
+<body class="dashboard-page readings-dashboard">
   <div class="app-shell">
     <aside class="learning-sidebar">
       <div class="sidebar-profile profile-summary">
@@ -25,18 +25,16 @@
         <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
       </div>
       <nav class="sidebar-nav" aria-label="Navegación principal">
-        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
-        <a href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="../index.html?v=3"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a href="vocabulario.html?v=37"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
         <a class="active" href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
         <a href="ejercicios.html?v=17"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
-        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
-        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
       </nav>
       <div class="sidebar-note">
         <span>Pequeños pasos,<br>grandes logros</span>
         <strong aria-hidden="true">🌷</strong>
       </div>
-      <a class="sidebar-resume" id="continue-learning" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+      <a class="sidebar-resume" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
     </aside>
 
     <main class="learning-main readings-panel">
@@ -87,7 +85,7 @@
           <div class="reading-copy" id="reading-copy"></div>
           <div class="word-translation" id="word-translation" role="status" hidden></div>
           <footer class="article-footer">
-            <a class="finish-reading" href="explora.html?v=9">Terminar lectura <span aria-hidden="true">→</span></a>
+            <a class="finish-reading" href="explora.html?v=9">Volver lecturas <span aria-hidden="true">→</span></a>
           </footer>
         </article>
       </section>

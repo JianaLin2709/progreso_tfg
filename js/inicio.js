@@ -1,9 +1,62 @@
+//============================================================
+// 1. Importaciones
+//============================================================
 import { catalogoHSK } from './datos/catalogo-hsk.js?v=20';
 
+//============================================================
+// 2. Configuración y constantes
+//============================================================
 const rootPrefix = document.body.dataset.rootPrefix || '';
+const stageLabels = {
+  1: '初级', 2: '初级', 3: '中级', 4: '中级',
+  5: '高级', 6: '高级', 7: '高等'
+};
 
-//funcion para calcular el progreso de una unidad 
-//storageKey: identificador de una unidad wordCount:número de palabras de una unidad 
+//============================================================
+// 3. Elementos HTML
+//============================================================
+const elements = {
+  selector: document.querySelector('#hsk-selector'),
+  trigger: document.querySelector('#hsk-select-trigger'),
+  selectedLabel: document.querySelector('#hsk-selected-label'),
+  options: document.querySelector('#hsk-options'),
+  hskTemplate: document.querySelector('#hsk-option-template'),
+  learningMain: document.querySelector('.learning-main'),
+  levelSwitcher: document.querySelector('.level-switcher'),
+  path: document.querySelector('#hsk-one-path'),
+  continueLearning: document.querySelector('#continue-learning'),
+  vocabulary: document.querySelector('#open-vocabulary'),
+  favorites: document.querySelector('#open-favorites'),
+  profileLevel: document.querySelector('#sidebar-level'),
+  sidebarProgress: document.querySelector('#sidebar-progress-bar'),
+  levelName: document.querySelector('#path-level-name'),
+  levelStage: document.querySelector('#path-level-stage'),
+  progressPercent: document.querySelector('#path-progress-percent'),
+  progressIllustration: document.querySelector('#progress-illustration'),
+  progressBar: document.querySelector('#path-progress-bar'),
+  completedUnits: document.querySelector('#path-completed-units'),
+  totalUnits: document.querySelector('#path-total-units'),
+  unitsGrid: document.querySelector('#units-grid'),
+  unitTemplate: document.querySelector('#unit-card-template'),
+  previousButton: document.querySelector('.carousel-previous'),
+  nextButton: document.querySelector('.carousel-next')
+};
+
+//============================================================
+// 4. Estado
+//============================================================
+let visibleIndex = 0;
+
+//============================================================
+// 5. Funciones
+//============================================================
+
+// Progreso
+function getInitialHsk() {
+  const savedHsk = Number(localStorage.getItem('current-hsk'));
+  return catalogoHSK.some((level) => level.id === savedHsk) ? savedHsk : catalogoHSK[0].id;
+}
+
 function getUnitProgress(storageKey, wordCount) {
   const savedPosition = localStorage.getItem(`${storageKey}-position`);
   const completed = localStorage.getItem(`${storageKey}-completed`) === 'true';
@@ -11,44 +64,194 @@ function getUnitProgress(storageKey, wordCount) {
     ? wordCount
     : savedPosition === null
       ? 0
-      : Math.min(Number(savedPosition) + 1, wordCount);
+      : Math.min(Math.max(Number(savedPosition) + 1, 0), wordCount);
 
   return {
     completed,
     wordsSeen,
-    percent: wordCount ? (completed ? 100 : Math.round(wordsSeen / wordCount * 100)) : 0
+    percent: wordCount ? Math.round(wordsSeen / wordCount * 100) : 0
   };
 }
 
-const elements = {
-  selector: document.querySelector('#hsk-selector'),
-  trigger: document.querySelector('#hsk-select-trigger'),
-  selectedLabel: document.querySelector('#hsk-selected-label'),
-  options: document.querySelector('#hsk-options'),
-  path: document.querySelector('#hsk-one-path'),
-  continueLearning: document.querySelector('#continue-learning'),
-  wordsSeen: document.querySelector('#words-seen'),
-  totalWords: document.querySelector('#total-words'),
-  completedUnits: document.querySelector('#completed-units'),
-  totalUnits: document.querySelector('#total-units-summary'),
-  currentLevel: document.querySelector('.stat:nth-child(2) > strong'),
-  currentLevelProgress: document.querySelector('.mini-progress span'),
-  wordsSummary: document.querySelector('.stat:nth-child(1) > small'),
-  unitsSummary: document.querySelector('.stat:nth-child(3) > small'),
-  profileLevel: document.querySelector('#sidebar-level'),
-  sidebarProgress: document.querySelector('#sidebar-progress-bar')
-};
+function getLevelProgress(level) {
+  const units = level.unidades.map((unit) => ({
+    unit,
+    ...getUnitProgress(`hsk${level.id}-unit${unit.id}`, unit.vocabulario.length)
+  }));
+  const totalWords = units.reduce((total, item) => total + item.unit.vocabulario.length, 0);
+  const wordsSeen = units.reduce((total, item) => total + item.wordsSeen, 0);
+  const completedUnits = units.filter((item) => item.completed).length;
+  const firstIncomplete = units.findIndex((item) => !item.completed);
+  const activeIndex = firstIncomplete === -1 ? Math.max(units.length - 1, 0) : firstIncomplete;
 
-elements.learningMain = document.querySelector('.learning-main');
-elements.levelSwitcher = document.querySelector('.level-switcher');
+  return {
+    units,
+    completedUnits,
+    activeIndex,
+    nextUnit: units[activeIndex],
+    percent: totalWords ? Math.round(wordsSeen / totalWords * 100) : 0
+  };
+}
 
-//inframe, abrir una página dentro del panel (cambiar panel)
+// Unidades
+function getUnitIcon(unit) {
+  const firstWord = unit.vocabulario.find((entry) => entry.hanzi)?.hanzi || '字';
+  return [...firstWord.replace(/[，。…]/g, '')].slice(0, 2).join('');
+}
+
+function createUnitCard(level, progress, index, activeIndex) {
+  const card = elements.unitTemplate.content.firstElementChild.cloneNode(true);
+  const { unit, completed, wordsSeen, percent } = progress;
+  const inProgress = wordsSeen > 0 && !completed;
+  const state = completed ? 'Completada ✓' : inProgress ? 'En curso' : 'Disponible';
+  const action = completed ? 'Repasar unidad' : inProgress ? 'Continuar unidad' : 'Comenzar unidad';
+
+  card.dataset.unitIndex = String(index);
+  card.classList.toggle('current', index === activeIndex);
+  card.setAttribute('aria-label', `Unidad ${unit.id}: ${state}`);
+  card.querySelector('.unit-number').textContent = String(unit.id);
+
+  const stateElement = card.querySelector('.unit-state');
+  stateElement.textContent = state;
+  stateElement.classList.toggle('upcoming', !completed && !inProgress);
+
+  card.querySelector('.unit-icon').textContent = getUnitIcon(unit);
+  card.querySelector('.unit-title').textContent = unit.titulo.trim();
+  card.querySelector('.unit-description').textContent =
+    `Aprende ${unit.vocabulario.length} palabras relacionadas con ${unit.titulo.trim().toLowerCase()}.`;
+  card.querySelector('.unit-progress span').style.width = `${percent}%`;
+  card.querySelector('.unit-percent').textContent = `${percent}%`;
+
+  const button = card.querySelector('.unit-button');
+  button.href = `${rootPrefix}paginas/leccion.html?hsk=${level.id}&unidad=${unit.id}`;
+  button.textContent = `${action} →`;
+  return card;
+}
+
+function renderLevel(level) {
+  const progress = getLevelProgress(level);
+  const fragment = document.createDocumentFragment();
+
+  progress.units.forEach((unit, index) => {
+    fragment.append(createUnitCard(level, unit, index, progress.activeIndex));
+  });
+
+  elements.unitsGrid.replaceChildren(fragment);
+  elements.levelName.textContent = level.nombre;
+  elements.levelStage.textContent = stageLabels[level.id] || '高级';
+  elements.progressPercent.textContent = `${progress.percent}%`;
+  elements.progressBar.style.width = `${progress.percent}%`;
+  elements.completedUnits.textContent = String(progress.completedUnits);
+  elements.totalUnits.textContent = String(level.unidades.length);
+  elements.profileLevel.textContent = level.nombre;
+  elements.sidebarProgress.style.width = `${progress.percent}%`;
+  elements.progressIllustration.style.setProperty('--progress-position', `${progress.percent}%`);
+
+  if (progress.nextUnit) {
+    elements.continueLearning.href =
+      `${rootPrefix}paginas/leccion.html?hsk=${level.id}&unidad=${progress.nextUnit.unit.id}`;
+  }
+
+  visibleIndex = progress.activeIndex;
+  requestAnimationFrame(() => requestAnimationFrame(() => scrollToCard(visibleIndex)));
+}
+
+// Selector HSK
+function createHskOption(level) {
+  const option = elements.hskTemplate.content.firstElementChild.cloneNode(true);
+  option.dataset.hsk = String(level.id);
+  option.querySelector('.hsk-option-name').textContent = level.nombre;
+  return option;
+}
+
+function renderHskOptions() {
+  const fragment = document.createDocumentFragment();
+  catalogoHSK.forEach((level) => fragment.append(createHskOption(level)));
+  elements.options.replaceChildren(fragment);
+}
+
+function showHsk(hskId) {
+  const level = catalogoHSK.find((item) => item.id === hskId);
+  if (!level) return;
+
+  localStorage.setItem('current-hsk', String(level.id));
+  elements.selectedLabel.textContent = level.nombre;
+  elements.path.hidden = false;
+  elements.options.querySelectorAll('.hsk-option').forEach((option) => {
+    option.setAttribute('aria-selected', String(Number(option.dataset.hsk) === level.id));
+  });
+  renderLevel(level);
+}
+
+function toggleHskSelector() {
+  const willOpen = elements.options.hidden;
+  elements.options.hidden = !willOpen;
+  elements.trigger.setAttribute('aria-expanded', String(willOpen));
+}
+
+function closeHskSelector() {
+  elements.options.hidden = true;
+  elements.trigger.setAttribute('aria-expanded', 'false');
+}
+
+// Carrusel
+function getUnitCards() {
+  return [...elements.unitsGrid.querySelectorAll('.unit-card')];
+}
+
+function updateCarouselButtons() {
+  const cards = getUnitCards();
+  elements.previousButton.disabled = visibleIndex === 0;
+  elements.nextButton.disabled = visibleIndex === cards.length - 1;
+}
+
+function scrollToCard(index, behavior = 'smooth') {
+  const cards = getUnitCards();
+  if (!cards.length) return;
+
+  visibleIndex = Math.min(Math.max(index, 0), cards.length - 1);
+  elements.unitsGrid.scrollTo({
+    left: cards[visibleIndex].offsetLeft - elements.unitsGrid.offsetLeft,
+    behavior
+  });
+  updateCarouselButtons();
+}
+
+function showPreviousCard() {
+  scrollToCard(visibleIndex - 1);
+}
+
+function showNextCard() {
+  scrollToCard(visibleIndex + 1);
+}
+
+function handleCarouselScroll() {
+  const cards = getUnitCards();
+  if (!cards.length) return;
+
+  visibleIndex = cards.reduce((bestIndex, card, index) => {
+    const bestDistance = Math.abs(
+      cards[bestIndex].offsetLeft - elements.unitsGrid.offsetLeft - elements.unitsGrid.scrollLeft
+    );
+    const distance = Math.abs(
+      card.offsetLeft - elements.unitsGrid.offsetLeft - elements.unitsGrid.scrollLeft
+    );
+    return distance < bestDistance ? index : bestIndex;
+  }, 0);
+  updateCarouselButtons();
+}
+
+function handleCarouselWheel(event) {
+  if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  elements.unitsGrid.scrollLeft += event.deltaX;
+}
+
+// Panel de lección
 function openLessonInPanel(href) {
-  if (!elements.learningMain || !elements.path) return;
-
   const lessonUrl = new URL(href, window.location.href);
   lessonUrl.searchParams.set('embed', '1');
-
   elements.levelSwitcher.hidden = true;
   elements.path.hidden = true;
 
@@ -62,268 +265,93 @@ function openLessonInPanel(href) {
   frame.src = lessonUrl.href;
 }
 
-//cerrar panel de lección y actualizar 
 function closeLessonPanel() {
-  const frame = elements.learningMain?.querySelector('.embedded-lesson-frame');
-  frame?.remove();
-  if (elements.levelSwitcher) elements.levelSwitcher.hidden = false;
-  if (elements.path) elements.path.hidden = false;
-
-  const selectedHsk = Number(localStorage.getItem('current-hsk')) || initialHsk;
-  showHsk(selectedHsk);
-}
-
-const savedHsk = Number(localStorage.getItem('current-hsk'));
-
-function isLevelComplete(level) {
-  return level.unidades.every((unit) => localStorage.getItem(`hsk${level.id}-unit${unit.id}-completed`) === 'true');
-}
-
-function isLevelUnlocked(index) {
-  return index === 0 || isLevelComplete(catalogoHSK[index - 1]);
-}
-
-const savedLevelIndex = catalogoHSK.findIndex((level) => level.id === savedHsk);
-const initialHsk = savedLevelIndex >= 0 && isLevelUnlocked(savedLevelIndex)
-  ? savedHsk
-  : [...catalogoHSK].reverse().find((_, reverseIndex) => isLevelUnlocked(catalogoHSK.length - 1 - reverseIndex))?.id
-    || catalogoHSK[0].id;
-
-
-//asociar los hsk presentes a etiquetas clasificatorias 
-const stageLabels = {
-  1: '初级',
-  2: '初级',
-  3: '中级',
-  4: '中级',
-  5: '高级',
-  6: '高级',
-  7: '高等'
-};
-
-function getUnitIcon(unit) {
-  const firstWord = unit.vocabulario.find((entry) => entry.hanzi)?.hanzi || '字';
-  return [...firstWord.replace(/[，。…]/g, '')].slice(0, 2).join('');
-}
-
-function renderLevel(level) {
-  //calculo progreso de cada unidad 
-  const unitProgress = level.unidades.map((unit) => ({
-    unit,
-    ...getUnitProgress(`hsk${level.id}-unit${unit.id}`, unit.vocabulario.length)
-  }));
-  const totalWords = level.unidades.reduce((total, unit) => total + unit.vocabulario.length, 0);
-  const wordsSeen = unitProgress.reduce((total, progress) => total + progress.wordsSeen, 0);
-  const completedUnits = unitProgress.filter((progress) => progress.completed).length;
-  const overallPercent = totalWords ? Math.round(wordsSeen / totalWords * 100) : 0;
-  const unlocked = unitProgress.map((_, index) => index === 0 || unitProgress[index - 1].completed);
-  const allUnlocked = unlocked.every(Boolean);
-  const currentIndex = unitProgress.findIndex((progress, index) => unlocked[index] && !progress.completed);
-  const activeIndex = currentIndex === -1 ? unitProgress.length - 1 : currentIndex;
-  const nextUnit = unitProgress[activeIndex];
-
-  if (elements.wordsSeen) elements.wordsSeen.textContent = String(wordsSeen);
-  if (elements.totalWords) elements.totalWords.textContent = String(totalWords);
-  if (elements.completedUnits) elements.completedUnits.textContent = String(completedUnits);
-  if (elements.totalUnits) elements.totalUnits.textContent = String(level.unidades.length);
-  if (elements.currentLevel) elements.currentLevel.textContent = level.nombre;
-  if (elements.currentLevelProgress) elements.currentLevelProgress.style.width = `${overallPercent}%`;
-  if (elements.wordsSummary) elements.wordsSummary.innerHTML = `de <span id="total-words">${totalWords}</span> en ${level.nombre}`;
-  if (elements.unitsSummary) elements.unitsSummary.textContent = level.nombre;
-  if (elements.profileLevel) elements.profileLevel.textContent = level.nombre;
-  if (elements.sidebarProgress) elements.sidebarProgress.style.width = `${overallPercent}%`;
-  if (elements.continueLearning) elements.continueLearning.href = `${rootPrefix}paginas/leccion.html?hsk=${level.id}&unidad=${nextUnit.unit.id}`;
-
-  const cards = unitProgress.map(({ unit, completed, wordsSeen: seen, percent }, index) => {
-    const isUnlocked = unlocked[index];
-    const inProgress = seen > 0 && !completed;
-    const state = completed ? 'Completada ✓' : !isUnlocked ? 'Bloqueada 🔒' : inProgress ? 'En curso' : 'Disponible';
-    const action = completed ? 'Repasar unidad' : inProgress ? 'Continuar unidad' : 'Comenzar unidad';
-    const currentClass = index === activeIndex ? ' current' : '';
-    const lockedClass = isUnlocked ? '' : ' locked';
-    const actionControl = isUnlocked
-      ? `<a class="unit-button" href="${rootPrefix}paginas/leccion.html?hsk=${level.id}&unidad=${unit.id}">${action} →</a>`
-      : '<span class="unit-button disabled" aria-disabled="true">Completa la unidad anterior</span>';
-
-    return `
-      <article class="unit-card${currentClass}${lockedClass}" data-unit-index="${index}" aria-label="Unidad ${unit.id}: ${state}">
-        <div class="unit-top">
-          <span class="unit-number">${unit.id}</span>
-          <span class="unit-state${completed || inProgress ? '' : ' upcoming'}">${state}</span>
-        </div>
-        <div class="unit-icon" lang="zh-Hans">${getUnitIcon(unit)}</div>
-        <h3>${unit.titulo.trim()}</h3>
-        <p>Aprende ${unit.vocabulario.length} palabras relacionadas con ${unit.titulo.trim().toLowerCase()}.</p>
-        <div class="unit-progress"><span style="width:${percent}%"></span></div>
-        <span class="unit-percent">${percent}%</span>
-        ${actionControl}
-      </article>`;
-  }).join('');
-
-  elements.path.innerHTML = `
-    <div class="path-heading">
-      <div>
-        <span class="section-label">TU RUTA DE APRENDIZAJE</span>
-        <h2>${level.nombre} <small>${stageLabels[level.id] || '高级'}</small></h2>
-        <p class="path-encouragement">¡Vas genial! Sigue así <span aria-hidden="true">♡</span></p>
-      </div>
-      <div class="overall-progress">
-        <span><strong>${overallPercent}%</strong> completado</span>
-        <div class="progress-illustration" style="--progress-position:${overallPercent}%">
-          <img class="progress-bunny" src="${rootPrefix}img/conejo-progreso.png" alt="" aria-hidden="true">
-          <div class="progress-track"><span style="width:${overallPercent}%"></span></div>
-        </div>
-        <span>${completedUnits} / ${level.unidades.length} unidades</span>
-      </div>
-    </div>
-    <div class="units-carousel">
-      <div class="carousel-controls" aria-label="Navegar por las unidades">
-        <button class="carousel-button carousel-previous" type="button" aria-label="Unidad anterior">←</button>
-        <span>Desliza para ver todas las unidades</span>
-        <button class="carousel-button carousel-next" type="button" aria-label="Unidad siguiente">→</button>
-      </div>
-      <div class="units-grid manual-scroll">${cards}</div>
-    </div>
-    <div class="learning-tip">
-      <span class="tip-icon" aria-hidden="true">💡</span>
-      <span>${allUnlocked ? 'Todas las unidades están desbloqueadas.' : 'Puedes explorar la ruta; completa cada unidad para desbloquear la siguiente.'}</span>
-      <span class="tip-arrow" aria-hidden="true">›</span>
-    </div>`;
-
-  const track = elements.path.querySelector('.units-grid');
-  const cardElements = [...track.querySelectorAll('.unit-card')];
-  const previousButton = elements.path.querySelector('.carousel-previous');
-  const nextButton = elements.path.querySelector('.carousel-next');
-  let visibleIndex = activeIndex;
-
-  function scrollToCard(index, behavior = 'smooth') {
-    visibleIndex = Math.min(Math.max(index, 0), cardElements.length - 1);
-    const card = cardElements[visibleIndex];
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior });
-    if (previousButton) previousButton.disabled = visibleIndex === 0;
-    if (nextButton) nextButton.disabled = visibleIndex === cardElements.length - 1;
-  }
-
-  requestAnimationFrame(() => requestAnimationFrame(() => scrollToCard(activeIndex)));
-
-  previousButton.addEventListener('click', () => scrollToCard(visibleIndex - 1));
-  nextButton.addEventListener('click', () => scrollToCard(visibleIndex + 1));
-  track.addEventListener('scroll', () => {
-    const closestIndex = cardElements.reduce((bestIndex, card, index) => {
-      const bestDistance = Math.abs(cardElements[bestIndex].offsetLeft - track.offsetLeft - track.scrollLeft);
-      const distance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
-      return distance < bestDistance ? index : bestIndex;
-    }, 0);
-    visibleIndex = closestIndex;
-    previousButton.disabled = visibleIndex === 0;
-    nextButton.disabled = visibleIndex === cardElements.length - 1;
-  }, { passive: true });
-
-  track.addEventListener('wheel', (event) => {
-    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
-    event.preventDefault();
-    event.stopPropagation();
-    track.scrollLeft += event.deltaX;
-  }, { passive: false });
-
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchStartScroll = 0;
-
-  track.addEventListener('touchstart', (event) => {
-    const touch = event.touches[0];
-    touchStartX = touch.clientX;
-    touchStartY = touch.clientY;
-    touchStartScroll = track.scrollLeft;
-  }, { passive: true });
-
-  track.addEventListener('touchmove', (event) => {
-    const touch = event.touches[0];
-    const deltaX = touchStartX - touch.clientX;
-    const deltaY = touchStartY - touch.clientY;
-    if (Math.abs(deltaX) <= Math.abs(deltaY)) return;
-    event.preventDefault();
-    event.stopPropagation();
-    track.scrollLeft = touchStartScroll + deltaX;
-  }, { passive: false });
-}
-
-function showHsk(hskId) {
-  const levelIndex = catalogoHSK.findIndex((item) => item.id === hskId);
-  if (levelIndex < 0 || !isLevelUnlocked(levelIndex)) return;
-  const level = catalogoHSK[levelIndex];
-  localStorage.setItem('current-hsk', String(level.id));
-  elements.selectedLabel.textContent = level.nombre;
+  elements.learningMain.querySelector('.embedded-lesson-frame')?.remove();
+  elements.levelSwitcher.hidden = false;
   elements.path.hidden = false;
+  elements.vocabulary.classList.add('active');
+  elements.favorites.classList.remove('active');
 
-  elements.options.querySelectorAll('.hsk-option').forEach((option) => {
-    option.setAttribute('aria-selected', String(Number(option.dataset.hsk) === level.id));
-  });
+  const currentUrl = new URL(window.location.href);
+  currentUrl.searchParams.delete('vista');
+  window.history.replaceState({}, '', currentUrl);
 
-  renderLevel(level);
+  showHsk(getInitialHsk());
 }
 
-catalogoHSK.forEach((level, index) => {
-  const unlocked = isLevelUnlocked(index);
-  const option = document.createElement('button');
-  option.className = `hsk-option${unlocked ? '' : ' is-locked'}`;
-  option.type = 'button';
-  option.dataset.hsk = String(level.id);
-  option.disabled = !unlocked;
-  option.setAttribute('role', 'option');
-  option.setAttribute('aria-disabled', String(!unlocked));
-  option.innerHTML = `
-    <span class="hsk-option-check" aria-hidden="true">✓</span>
-    <img class="panda-option-icon" src="${rootPrefix}img/panda-selector.png" alt="" aria-hidden="true">
-    <span>${level.nombre}</span>
-    <span class="hsk-option-end-check" aria-hidden="true">${unlocked ? '✓' : '🔒'}</span>`;
-  elements.options.append(option);
-});
+function openFavoritesInPanel() {
+  elements.vocabulary.classList.remove('active');
+  elements.favorites.classList.add('active');
+  openLessonInPanel('./leccion.html?modo=favoritos');
+}
 
-elements.trigger.addEventListener('click', () => {
-  const willOpen = elements.options.hidden;
-  elements.options.hidden = !willOpen;
-  elements.trigger.setAttribute('aria-expanded', String(willOpen));
-});
-
-elements.options.addEventListener('click', (event) => {
+// Controladores de eventos
+function handleHskSelection(event) {
   const option = event.target.closest('.hsk-option');
   if (!option) return;
   showHsk(Number(option.dataset.hsk));
-  elements.options.hidden = true;
-  elements.trigger.setAttribute('aria-expanded', 'false');
+  closeHskSelector();
   elements.trigger.focus();
-});
+}
 
-document.addEventListener('click', (event) => {
-  if (elements.selector.contains(event.target)) return;
-  elements.options.hidden = true;
-  elements.trigger.setAttribute('aria-expanded', 'false');
-});
+function handleOutsideClick(event) {
+  if (!elements.selector.contains(event.target)) closeHskSelector();
+}
 
-document.addEventListener('keydown', (event) => {
-  if (event.key !== 'Escape') return;
-  elements.options.hidden = true;
-  elements.trigger.setAttribute('aria-expanded', 'false');
-});
-
-showHsk(initialHsk);
-
-elements.path.addEventListener('click', (event) => {
-  const lessonLink = event.target.closest('a.unit-button');
-  if (!lessonLink) return;
+function handleUnitClick(event) {
+  const link = event.target.closest('a.unit-button');
+  if (!link) return;
   event.preventDefault();
-  openLessonInPanel(lessonLink.href);
-});
+  openLessonInPanel(link.href);
+}
 
-elements.continueLearning?.addEventListener('click', (event) => {
+function handleContinueLearning(event) {
   event.preventDefault();
   openLessonInPanel(elements.continueLearning.href);
-});
+}
 
-window.addEventListener('message', (event) => {
-  if (event.data?.type !== 'hanzi-hub:close-lesson') return;
-  const frame = elements.learningMain?.querySelector('.embedded-lesson-frame');
-  if (!frame || event.source !== frame.contentWindow) return;
+function handleFavoritesClick(event) {
+  event.preventDefault();
+  openFavoritesInPanel();
+}
+
+function handleVocabularyClick(event) {
+  event.preventDefault();
   closeLessonPanel();
-});
+}
+
+function openInitialView() {
+  const parametros = new URLSearchParams(window.location.search);
+  if (parametros.get('vista') === 'favoritos') openFavoritesInPanel();
+}
+
+function handleLessonMessage(event) {
+  if (event.data?.type !== 'hanzi-hub:close-lesson') return;
+  const frame = elements.learningMain.querySelector('.embedded-lesson-frame');
+  if (frame && event.source === frame.contentWindow) closeLessonPanel();
+}
+
+//============================================================
+// 6. Aplicación de eventos
+//============================================================
+elements.trigger.addEventListener('click', toggleHskSelector);
+elements.options.addEventListener('click', handleHskSelection);
+document.addEventListener('click', handleOutsideClick);
+elements.previousButton.addEventListener('click', showPreviousCard);
+elements.nextButton.addEventListener('click', showNextCard);
+elements.unitsGrid.addEventListener('scroll', handleCarouselScroll, { passive: true });
+elements.unitsGrid.addEventListener('wheel', handleCarouselWheel, { passive: false });
+elements.path.addEventListener('click', handleUnitClick);
+elements.continueLearning.addEventListener('click', handleContinueLearning);
+elements.vocabulary.addEventListener('click', handleVocabularyClick);
+elements.favorites.addEventListener('click', handleFavoritesClick);
+window.addEventListener('message', handleLessonMessage);
+
+// Los eventos táctiles y el cierre mediante Escape permanecen desactivados.
+
+//============================================================
+// 7. Llamadas iniciales
+//============================================================
+renderHskOptions();
+showHsk(getInitialHsk());
+openInitialView();

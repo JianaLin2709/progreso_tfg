@@ -104,7 +104,7 @@ function renderList() {
 function renderDetail(lectura) {
   listView.hidden = true;
   detailView.hidden = false;
-  document.title = `${lectura.titulo} · Hanzi Hub`;
+  document.title = lectura.titulo;
   document.querySelector('#article-series').textContent = `${lectura.serie} · ${lectura.seriePinyin}`;
   document.querySelector('#article-title').textContent = lectura.titulo;
   document.querySelector('#article-title-pinyin').textContent = lectura.tituloPinyin;

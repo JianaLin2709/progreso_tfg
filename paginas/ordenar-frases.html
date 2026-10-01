@@ -4,14 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Ordena la frase · Hanzi Hub</title>
+  <title>Ordena la frase</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/ordenar-frases.css?v=4">
+  <link rel="stylesheet" href="../css/inicio.css?v=39">
+  <link rel="stylesheet" href="../css/ordenar-frases.css?v=5">
 </head>
-<body>
-  <main class="sentence-game">
+<body class="dashboard-page sentence-dashboard">
+  <div class="app-shell">
+    <aside class="learning-sidebar">
+      <div class="sidebar-profile profile-summary">
+        <span class="sidebar-avatar"><img class="sidebar-avatar-character" src="../img/panda-selector.png" alt=""></span>
+        <strong>Ni Hao!</strong><span id="sidebar-level">HSK 1</span>
+        <span class="sidebar-progress" aria-hidden="true"><i id="sidebar-progress-bar"></i></span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <a href="../index.html?v=3"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a href="vocabulario.html?v=37"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
+        <a class="active" href="ejercicios.html?v=19"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
+      </nav>
+      <div class="sidebar-note"><span>Pequeños pasos,<br>grandes logros</span><strong aria-hidden="true">🌷</strong></div>
+      <a class="sidebar-resume" href="leccion.html?hsk=1&amp;unidad=1">Continuar aprendiendo →</a>
+    </aside>
+  <main class="learning-main sentence-game">
     <header class="game-heading">
       <a class="back-link" href="ejercicios.html?v=11" aria-label="Volver a ejercicios"><span aria-hidden="true">←</span> Volver</a>
       <div class="title-copy">
@@ -58,6 +75,7 @@
       </div>
     </section>
   </main>
+  </div>
 
   <script type="module" src="../js/ordenar-frases.js?v=5"></script>
 </body>

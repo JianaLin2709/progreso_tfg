@@ -6,11 +6,11 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Inicio · Hanzi Hub</title>
+  <title>Inicio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/inicio.css?v=37">
+  <link rel="stylesheet" href="css/inicio.css?v=40">
 </head>
 <body class="dashboard-page">
   <div class="app-shell">
@@ -25,22 +25,64 @@
       </div>
 
       <nav class="sidebar-nav" aria-label="Navegación principal">
-        <a class="active" href="index.html"><img class="sidebar-nav-icon" src="img/nav-inicio.png" alt="">Inicio</a>
-        <a href="paginas/vocabulario.html"><img class="sidebar-nav-icon" src="img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a class="active" href="index.html?v=3"><img class="sidebar-nav-icon" src="img/nav-inicio.png" alt="">Inicio</a>
+        <a href="paginas/vocabulario.html?v=37"><img class="sidebar-nav-icon" src="img/nav-vocabulario.png" alt="">Vocabulario</a>
         <a href="paginas/explora.html?v=9"><img class="sidebar-nav-icon" src="img/nav-lecturas.png" alt="">Lecturas</a>
         <a href="paginas/ejercicios.html?v=17"><img class="sidebar-nav-icon" src="img/nav-practicar.png" alt="">Practicar</a>
-        <a href="#progreso"><img class="sidebar-nav-icon" src="img/nav-progreso.png" alt="">Progreso</a>
-        <a href="#favoritos"><img class="sidebar-nav-icon" src="img/nav-favoritos.png" alt="">Favoritos</a>
       </nav>
 
       <div class="sidebar-note">
         <span>Pequeños pasos,<br>grandes logros</span>
         <strong aria-hidden="true">🌷</strong>
       </div>
-      <a class="sidebar-resume" id="continue-learning" href="paginas/leccion.html?hsk=1&unidad=1">Continuar aprendiendo →</a>
+      <a class="sidebar-resume" href="paginas/leccion.html?hsk=1&unidad=1">Continuar aprendiendo →</a>
     </aside>
 
-    <main class="learning-main home-placeholder" aria-label="Inicio"></main>
+    <main class="learning-main home-placeholder" aria-label="Inicio">
+      <section class="home-dashboard" aria-label="Inicio">
+        <div class="home-banner">
+          <img src="img/inicio-bienvenida.png" alt="¡Bienvenido! Explora, aprende y mejora tu chino. Un pequeño paso cada día te lleva más lejos.">
+        </div>
+
+        <div class="home-action-grid">
+          <article class="home-action-card vocabulary-card">
+            <div class="home-card-visual">
+              <img src="img/inicio-vocabulario.png" alt="" aria-hidden="true">
+            </div>
+            <div class="home-card-copy">
+              <span class="home-card-label">APRENDE</span>
+              <h2>Vocabulario</h2>
+              <p>Aprende palabras nuevas y repasa su significado.</p>
+            </div>
+            <a class="home-card-button" href="paginas/vocabulario.html?v=37">Ir a vocabulario <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="home-action-card reading-card">
+            <div class="home-card-visual">
+              <img src="img/inicio-lecturas.png" alt="" aria-hidden="true">
+            </div>
+            <div class="home-card-copy">
+              <span class="home-card-label">DESCUBRE</span>
+              <h2>Lecturas</h2>
+              <p>Lee textos breves y mejora tu comprensión.</p>
+            </div>
+            <a class="home-card-button" href="paginas/explora.html?v=9">Ir a lecturas <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="home-action-card exercise-card">
+            <div class="home-card-visual">
+              <img src="img/inicio-ejercicios.png" alt="" aria-hidden="true">
+            </div>
+            <div class="home-card-copy">
+              <span class="home-card-label">PRACTICA</span>
+              <h2>Ejercicios</h2>
+              <p>Pon a prueba tu chino con actividades interactivas.</p>
+            </div>
+            <a class="home-card-button" href="paginas/ejercicios.html?v=17">Ir a ejercicios <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>

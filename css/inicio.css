@@ -405,6 +405,68 @@ main { width: min(1320px, calc(100% - 64px)); max-width: 100%; margin: 48px auto
   box-shadow: 0 10px 24px rgba(112, 72, 50, .1);
 }
 
+.home-dashboard {
+  height: 100%;
+  padding: clamp(24px, 3vw, 42px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.home-banner {
+  width: 100%;
+  height: clamp(250px, 23vw, 360px);
+  margin-bottom: clamp(24px, 3vw, 38px);
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid #f0d6cb;
+  border-radius: 24px;
+  background: #fff5ef;
+  box-shadow: 0 10px 24px rgba(112, 72, 50, .1);
+}
+.home-banner img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+
+.home-action-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 26px); }
+.home-action-card {
+  min-height: 460px;
+  padding: 20px clamp(24px, 2.4vw, 34px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 26px;
+  box-shadow: 0 12px 28px rgba(105, 65, 45, .08);
+}
+.home-action-card.vocabulary-card { border-color: #f3c9d1; background: linear-gradient(145deg, #fff5f7, #fdebed); }
+.home-action-card.reading-card { border-color: #eedbc0; background: linear-gradient(145deg, #fffbf1, #f9f0df); }
+.home-action-card.exercise-card { border-color: #ddd2f0; background: linear-gradient(145deg, #faf7ff, #f0eafa); }
+.home-card-visual { height: clamp(180px, 24vh, 250px); display: grid; place-items: center; }
+.home-card-visual img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.home-card-copy { margin: 12px 0 0; }
+.home-card-label { font-size: 12px; font-weight: 900; letter-spacing: 1.7px; }
+.vocabulary-card .home-card-label { color: #c34f68; }
+.reading-card .home-card-label { color: #a77734; }
+.exercise-card .home-card-label { color: #775ca8; }
+.home-action-card h2 { margin: 8px 0 7px; color: #4b2722; font-size: clamp(27px, 2.4vw, 36px); }
+.home-action-card p { max-width: 280px; margin: 0; color: #795f58; font-size: 17px; line-height: 1.55; }
+.home-card-button {
+  min-height: 54px;
+  margin-top: 18px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 15px;
+  color: #fff;
+  background: linear-gradient(90deg, #f17793, #ed6887);
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 7px 14px rgba(205, 82, 114, .16);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.home-card-button:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(205, 82, 114, .22); }
+
 .dashboard-page .level-switcher {
   position: absolute;
   z-index: 40;
@@ -517,6 +579,10 @@ main { width: min(1320px, calc(100% - 64px)); max-width: 100%; margin: 48px auto
   .dashboard-page .level-switcher-label { display: none; }
   .dashboard-page .path-heading > div:first-child { padding-right: 215px; }
   .dashboard-page .unit-card { min-width: calc((100% - 36px) / 2.7); flex-basis: calc((100% - 36px) / 2.7); }
+  .home-action-grid { grid-template-columns: 1fr; }
+  .home-dashboard { justify-content: flex-start; }
+  .home-action-card { min-height: 390px; }
+  .home-card-visual { height: 230px; }
 }
 
 @media (max-width: 780px) {
@@ -550,4 +616,9 @@ main { width: min(1320px, calc(100% - 64px)); max-width: 100%; margin: 48px auto
     max-width: 48%;
   }
   .embedded-lesson-frame { height: 780px; min-height: 0; border-radius: 22px; }
+  .dashboard-page .home-placeholder { border-radius: 22px; }
+  .home-dashboard { padding: 32px 20px; overflow: visible; }
+  .home-banner { height: clamp(180px, 44vw, 280px); margin-bottom: 22px; border-radius: 18px; }
+  .home-action-card { min-height: 380px; padding: 18px 24px; border-radius: 22px; }
+  .home-card-visual { height: 210px; }
 }

@@ -23,7 +23,6 @@ function getInitialDifficulty() {
   const saved = localStorage.getItem('exercise-difficulty');
   return ['easy', 'medium', 'hard', 'expert'].includes(saved) ? saved : 'easy';
 }
-
 // Ordena las tarjetas y genera sus enlaces o el botón de próximamente.
 function renderExercises() {
   const visible = exercises

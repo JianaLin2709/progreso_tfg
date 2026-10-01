@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Vocabulario · Hanzi Hub</title>
+  <title>Vocabulario</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,12 +25,11 @@
       </div>
 
       <nav class="sidebar-nav" aria-label="Navegación principal">
-        <a href="../index.html"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
-        <a class="active" href="vocabulario.html"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a href="../index.html?v=3"><img class="sidebar-nav-icon" src="../img/nav-inicio.png" alt="">Inicio</a>
+        <a class="active" id="open-vocabulary" href="vocabulario.html?v=37"><img class="sidebar-nav-icon" src="../img/nav-vocabulario.png" alt="">Vocabulario</a>
+        <a id="open-favorites" href="vocabulario.html?v=37&amp;vista=favoritos"><img class="sidebar-nav-icon" src="../img/leccion-estrella.png" alt="">Favoritos</a>
         <a href="explora.html?v=9"><img class="sidebar-nav-icon" src="../img/nav-lecturas.png" alt="">Lecturas</a>
         <a href="ejercicios.html?v=17"><img class="sidebar-nav-icon" src="../img/nav-practicar.png" alt="">Practicar</a>
-        <a href="#progreso"><img class="sidebar-nav-icon" src="../img/nav-progreso.png" alt="">Progreso</a>
-        <a href="#favoritos"><img class="sidebar-nav-icon" src="../img/nav-favoritos.png" alt="">Favoritos</a>
       </nav>
 
       <div class="sidebar-note">
@@ -53,10 +52,65 @@
         </div>
       </div>
 
-      <section class="learning-path" id="hsk-one-path" aria-live="polite"></section>
+      <section class="learning-path" id="hsk-one-path" aria-live="polite">
+        <div class="path-heading">
+          <div>
+            <span class="section-label">TU RUTA DE APRENDIZAJE</span>
+            <h2><span id="path-level-name">HSK 1</span> <small id="path-level-stage">初级</small></h2>
+            <p class="path-encouragement">¡Vas genial! Sigue así <span aria-hidden="true">♡</span></p>
+          </div>
+          <div class="overall-progress">
+            <span><strong id="path-progress-percent">0%</strong> completado</span>
+            <div class="progress-illustration" id="progress-illustration" style="--progress-position:0%">
+              <img class="progress-bunny" src="../img/conejo-progreso.png" alt="" aria-hidden="true">
+              <div class="progress-track"><span id="path-progress-bar"></span></div>
+            </div>
+            <span><span id="path-completed-units">0</span> / <span id="path-total-units">0</span> unidades</span>
+          </div>
+        </div>
+
+        <div class="units-carousel">
+          <div class="carousel-controls" aria-label="Navegar por las unidades">
+            <button class="carousel-button carousel-previous" type="button" aria-label="Unidad anterior">←</button>
+            <span>Desliza para ver todas las unidades</span>
+            <button class="carousel-button carousel-next" type="button" aria-label="Unidad siguiente">→</button>
+          </div>
+          <div class="units-grid manual-scroll" id="units-grid"></div>
+        </div>
+
+        <div class="learning-tip">
+          <span class="tip-icon" aria-hidden="true">💡</span>
+          <span>Todas las unidades están desbloqueadas.</span>
+          <span class="tip-arrow" aria-hidden="true">›</span>
+        </div>
+      </section>
     </main>
   </div>
 
-  <script type="module" src="../js/inicio.js?v=34"></script>
+  <template id="hsk-option-template">
+    <button class="hsk-option" type="button" role="option" aria-selected="false">
+      <span class="hsk-option-check" aria-hidden="true">✓</span>
+      <img class="panda-option-icon" src="../img/panda-selector.png" alt="" aria-hidden="true">
+      <span class="hsk-option-name"></span>
+      <span class="hsk-option-end-check" aria-hidden="true">✓</span>
+    </button>
+  </template>
+
+  <template id="unit-card-template">
+    <article class="unit-card">
+      <div class="unit-top">
+        <span class="unit-number"></span>
+        <span class="unit-state"></span>
+      </div>
+      <div class="unit-icon" lang="zh-Hans"></div>
+      <h3 class="unit-title"></h3>
+      <p class="unit-description"></p>
+      <div class="unit-progress"><span></span></div>
+      <span class="unit-percent"></span>
+      <a class="unit-button"></a>
+    </article>
+  </template>
+
+  <script type="module" src="../js/inicio.js?v=39"></script>
 </body>
 </html>
