@@ -128,7 +128,7 @@ function showNextFavorite() {
 
 function returnToVocabulary() {
   if (embedded) {
-    window.parent.postMessage({ type: 'hanzi-hub:close-lesson' }, '*');
+    window.parent.postMessage({ type: 'learnchinese:close-lesson' }, '*');
     return;
   }
 

@@ -328,10 +328,11 @@ function handleVocabularyClick(event) {
 function openInitialView() {
   const parametros = new URLSearchParams(window.location.search);
   if (parametros.get('vista') === 'favoritos') openFavoritesInPanel();
+  if (parametros.get('vista') === 'continuar') openLessonInPanel(elements.continueLearning.href);
 }
 
 function handleLessonMessage(event) {
-  if (event.data?.type !== 'hanzi-hub:close-lesson') return;
+  if (event.data?.type !== 'learnchinese:close-lesson') return;
   const frame = elements.learningMain.querySelector('.embedded-lesson-frame');
   if (frame && event.source === frame.contentWindow) closeLessonPanel();
 }

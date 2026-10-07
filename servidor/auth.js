@@ -122,7 +122,7 @@ router.get('/sesion', (req, res) => {
 
   if (!usuario) {
     return req.session.destroy(() => {
-      res.clearCookie('hanzi.sid');
+      res.clearCookie('learnchinese.sid');
       res.status(401).json({ error: 'No hay una sesión activa' });
     });
   }
@@ -134,7 +134,7 @@ router.post('/logout', (req, res, next) => {
   req.session.destroy((error) => {
     if (error) return next(error);
 
-    res.clearCookie('hanzi.sid', {
+    res.clearCookie('learnchinese.sid', {
       httpOnly: true,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production'

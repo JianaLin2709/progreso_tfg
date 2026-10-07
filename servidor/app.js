@@ -22,7 +22,7 @@ if (!process.env.SESSION_SECRET) {
 app.use(express.json());
 
 app.use(session({
-  name: 'hanzi.sid',
+  name: 'learnchinese.sid',
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
