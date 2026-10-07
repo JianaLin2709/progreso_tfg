@@ -4,6 +4,10 @@ export const unidad7 = {
   hsk: 3,
   id: 7,
   titulo: 'Clima',
+  // Localiza el mapa de tiempos de las grabaciones tomando este archivo como base.
+  audio: {
+    mapa: new URL('../../../audios/hsk3/unidad7/tiempos.json', import.meta.url).href
+  },
   // Lista las palabras: hanzi, pinyin y español, con un ejemplo en los tres formatos.
   vocabulario: [
     {

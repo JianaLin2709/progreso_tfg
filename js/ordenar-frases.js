@@ -1,3 +1,5 @@
+import { obtenerDatosUsuario } from './user-data.js?v=1';
+
 // Define las frases ordenadas y sus pistas para cada dificultad.
 const content = {
   easy: {
@@ -64,7 +66,7 @@ const content = {
 
 // Elige la dificultad de la URL o de la preferencia guardada.
 const difficultyParam = new URLSearchParams(window.location.search).get('dificultad');
-const savedDifficulty = localStorage.getItem('exercise-difficulty');
+const savedDifficulty = (await obtenerDatosUsuario()).preferencias.dificultad;
 const difficulty = Object.hasOwn(content, difficultyParam)
   ? difficultyParam
   : Object.hasOwn(content, savedDifficulty) ? savedDifficulty : 'easy';
@@ -211,8 +213,7 @@ elements.reset.addEventListener('click', () => { if (!state.correct) { state.ans
 // Permite repetir el ejercicio desde la primera frase.
 elements.playAgain.addEventListener('click', restartGame);
 
-// Muestra y guarda la dificultad e inicia el ejercicio.
+// Muestra la dificultad e inicia el ejercicio.
 elements.difficultyBadge.textContent = content[difficulty].label;
 elements.difficultyBadge.dataset.difficulty = difficulty;
-localStorage.setItem('exercise-difficulty', difficulty);
 restartGame();

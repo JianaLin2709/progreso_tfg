@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Hanzi Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/auth.css?v=1">
+</head>
+<body class="auth-page" data-auth-mode="login">
+  <main class="auth-shell form-only">
+    <section class="auth-panel" aria-labelledby="auth-title">
+      <div class="auth-card">
+        <span class="auth-eyebrow">BIENVENIDO DE NUEVO</span>
+        <h2 id="auth-title">Iniciar sesión</h2>
+        <p>Accede a tu cuenta para seguir con los super contenidos.</p>
+
+        <form id="auth-form" novalidate>
+          <label for="email">Alias de usuario</label>
+          <input id="email" name="email" type="text" autocomplete="username" maxlength="64" pattern="[A-Za-z0-9._-]+@learncn\.na" required placeholder="nombre@learncn.na">
+
+          <label for="password">Contraseña</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required placeholder="Tu contraseña">
+
+          <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+          <button class="auth-submit" type="submit">Entrar <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="auth-switch">¿Todavía no tienes cuenta? <a href="registro.html">Crear una cuenta</a></p>
+        <a class="auth-back" href="acceso.html">← Volver</a>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/auth-form.js?v=2"></script>
+</body>
+</html>

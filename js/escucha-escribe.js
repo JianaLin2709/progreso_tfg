@@ -1,50 +1,54 @@
-// Define las frases, las pistas y la velocidad de voz por dificultad.
+import { obtenerDatosUsuario } from './user-data.js?v=1';
+
+const audioPath = (fileName) => new URL(`../audios/ejercicios/escucha-escribe/${fileName}`, import.meta.url).href;
+
+// Define cinco frases y sus grabaciones individuales para cada dificultad.
 const content = {
   easy: {
-    label: 'Fácil', rate: 0.72,
+    label: 'Fácil',
     phrases: [
-      ['我喜欢喝茶。', 'Me gusta beber té.'], ['他是老师。', 'Él es profesor.'],
-      ['今天天气很好。', 'Hoy hace muy buen tiempo.'], ['妈妈在家做饭。', 'Mamá cocina en casa.'],
-      ['我明天去学校。', 'Mañana voy a la escuela.'], ['她有一只小猫。', 'Ella tiene un gato pequeño.'],
-      ['你想吃什么？', '¿Qué quieres comer?'], ['我的朋友住在北京。', 'Mi amigo vive en Pekín.'],
-      ['我们一起学习中文。', 'Estudiamos chino juntos.'], ['爸爸坐地铁去公司。', 'Papá va a la empresa en metro.']
+      ['我喜欢喝茶。', 'Me gusta beber té.', 'facil-01.m4a'],
+      ['他是老师。', 'Él es profesor.', 'facil-02.m4a'],
+      ['今天天气很好。', 'Hoy hace muy buen tiempo.', 'facil-03.m4a'],
+      ['妈妈在家做饭。', 'Mamá cocina en casa.', 'facil-04.m4a'],
+      ['我明天去学校。', 'Mañana voy a la escuela.', 'facil-05.m4a']
     ]
   },
   medium: {
-    label: 'Intermedio', rate: 0.78,
+    label: 'Intermedio',
     phrases: [
-      ['姐姐正在看一本书。', 'Mi hermana mayor está leyendo un libro.'], ['他已经吃过午饭了。', 'Él ya ha comido.'],
-      ['明天可能会下雨。', 'Puede que mañana llueva.'], ['妹妹比我起得早。', 'Mi hermana menor se levanta antes que yo.'],
-      ['请把门关上。', 'Por favor, cierra la puerta.'], ['这本书是朋友送给我的。', 'Este libro me lo regaló un amigo.'],
-      ['虽然很累，但是她没有休息。', 'Aunque estaba cansada, no descansó.'], ['我们坐地铁去博物馆。', 'Vamos al museo en metro.'],
-      ['他一边听音乐一边写作业。', 'Hace los deberes mientras escucha música.'], ['你去过北京几次？', '¿Cuántas veces has estado en Pekín?']
+      ['姐姐正在看一本书。', 'Mi hermana mayor está leyendo un libro.', 'medio-01.m4a'],
+      ['明天可能会下雨。', 'Puede que mañana llueva.', 'medio-02.m4a'],
+      ['爸爸坐地铁去公司。', 'Papá va a la empresa en metro.', 'medio-03.m4a'],
+      ['虽然很累，但是她没有休息。', 'Aunque está muy cansada, no descansa.', 'medio-04.m4a'],
+      ['请把门关上。', 'Por favor, cierra la puerta.', 'medio-05.m4a']
     ]
   },
   hard: {
-    label: 'Difícil', rate: 0.84,
+    label: 'Difícil',
     phrases: [
-      ['如果明天不下雨，我们就去爬山。', 'Si mañana no llueve, iremos a la montaña.'], ['我把昨天买的书放在桌子上了。', 'Puse en la mesa el libro que compré ayer.'],
-      ['他的手机被弟弟弄坏了。', 'Su hermano menor le rompió el móvil.'], ['除了中文以外，她还会说法语。', 'Además de chino, también habla francés.'],
-      ['吃完晚饭以后，我们出去散步了。', 'Después de cenar salimos a pasear.'], ['因为路上堵车，所以他迟到了。', 'Llegó tarde porque había atasco.'],
-      ['这件事情没有你想象得那么简单。', 'Este asunto no es tan sencillo como imaginas.'], ['无论遇到什么困难，都不要放弃。', 'No abandones sin importar qué dificultad encuentres.'],
-      ['老师让我们下课以前交作业。', 'El profesor pidió entregar la tarea antes de acabar la clase.'], ['只有认真练习，才能提高口语水平。', 'Solo practicando seriamente mejora la expresión oral.']
+      ['如果明天下雨，我们就去爬山。', 'Si mañana llueve, iremos a la montaña.', 'dificil-01.m4a'],
+      ['他的手机被弟弟弄坏了。', 'Su hermano menor le rompió el móvil.', 'dificil-02.m4a'],
+      ['吃完晚饭以后，我们出去散步了。', 'Después de cenar salimos a pasear.', 'dificil-03.m4a'],
+      ['这件事情没有你想象的那么简单。', 'Este asunto no es tan sencillo como imaginas.', 'dificil-04.m4a'],
+      ['老师让我们下课以前交作业。', 'El profesor pidió entregar la tarea antes de acabar la clase.', 'dificil-05.m4a']
     ]
   },
   expert: {
-    label: 'Experto', rate: 0.9,
+    label: 'Experto',
     phrases: [
-      ['随着科技的发展，人们的生活发生了巨大变化。', 'Con el desarrollo tecnológico, la vida ha cambiado enormemente.'], ['尽管这个方案存在问题，我们仍然决定继续实施。', 'Aunque el plan tiene problemas, decidimos seguir aplicándolo.'],
-      ['与其浪费时间抱怨，不如想办法解决问题。', 'En vez de perder tiempo quejándose, es mejor buscar una solución.'], ['他之所以取得成功，是因为从未放弃努力。', 'Tuvo éxito porque nunca dejó de esforzarse.'],
-      ['这篇文章不仅观点明确，而且论据十分充分。', 'El artículo tiene ideas claras y argumentos suficientes.'], ['无论结果如何，我们都应该承担自己的责任。', 'Sea cual sea el resultado, debemos asumir nuestra responsabilidad.'],
-      ['经过反复讨论，委员会最终通过了这项提议。', 'Tras debatirlo repetidamente, el comité aprobó la propuesta.'], ['这种现象在一定程度上反映了社会的变化。', 'Este fenómeno refleja en cierta medida los cambios sociales.'],
-      ['如果忽视实际情况，再好的计划也无法实现。', 'Si se ignora la realidad, ni el mejor plan podrá realizarse.'], ['只有充分了解问题以后，才能作出合理判断。', 'Solo después de comprender el problema se puede juzgar razonablemente.']
+      ['随着科技的发展，人们的生活发生了巨大的变化。', 'Con el desarrollo tecnológico, la vida ha cambiado enormemente.', 'experto-01.m4a'],
+      ['与其浪费时间抱怨，不如想办法解决问题。', 'En vez de perder tiempo quejándose, es mejor buscar una solución.', 'experto-02.m4a'],
+      ['这篇文章不仅观点明确，而且论据十分充分。', 'El artículo tiene ideas claras y argumentos suficientes.', 'experto-03.m4a'],
+      ['经过反复讨论，委员会最终通过了这项提议。', 'Tras debatirlo repetidamente, el comité aprobó la propuesta.', 'experto-04.m4a'],
+      ['如果忽视实际情况，再好的计划也无法实现。', 'Si se ignora la realidad, ni el mejor plan podrá realizarse.', 'experto-05.m4a']
     ]
   }
 };
 
 // Selecciona la dificultad solicitada o la guardada en el navegador.
 const parameter = new URLSearchParams(location.search).get('dificultad');
-const saved = localStorage.getItem('exercise-difficulty');
+const saved = (await obtenerDatosUsuario()).preferencias.dificultad;
 const difficulty = Object.hasOwn(content, parameter) ? parameter : Object.hasOwn(content, saved) ? saved : 'easy';
 // Normaliza las respuestas e ignora diferencias de espacios y puntuación.
 function normalize(value) { return value.normalize('NFKC').toLowerCase().replace(/[\s，。！？、,.!?;；:：'“”‘’"-]/g, ''); }
@@ -56,7 +60,7 @@ function segmentChinese(text) {
     .map((part) => part.segment);
 }
 // Prepara las frases del nivel junto con sus casillas de respuesta.
-const phrases = content[difficulty].phrases.map(([text, hint]) => ({ text, hint, words: segmentChinese(text) }));
+const phrases = content[difficulty].phrases.map(([text, hint, audio]) => ({ text, hint, audio: audioPath(audio), words: segmentChinese(text) }));
 // Localiza los controles de reproducción, respuesta y puntuación.
 const elements = {
   card: document.querySelector('#question-card'), listen: document.querySelector('#listen-button'), instruction: document.querySelector('#audio-instruction'), plays: document.querySelector('#play-count'),
@@ -67,11 +71,7 @@ const elements = {
 // Mantiene la pregunta actual, los intentos y los resultados de la sesión.
 const state = { index: 0, score: 0, attempts: 0, playCount: 0, resolved: false, statuses: Array(phrases.length).fill(null) };
 
-
-//MODIFICAR POR GRABACIONES MP3 NO POR LA DEL NAVEGADOR 
-
-// Busca una voz china instalada en el navegador.
-function chineseVoice() { return speechSynthesis.getVoices().find((voice) => /^zh(-|_)/i.test(voice.lang)) || null; }
+const recordedAudio = new Audio();
 // Obtiene las casillas actuales de respuesta.
 function slotInputs() { return [...elements.slots.querySelectorAll('.word-input')]; }
 // Une el contenido de las casillas para comprobar la frase completa.
@@ -89,22 +89,38 @@ function renderDots() { elements.dots.innerHTML = phrases.map((_, index) => `<sp
 // Actualiza el mensaje de respuesta y su estilo.
 function setFeedback(message = '', type = '') { elements.feedback.textContent = message; elements.feedback.className = type ? `is-${type}` : ''; }
 
-// Reproduce la frase con voz sintetizada y actualiza el contador de escuchas.
-function speak() {
-  if (!('speechSynthesis' in window)) { setFeedback('Tu navegador no permite reproducir voz. Prueba con Safari, Chrome o Edge.', 'error'); return; }
-  speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(phrases[state.index].text);
-  utterance.lang = 'zh-CN'; utterance.rate = content[difficulty].rate; utterance.pitch = 1;
-  const voice = chineseVoice(); if (voice) utterance.voice = voice;
-  utterance.onstart = () => { elements.listen.classList.add('is-playing'); elements.instruction.textContent = 'Escucha con atención…'; };
-  utterance.onend = () => { elements.listen.classList.remove('is-playing'); elements.instruction.textContent = 'Pulsa otra vez para repetir la frase'; focusFirstEmpty(); };
-  utterance.onerror = () => { elements.listen.classList.remove('is-playing'); setFeedback('No se pudo reproducir la voz china en este navegador.', 'error'); };
-  speechSynthesis.speak(utterance); state.playCount += 1;
+function setPlayingState(isPlaying) {
+  elements.listen.classList.toggle('is-playing', isPlaying);
+  elements.instruction.textContent = isPlaying ? 'Escucha con atención…' : 'Pulsa otra vez para repetir la frase';
+  if (!isPlaying) focusFirstEmpty();
+}
+
+function stopRecordedPhrase() {
+  recordedAudio.pause();
+  recordedAudio.currentTime = 0;
+  elements.listen.classList.remove('is-playing');
+}
+
+// Reproduce el archivo individual asociado a la pregunta actual.
+async function playRecordedPhrase() {
+  stopRecordedPhrase();
+  recordedAudio.src = phrases[state.index].audio;
+  recordedAudio.onended = () => setPlayingState(false);
+  setPlayingState(true);
+  await recordedAudio.play();
+}
+
+// Reproduce la grabación real de cualquiera de los cuatro niveles.
+async function speak() {
+  try { await playRecordedPhrase(); }
+  catch { setPlayingState(false); setFeedback('No se pudo reproducir la grabación.', 'error'); return; }
+  state.playCount += 1;
   elements.plays.textContent = state.playCount === 1 ? 'Has escuchado la frase una vez.' : `Has escuchado la frase ${state.playCount} veces.`;
 }
 
 // Prepara la siguiente pregunta y reinicia sus intentos y reproducciones.
 function renderQuestion() {
+  stopRecordedPhrase();
   state.attempts = 0; state.playCount = 0; state.resolved = false;
   renderWordSlots();
   elements.check.disabled = true; elements.check.hidden = false; elements.next.hidden = true;
@@ -155,13 +171,13 @@ elements.check.addEventListener('click', checkAnswer);
 elements.hint.addEventListener('click', () => setFeedback(`Pista: ${phrases[state.index].hint}`, ''));
 // Avanza de pregunta o muestra el resultado final.
 elements.next.addEventListener('click', () => {
-  if (state.index === phrases.length - 1) { if ('speechSynthesis' in window) speechSynthesis.cancel(); elements.card.hidden = true; elements.dots.hidden = true; elements.completion.hidden = false; elements.finalScore.textContent = state.score; return; }
+  if (state.index === phrases.length - 1) { stopRecordedPhrase(); elements.card.hidden = true; elements.dots.hidden = true; elements.completion.hidden = false; elements.finalScore.textContent = state.score; return; }
   state.index += 1; renderQuestion();
 });
 // Reinicia la sesión, la puntuación y los indicadores.
 elements.restart.addEventListener('click', () => { state.index = 0; state.score = 0; state.statuses.fill(null); elements.score.textContent = '0'; elements.completion.hidden = true; elements.card.hidden = false; elements.dots.hidden = false; renderQuestion(); });
-// Cancela la voz al abandonar la página.
-window.addEventListener('beforeunload', () => { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
-// Muestra y guarda la dificultad e inicia la primera pregunta.
+// Detiene la grabación al abandonar la página.
+window.addEventListener('beforeunload', stopRecordedPhrase);
+// Muestra la dificultad e inicia la primera pregunta.
 elements.badge.textContent = content[difficulty].label; elements.badge.dataset.difficulty = difficulty;
-localStorage.setItem('exercise-difficulty', difficulty); renderQuestion();
+renderQuestion();

@@ -1,14 +1,16 @@
 :root {
-  --green-950: #123c25;
-  --green-800: #1d6a39;
-  --green-600: #42934c;
-  --green-100: #edf5e9;
-  --ink: #1d2c24;
-  --muted: #6c7971;
-  --line: #e0e6df;
+  --green-950: #4b2925;
+  --green-800: #dc5874;
+  --green-600: #f37d98;
+  --green-100: #fff0f3;
+  --ink: #4b2925;
+  --muted: #79554e;
+  --line: #efd7cf;
 }
 
 .sentence-dashboard .sentence-game {
+  width: 100%;
+  max-width: none;
   height: 100%;
   min-height: 0;
   margin: 0;
@@ -31,7 +33,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background: radial-gradient(circle at 50% 0, #fff 0, #fbfaf7 48%, #f5f7f2 100%);
+  background: linear-gradient(145deg, #fdfbf8, #f8f6f1);
   font-family: "Nunito", sans-serif;
 }
 button, a { font: inherit; }
@@ -45,30 +47,31 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 25px;
 }
-.back-link { display: flex; align-items: center; gap: 10px; color: #31473a; font-size: 18px; font-weight: 800; }
+.back-link { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 18px; font-weight: 800; }
 .back-link span { font-size: 32px; line-height: 1; }
 .back-link:hover { color: var(--green-800); }
 .title-copy { text-align: center; }
 .eyebrow { color: var(--green-600); font-size: 12px; font-weight: 900; letter-spacing: 1.4px; }
-.title-copy h1 { margin: 5px 0 6px; color: #102c1c; font-size: clamp(34px, 4vw, 52px); line-height: 1.1; }
+.title-copy h1 { margin: 5px 0 6px; color: var(--ink); font-size: clamp(34px, 4vw, 52px); line-height: 1.1; }
 .title-copy p { margin: 0; color: var(--muted); font-size: clamp(16px, 2vw, 21px); }
 .score-card {
-  min-height: 96px;
-  padding: 17px 20px;
+  width: 110px;
+  min-width: 110px;
+  min-height: 0;
+  padding: 9px 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  justify-self: end;
   gap: 15px;
   border: 1px solid var(--line);
-  border-radius: 21px;
+  border-radius: 13px;
   background: rgba(255,255,255,.88);
-  box-shadow: 0 8px 24px rgba(35,55,42,.08);
+  box-shadow: 0 5px 16px rgba(35,55,42,.08);
 }
-.score-star { color: #e4a934; font-size: 45px; line-height: 1; }
-.score-card > span:last-child { display: flex; flex-direction: column; }
 .score-card small { color: #637067; font-size: 14px; }
-.score-card strong { color: #d89a25; font-size: 29px; line-height: 1.1; }
-.difficulty-badge { min-width: 82px; padding: 8px 13px; border-radius: 99px; color: #fff; background: var(--green-800); font-weight: 900; text-align: center; }
+.score-card strong { color: #d89a25; font-size: 24px; line-height: 1.1; }
+.difficulty-badge { min-width: 82px; padding: 8px 13px; border-radius: 99px; color: #fff; background: #1d5c31; font-weight: 900; text-align: center; }
 .difficulty-badge[data-difficulty="medium"] { background: #d99a20; }
 .difficulty-badge[data-difficulty="hard"] { background: #d95248; }
 .difficulty-badge[data-difficulty="expert"] { background: #6b5bd0; }
@@ -85,7 +88,7 @@ a { color: inherit; text-decoration: none; }
 .progress-row { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 30px; }
 .progress-row strong { color: #45564b; font-size: 17px; }
 .progress-track { height: 9px; border-radius: 99px; background: #e7ebe6; overflow: hidden; }
-.progress-track span { display: block; width: 10%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #2e8a49, #56af62); transition: width .35s ease; }
+.progress-track span { display: block; width: 10%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #dc5874, #f37d98); transition: width .35s ease; }
 
 .word-bank { min-height: 130px; margin: 54px 0 35px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; }
 .sentence-token {
@@ -96,7 +99,7 @@ a { color: inherit; text-decoration: none; }
   place-items: center;
   border: 1px solid #dce3dc;
   border-radius: 18px;
-  color: #16351f;
+  color: var(--ink);
   background: #fff;
   font: 700 31px "Noto Sans SC", sans-serif;
   cursor: grab;
@@ -104,7 +107,7 @@ a { color: inherit; text-decoration: none; }
   transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   touch-action: manipulation;
 }
-.sentence-token:hover { transform: translateY(-3px); border-color: #9cbea1; box-shadow: 0 11px 24px rgba(34,75,44,.12); }
+.sentence-token:hover { transform: translateY(-3px); border-color: #efa2b2; box-shadow: 0 11px 24px rgba(220,88,116,.12); }
 .sentence-token:active { cursor: grabbing; }
 .sentence-token.dragging { opacity: .45; }
 .drop-label { display: flex; align-items: center; gap: 20px; color: #78857d; font-size: 16px; font-weight: 800; }
@@ -121,9 +124,9 @@ a { color: inherit; text-decoration: none; }
   border-radius: 16px;
   background: #fbfcfa;
 }
-.answer-slot.has-token { border-style: solid; border-color: #bad0bd; background: #f4f8f1; }
+.answer-slot.has-token { border-style: solid; border-color: #efb7c3; background: #fff5f7; }
 .answer-slot .sentence-token { width: 100%; min-width: 0; min-height: 100%; border: 0; box-shadow: none; background: transparent; }
-.answer-slot.is-over { border-color: var(--green-600); background: #eef7eb; }
+.answer-slot.is-over { border-color: var(--green-600); background: var(--green-100); }
 .game-feedback { min-height: 28px; margin: 19px 0 0; color: #66736a; font-size: 16px; font-weight: 800; text-align: center; }
 .game-card.is-correct .answer-slot { border-color: #71b67a; background: #edf8eb; }
 .game-card.is-wrong .answer-zone { animation: shake .34s ease; }
@@ -145,7 +148,7 @@ a { color: inherit; text-decoration: none; }
 .action-button { min-height: 58px; padding: 0 24px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 14px; font-weight: 900; cursor: pointer; }
 .hint-button { justify-self: start; border: 1px solid #dbe4d9; color: var(--green-800); background: #fff; }
 .reset-button { justify-self: center; border: 0; color: #748078; background: transparent; }
-.check-button { min-width: 210px; justify-self: end; border: 0; color: #fff; background: linear-gradient(135deg, #1c713a, #2d9950); box-shadow: 0 8px 18px rgba(29,106,57,.2); }
+.check-button { min-width: 210px; justify-self: end; border: 0; color: #fff; background: linear-gradient(135deg, #dc5874, #f37d98); box-shadow: 0 8px 18px rgba(220,88,116,.2); }
 .check-button:disabled { color: #949f97; background: #e8ece7; box-shadow: none; cursor: not-allowed; }
 .action-button:not(:disabled):hover { transform: translateY(-2px); }
 
@@ -162,21 +165,29 @@ a { color: inherit; text-decoration: none; }
 @keyframes shake { 25% { transform: translateX(-7px); } 50% { transform: translateX(7px); } 75% { transform: translateX(-4px); } }
 
 @media (max-width: 900px) {
-  .game-heading { grid-template-columns: auto 1fr auto; }
+  .sentence-dashboard .game-heading { grid-template-columns: auto 1fr auto; }
   .back-link { font-size: 0; }
   .back-link span { font-size: 32px; }
-  .score-card { min-width: 130px; }
+  .score-card { width: 110px; min-width: 110px; }
   .game-card { padding-inline: 30px; }
   .answer-zone { flex-wrap: wrap; }
   .answer-slot { flex: 0 1 130px; }
 }
 
+@media (max-width: 1100px) {
+  .game-heading { grid-template-columns: 140px minmax(0,1fr) 120px; gap: 12px; }
+  .game-card { min-height: 520px; padding: 30px 28px; }
+  .word-bank { margin-top: 38px; gap: 12px; }
+  .sentence-token { min-width: 105px; min-height: 76px; padding: 12px 17px; font-size: 26px; }
+  .answer-zone { flex-wrap: wrap; }
+  .answer-slot { min-width: 95px; min-height: 84px; flex: 0 1 120px; }
+}
+
 @media (max-width: 620px) {
   .sentence-game { width: min(100% - 24px, 1320px); margin-top: 18px; }
-  .game-heading { grid-template-columns: auto 1fr; gap: 12px; }
+  .sentence-dashboard .game-heading { grid-template-columns: auto 1fr; gap: 12px; }
   .title-copy { grid-column: 1 / -1; grid-row: 2; }
-  .score-card { min-height: 68px; padding: 10px 13px; }
-  .score-star { font-size: 31px; }
+  .score-card { width: 110px; min-width: 110px; min-height: 0; padding: 9px 16px; }
   .score-card strong { font-size: 23px; }
   .game-card { min-height: 520px; padding: 25px 15px; border-radius: 20px; }
   .progress-row { grid-template-columns: 1fr; gap: 10px; }

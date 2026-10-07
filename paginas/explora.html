@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/inicio.css?v=37">
-  <link rel="stylesheet" href="../css/explora.css?v=5">
+  <link rel="stylesheet" href="../css/explora.css?v=9">
 </head>
 <body class="dashboard-page readings-dashboard">
   <div class="app-shell">
@@ -60,7 +60,6 @@
 
       <section class="reading-detail" id="reading-detail-view" hidden>
         <div class="detail-topbar">
-          <a class="back-to-readings" href="explora.html?v=9"><span aria-hidden="true">←</span> Volver a todas las lecturas</a>
           <div class="reading-controls" aria-label="Controles de lectura">
             <div class="font-controls" aria-label="Tamaño del texto">
               <button type="button" data-font="decrease" aria-label="Reducir texto">A−</button>
@@ -79,6 +78,10 @@
                 <h1 id="article-title" lang="zh-Hans"></h1>
                 <p class="article-title-pinyin pinyin-content" id="article-title-pinyin"></p>
               </div>
+              <button class="reading-audio" id="reading-audio" type="button" aria-label="Escuchar audio de la lectura">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"></path><path d="M16 9.5a4 4 0 0 1 0 5M18.5 7a7.5 7.5 0 0 1 0 10"></path></svg>
+                <span>Escuchar lectura</span>
+              </button>
             </div>
             <div class="article-meta" id="article-meta"></div>
           </header>
@@ -91,6 +94,7 @@
       </section>
     </main>
   </div>
-  <script type="module" src="../js/explora.js?v=12"></script>
+  <script type="module" src="../js/explora.js?v=14"></script>
+  <script type="module" src="../js/session-ui.js?v=1"></script>
 </body>
 </html>

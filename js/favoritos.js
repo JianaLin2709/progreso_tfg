@@ -2,6 +2,7 @@
 // **********************************************************
 
 import { catalogoHSK } from './datos/catalogo-hsk.js?v=24';
+import { eliminarFavorito, obtenerDatosUsuario } from './user-data.js?v=1';
 
 
 // 2. CONFIGURACIÓN
@@ -39,6 +40,7 @@ const elements = {
 
 let favoriteWords = [];
 let currentIndex = 0;
+const userData = await obtenerDatosUsuario();
 
 
 // 5. FUNCIONES
@@ -46,17 +48,15 @@ let currentIndex = 0;
 
 function getFavoriteWords() {
   const result = [];
+  const savedFavorites = new Set(
+    userData.favoritos.map((item) => `${item.hsk}:${item.unidad}:${item.palabra}`)
+  );
 
   catalogoHSK.forEach((level) => {
     level.unidades.forEach((unit) => {
-      const storageKey = `hsk${level.id}-unit${unit.id}`;
-      const savedWords = JSON.parse(
-        localStorage.getItem(`${storageKey}-favorites`) || '[]'
-      );
-
       unit.vocabulario.forEach((word) => {
-        if (savedWords.includes(word.hanzi)) {
-          result.push({ ...word, storageKey });
+        if (savedFavorites.has(`${level.id}:${unit.id}:${word.hanzi}`)) {
+          result.push({ ...word, hsk: level.id, unidad: unit.id });
         }
       });
     });
@@ -99,25 +99,21 @@ function renderFavorite() {
   elements.favorite.classList.add('active');
 }
 
-function removeCurrentFavorite() {
+async function removeCurrentFavorite() {
   const word = favoriteWords[currentIndex];
-  const savedWords = JSON.parse(
-    localStorage.getItem(`${word.storageKey}-favorites`) || '[]'
-  );
-  const updatedWords = savedWords.filter((hanzi) => hanzi !== word.hanzi);
+  elements.favorite.disabled = true;
+  try {
+    await eliminarFavorito(word.hsk, word.unidad, word.hanzi);
+    favoriteWords.splice(currentIndex, 1);
 
-  localStorage.setItem(
-    `${word.storageKey}-favorites`,
-    JSON.stringify(updatedWords)
-  );
+    if (currentIndex >= favoriteWords.length) {
+      currentIndex = Math.max(0, favoriteWords.length - 1);
+    }
 
-  favoriteWords.splice(currentIndex, 1);
-
-  if (currentIndex >= favoriteWords.length) {
-    currentIndex = Math.max(0, favoriteWords.length - 1);
+    renderFavorite();
+  } finally {
+    elements.favorite.disabled = false;
   }
-
-  renderFavorite();
 }
 
 function showPreviousFavorite() {

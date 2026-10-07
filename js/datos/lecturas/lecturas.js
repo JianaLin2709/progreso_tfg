@@ -2,7 +2,7 @@
 import { lecturaCompras } from './lectura-compras.js?v=3';
 import { lecturaMedico } from './lectura-medico.js?v=2';
 import { lecturaViaje } from './lectura-viaje.js?v=2';
-import { lecturaMedioambiente } from './lectura-medioambiente.js?v=2';
+import { lecturaMedioambiente } from './lectura-medioambiente.js?v=3';
 
 // Reúne las lecturas disponibles, empezando por el texto de la clase.
 export const lecturas = [

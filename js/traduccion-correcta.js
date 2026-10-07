@@ -1,3 +1,5 @@
+import { obtenerDatosUsuario } from './user-data.js?v=1';
+
 // Define las preguntas: original, idioma, traducción, validez y corrección del error.
 const sets = {
   easy: [
@@ -54,7 +56,8 @@ const sets = {
 const labels={easy:'Fácil',medium:'Medio',hard:'Difícil',expert:'Experto'};
 // Elige la dificultad de la URL o de la preferencia guardada.
 const param=new URLSearchParams(location.search).get('dificultad');
-const difficulty=Object.hasOwn(sets,param)?param:Object.hasOwn(sets,localStorage.getItem('exercise-difficulty'))?localStorage.getItem('exercise-difficulty'):'easy';
+const savedDifficulty=(await obtenerDatosUsuario()).preferencias.dificultad;
+const difficulty=Object.hasOwn(sets,param)?param:Object.hasOwn(sets,savedDifficulty)?savedDifficulty:'easy';
 // Convierte los datos de cada pregunta en propiedades con nombre.
 const questions=sets[difficulty].map(([original,from,words,valid,wrongIndex,replacement])=>({original,from,words,valid,wrongIndex,replacement}));
 // Localiza los textos, las opciones y los indicadores del ejercicio.

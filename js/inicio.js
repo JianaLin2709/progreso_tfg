@@ -2,6 +2,7 @@
 // 1. Importaciones
 //============================================================
 import { catalogoHSK } from './datos/catalogo-hsk.js?v=20';
+import { guardarPreferencias, obtenerDatosUsuario } from './user-data.js?v=1';
 
 //============================================================
 // 2. Configuración y constantes
@@ -46,6 +47,7 @@ const elements = {
 // 4. Estado
 //============================================================
 let visibleIndex = 0;
+let userData = await obtenerDatosUsuario();
 
 //============================================================
 // 5. Funciones
@@ -53,16 +55,17 @@ let visibleIndex = 0;
 
 // Progreso
 function getInitialHsk() {
-  const savedHsk = Number(localStorage.getItem('current-hsk'));
+  const savedHsk = Number(userData.preferencias.hskActual);
   return catalogoHSK.some((level) => level.id === savedHsk) ? savedHsk : catalogoHSK[0].id;
 }
 
-function getUnitProgress(storageKey, wordCount) {
-  const savedPosition = localStorage.getItem(`${storageKey}-position`);
-  const completed = localStorage.getItem(`${storageKey}-completed`) === 'true';
+function getUnitProgress(hsk, unidad, wordCount) {
+  const saved = userData.progreso.find((item) => item.hsk === hsk && item.unidad === unidad);
+  const savedPosition = saved?.posicion;
+  const completed = saved?.completada === true;
   const wordsSeen = completed
     ? wordCount
-    : savedPosition === null
+    : savedPosition === undefined
       ? 0
       : Math.min(Math.max(Number(savedPosition) + 1, 0), wordCount);
 
@@ -76,7 +79,7 @@ function getUnitProgress(storageKey, wordCount) {
 function getLevelProgress(level) {
   const units = level.unidades.map((unit) => ({
     unit,
-    ...getUnitProgress(`hsk${level.id}-unit${unit.id}`, unit.vocabulario.length)
+    ...getUnitProgress(level.id, unit.id, unit.vocabulario.length)
   }));
   const totalWords = units.reduce((total, item) => total + item.unit.vocabulario.length, 0);
   const wordsSeen = units.reduce((total, item) => total + item.wordsSeen, 0);
@@ -170,11 +173,12 @@ function renderHskOptions() {
   elements.options.replaceChildren(fragment);
 }
 
-function showHsk(hskId) {
+function showHsk(hskId, persist = true) {
   const level = catalogoHSK.find((item) => item.id === hskId);
   if (!level) return;
 
-  localStorage.setItem('current-hsk', String(level.id));
+  userData.preferencias.hskActual = level.id;
+  if (persist) guardarPreferencias({ hskActual: level.id }).catch(console.error);
   elements.selectedLabel.textContent = level.nombre;
   elements.path.hidden = false;
   elements.options.querySelectorAll('.hsk-option').forEach((option) => {
@@ -265,7 +269,7 @@ function openLessonInPanel(href) {
   frame.src = lessonUrl.href;
 }
 
-function closeLessonPanel() {
+async function closeLessonPanel() {
   elements.learningMain.querySelector('.embedded-lesson-frame')?.remove();
   elements.levelSwitcher.hidden = false;
   elements.path.hidden = false;
@@ -276,7 +280,8 @@ function closeLessonPanel() {
   currentUrl.searchParams.delete('vista');
   window.history.replaceState({}, '', currentUrl);
 
-  showHsk(getInitialHsk());
+  userData = await obtenerDatosUsuario(true);
+  showHsk(getInitialHsk(), false);
 }
 
 function openFavoritesInPanel() {
@@ -353,5 +358,5 @@ window.addEventListener('message', handleLessonMessage);
 // 7. Llamadas iniciales
 //============================================================
 renderHskOptions();
-showHsk(getInitialHsk());
+showHsk(getInitialHsk(), false);
 openInitialView();

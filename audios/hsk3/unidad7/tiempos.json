@@ -1,0 +1,43 @@
+{
+  "archivo": "leccion.m4a",
+  "unidadTiempo": "segundos",
+  "duracion": 61.696,
+  "entradas": {
+    "晴天": {
+      "palabra": { "texto": "晴天", "inicio": 0, "fin": 1.5 },
+      "ejemplo": { "texto": "晴天我们一起去公园吧。", "inicio": 2.8, "fin": 5.4 }
+    },
+    "阴天": {
+      "palabra": { "texto": "阴天", "inicio": 8, "fin": 9 },
+      "ejemplo": { "texto": "今天是阴天，看不见太阳。", "inicio": 11, "fin": 14 }
+    },
+    "下雨天": {
+      "palabra": { "texto": "下雨天", "inicio": 16.6, "fin": 17.7 },
+      "ejemplo": { "texto": "下雨天出门要带伞。", "inicio": 19, "fin": 21 }
+    },
+    "雾": {
+      "palabra": { "texto": "雾", "inicio": 23.6, "fin": 24.3 },
+      "ejemplo": { "texto": "早上雾很大，开车要小心。", "inicio": 25.8, "fin": 29.1 }
+    },
+    "风": {
+      "palabra": { "texto": "风", "inicio": 31.45, "fin": 32.13 },
+      "ejemplo": { "texto": "今天风很大，别开窗户。", "inicio": 33, "fin": 35.3 }
+    },
+    "春天": {
+      "palabra": { "texto": "春天", "inicio": 37.5, "fin": 39 },
+      "ejemplo": { "texto": "春天公园里开满了花。", "inicio": 39.6, "fin": 41.5 }
+    },
+    "夏天": {
+      "palabra": { "texto": "夏天", "inicio": 44.3, "fin": 45.4 },
+      "ejemplo": { "texto": "夏天我们常常去海边游泳。", "inicio": 46, "fin": 48.5 }
+    },
+    "秋天": {
+      "palabra": { "texto": "秋天", "inicio": 51.14, "fin": 52.1 },
+      "ejemplo": { "texto": "秋天的天气很凉快。", "inicio": 52.8, "fin": 54.6 }
+    },
+    "冬天": {
+      "palabra": { "texto": "冬天", "inicio": 57.8, "fin": 58.66 },
+      "ejemplo": { "texto": "北京的冬天非常冷。", "inicio": 59.1, "fin": 61.04 }
+    }
+  }
+}

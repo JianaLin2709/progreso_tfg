@@ -13,10 +13,14 @@
   background: rgba(255, 253, 249, .96);
   box-shadow: 0 10px 24px rgba(112, 72, 50, .09);
 }
-.observation-header { padding-bottom: 18px; border-bottom: 1px solid #f0cfc7; }
+.observation-header { position: relative; padding-bottom: 18px; border-bottom: 1px solid #f0cfc7; }
+.exercise-back-link { margin-bottom: 12px; display: inline-flex; align-items: center; gap: 9px; color: #4b2925; font-size: 18px; font-weight: 900; text-decoration: none; }
+.exercise-back-link span { font-size: 32px; line-height: 1; }
+.exercise-back-link:hover { color: #ed6c88; }
+.exercise-eyebrow { position: absolute; top: 10px; left: 50%; display: block; margin: 0; color: #f37d98; font-size: 12px; font-weight: 900; letter-spacing: 1.4px; text-align: center; white-space: nowrap; transform: translateX(-50%); }
 .observation-header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: #76534d; font-size: 14px; }
 .observation-header nav a, .observation-header nav span { color: #ed6c88; }
-.observation-title-row { margin-top: 22px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.observation-title-row { margin-top: 10px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
 .observation-title-row h1 { margin: 0; color: #391916; font-size: clamp(36px, 4vw, 54px); line-height: 1; }
 .observation-title-row p { margin: 8px 0 0; color: #76524b; font-size: 18px; }
 .observation-progress { width: 190px; flex: 0 0 190px; padding: 10px 17px; border: 1px solid #efd0c3; border-radius: 17px; text-align: center; }

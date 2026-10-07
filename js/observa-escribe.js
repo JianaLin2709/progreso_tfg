@@ -142,8 +142,6 @@ function completeSceneIfReady() {
   feedback.classList.add('is-success');
   successCard.hidden = false;
   hotspotLayer.querySelectorAll('.object-hotspot').forEach((hotspot) => { hotspot.disabled = true; });
-  localStorage.setItem(`observation-scene-${sceneIndex + 1}-completed`, 'true');
-  if (sceneIndex === scenes.length - 1) localStorage.setItem('observation-exercise-completed', 'true');
   successCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 

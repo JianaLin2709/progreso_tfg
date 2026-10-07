@@ -1,8 +1,15 @@
 // 1. IMPORTACIONES
 // **********************************************************
 
-import { catalogoHSK, obtenerUnidad } from './datos/catalogo-hsk.js?v=24';
+import { catalogoHSK, obtenerUnidad } from './datos/catalogo-hsk.js?v=25';
 import { prepararAudioUnidad } from './audio-unidad.js?v=3';
+import {
+  añadirFavorito,
+  eliminarFavorito,
+  guardarPreferencias,
+  guardarProgreso,
+  obtenerDatosUsuario
+} from './user-data.js?v=1';
 
 
 // 2. CONFIGURACIÓN DE LA LECCIÓN
@@ -24,7 +31,6 @@ if (!vocabulary.length) {
   throw new Error(`La unidad ${unidadActual.id} de HSK ${unidadActual.hsk} todavía no tiene vocabulario.`);
 }
 
-const storageKey = `hsk${unidadActual.hsk}-unit${unidadActual.id}`;
 const currentLevelIndex = catalogoHSK.findIndex((hsk) => hsk.id === unidadActual.hsk);
 const currentLevel = catalogoHSK[currentLevelIndex];
 const currentUnitIndex = currentLevel.unidades.findIndex((unit) => unit.id === unidadActual.id);
@@ -75,25 +81,18 @@ const elements = {
 // 4. ESTADO DE LA LECCIÓN
 // **********************************************************
 
-let currentIndex = Number(localStorage.getItem(`${storageKey}-position`)) || 0;
+const userData = await obtenerDatosUsuario();
+const savedProgress = userData.progreso.find(
+  (item) => item.hsk === unidadActual.hsk && item.unidad === unidadActual.id
+);
+let currentIndex = Number(savedProgress?.posicion) || 0;
 currentIndex = Math.min(Math.max(currentIndex, 0), vocabulary.length - 1);
-
-function loadFavorites() {
-  try {
-    const savedFavorites = JSON.parse(
-      localStorage.getItem(`${storageKey}-favorites`) || '[]'
-    );
-
-    return new Set(Array.isArray(savedFavorites) ? savedFavorites : []);
-  } catch {
-    // Una versión anterior pudo dejar datos incompletos. No deben impedir
-    // que se inicialicen los controles de navegación de la lección.
-    localStorage.removeItem(`${storageKey}-favorites`);
-    return new Set();
-  }
-}
-
-const favorites = loadFavorites();
+let unitCompleted = savedProgress?.completada === true;
+const favorites = new Set(
+  userData.favoritos
+    .filter((item) => item.hsk === unidadActual.hsk && item.unidad === unidadActual.id)
+    .map((item) => item.palabra)
+);
 
 const audioUnidad = prepararAudioUnidad(unidadActual, () => currentIndex);
 
@@ -137,17 +136,23 @@ function renderLesson(animate = false) {
       isFavorite ? 'Quitar de favoritos' : 'Añadir a favoritos'
     );
 
-    localStorage.setItem(`${storageKey}-position`, String(currentIndex));
+    guardarProgreso(unidadActual.hsk, unidadActual.id, {
+      posicion: currentIndex,
+      completada: unitCompleted
+    }).catch(console.error);
     elements.wordCard.classList.remove('is-changing');
     elements.exampleCard.classList.remove('is-changing');
   }, animate ? 160 : 0);
 }
 
-function showCompletion() {
-  localStorage.setItem(`${storageKey}-completed`, 'true');
+async function showCompletion() {
+  unitCompleted = true;
+  await guardarProgreso(unidadActual.hsk, unidadActual.id, {
+    posicion: currentIndex,
+    completada: true
+  });
 
   if (isLastUnitOfLevel && nextLevel) {
-    localStorage.setItem(`hsk${unidadActual.hsk}-completed`, 'true');
     elements.completionTitle.textContent = `¡Has completado ${currentLevel.nombre}!`;
     elements.completionMessage.textContent = '¿Quieres seguir repasando este nivel o avanzar al siguiente?';
     if (elements.unitActions) elements.unitActions.hidden = true;
@@ -181,13 +186,13 @@ function returnToVocabulary() {
   window.location.href = './vocabulario.html?v=37';
 }
 
-function openNextLevel() {
+async function openNextLevel() {
   if (!nextLevel) return;
 
   const firstUnit = nextLevel.unidades[0];
   const embeddedParameter = embedded ? '&embed=1' : '';
 
-  localStorage.setItem('current-hsk', String(nextLevel.id));
+  await guardarPreferencias({ hskActual: nextLevel.id });
   window.location.href = `./leccion.html?hsk=${nextLevel.id}&unidad=${firstUnit.id}${embeddedParameter}`;
 }
 
@@ -204,7 +209,7 @@ function handlePreviousClick() {
   }
 }
 
-function handleNextClick() {
+async function handleNextClick() {
   audioUnidad.detener();
 
   if (currentIndex < vocabulary.length - 1) {
@@ -213,7 +218,7 @@ function handleNextClick() {
     return;
   }
 
-  showCompletion();
+  await showCompletion();
 }
 
 function handleRestartClick() {
@@ -226,22 +231,27 @@ function handleRestartClick() {
   renderLesson();
 }
 
-function handleReviewHskClick() {
-  localStorage.setItem('current-hsk', String(unidadActual.hsk));
+async function handleReviewHskClick() {
+  await guardarPreferencias({ hskActual: unidadActual.hsk });
   returnToVocabulary();
 }
 
-function handleFavoriteClick() {
+async function handleFavoriteClick() {
   const word = vocabulary[currentIndex].hanzi;
+  elements.favorite.disabled = true;
 
-  if (favorites.has(word)) {
-    favorites.delete(word);
-  } else {
-    favorites.add(word);
+  try {
+    if (favorites.has(word)) {
+      await eliminarFavorito(unidadActual.hsk, unidadActual.id, word);
+      favorites.delete(word);
+    } else {
+      await añadirFavorito(unidadActual.hsk, unidadActual.id, word);
+      favorites.add(word);
+    }
+    renderLesson();
+  } finally {
+    elements.favorite.disabled = false;
   }
-
-  localStorage.setItem(`${storageKey}-favorites`, JSON.stringify([...favorites]));
-  renderLesson();
 }
 
 
@@ -262,10 +272,6 @@ function addEventListeners() {
 // 8. INICIALIZACIÓN
 // **********************************************************
 
-function saveCurrentLevel() {
-  localStorage.setItem('current-hsk', String(unidadActual.hsk));
-}
-
 function initializeLessonInformation() {
   elements.body.classList.toggle('is-embedded', embedded);
   elements.courseHsk.textContent = currentLevel.nombre;
@@ -274,11 +280,11 @@ function initializeLessonInformation() {
   if (elements.nextUnit) elements.nextUnit.hidden = !nextUnit;
 }
 
-function initializeLesson() {
-  saveCurrentLevel();
+async function initializeLesson() {
+  await guardarPreferencias({ hskActual: unidadActual.hsk });
   initializeLessonInformation();
   addEventListeners();
   renderLesson();
 }
 
-initializeLesson();
+await initializeLesson();

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/inicio.css?v=37">
-  <link rel="stylesheet" href="../css/memoria.css?v=7">
+  <link rel="stylesheet" href="../css/memoria.css?v=10">
 </head>
 <body class="dashboard-page memory-dashboard">
   <div class="app-shell">
@@ -32,8 +32,12 @@
 
     <main class="learning-main memory-panel">
       <header class="memory-heading">
-        <nav aria-label="Ruta de navegación"><a href="ejercicios.html?v=19">Practicar</a><span>›</span><strong>Memoria visual</strong></nav>
-        <h1>Memoria visual: empareja chino y español</h1>
+        <a class="exercise-back-link" href="ejercicios.html?v=19" aria-label="Volver a ejercicios"><span aria-hidden="true">←</span> Volver</a>
+        <span class="exercise-eyebrow">记忆 · MEMORIA</span>
+        <div class="memory-title-row">
+          <h1>Memoria visual: empareja chino y español</h1>
+          <span class="memory-difficulty" id="difficulty-badge">Fácil</span>
+        </div>
         <p>Memoriza la posición de cada carta y encuentra las parejas correctas.</p>
         <img class="memory-header-bunny" src="../img/memoria-conejo-asomandose.png" alt="" aria-hidden="true">
       </header>
@@ -71,6 +75,6 @@
     </main>
   </div>
 
-  <script type="module" src="../js/memoria.js?v=6"></script>
+  <script type="module" src="../js/memoria.js?v=7"></script>
 </body>
 </html>

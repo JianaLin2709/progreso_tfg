@@ -9,6 +9,7 @@ export const lecturaMedioambiente = {
   dificultad: 'Difícil',
   categoria: 'Medioambiente',
   resumen: '保护环境可以从生活中的小事做起，比如少用一次性餐具和塑料袋，随手关灯、关水龙头。',
+  audio: new URL('../../../audios/lecturas/medioambiente.m4a', import.meta.url).href,
   // Relaciona las palabras y expresiones chinas con el pinyin mostrado sobre el texto.
   pinyinTexto: {
     '环保从小事做起': 'huánbǎo cóng xiǎoshì zuò qǐ',

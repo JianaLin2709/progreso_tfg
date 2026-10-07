@@ -1,5 +1,5 @@
 // Importa las lecturas y la función para buscarlas por identificador.
-import { lecturas, obtenerLectura } from './datos/lecturas/lecturas.js?v=8';
+import { lecturas, obtenerLectura } from './datos/lecturas/lecturas.js?v=9';
 
 // Localiza la lista, el detalle y los filtros de lectura.
 const listView = document.querySelector('#reading-list-view');
@@ -111,6 +111,30 @@ function renderDetail(lectura) {
   document.querySelector('#article-meta').innerHTML = `
     <span>${lectura.dificultad}</span><span>${lectura.categoria}</span>
   `;
+  const audioButton = document.querySelector('#reading-audio');
+  if (lectura.audio) {
+    const audio = new Audio(lectura.audio);
+    const updateAudioButton = (playing) => {
+      audioButton.classList.toggle('is-playing', playing);
+      audioButton.setAttribute('aria-label', playing ? 'Pausar audio de la lectura' : 'Escuchar audio de la lectura');
+      audioButton.querySelector('span').textContent = playing ? 'Pausar' : 'Escuchar lectura';
+    };
+    audioButton.addEventListener('click', async () => {
+      if (audio.paused) {
+        try { await audio.play(); updateAudioButton(true); }
+        catch { updateAudioButton(false); }
+      } else {
+        audio.pause(); updateAudioButton(false);
+      }
+    });
+    audio.addEventListener('ended', () => { audio.currentTime = 0; updateAudioButton(false); });
+    window.addEventListener('pagehide', () => audio.pause());
+  } else {
+    audioButton.disabled = true;
+    audioButton.setAttribute('aria-label', 'Audio todavía no disponible');
+    audioButton.title = 'Audio todavía no disponible';
+    audioButton.querySelector('span').textContent = 'Audio no disponible';
+  }
   document.querySelector('#reading-copy').innerHTML = lectura.parrafos.map((parrafo) => `
     <section class="reading-paragraph">
       <p class="chinese-text" lang="zh-Hans">${renderRubyText(parrafo.chino, lectura)}</p>

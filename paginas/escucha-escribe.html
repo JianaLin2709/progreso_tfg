@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/inicio.css?v=39">
-  <link rel="stylesheet" href="../css/escucha-escribe.css?v=3">
+  <link rel="stylesheet" href="../css/escucha-escribe.css?v=7">
 </head>
 <body class="dashboard-page listening-dashboard">
   <div class="app-shell">
@@ -36,7 +36,7 @@
         <h1>Escucha y escribe</h1>
         <p>Reproduce la frase y escribe exactamente lo que oyes en chino.</p>
       </div>
-      <div class="score-card"><span aria-hidden="true">★</span><small>Puntuación<strong id="score">0</strong></small></div>
+      <span class="score-card"><small>Puntos</small><strong id="score">0</strong></span>
     </header>
 
     <section class="question-card" id="question-card">
@@ -72,12 +72,12 @@
     <section class="completion-card" id="completion-card" hidden>
       <div class="completion-icon" aria-hidden="true">听</div>
       <h2>¡Dictado completado!</h2>
-      <p>Has terminado las diez frases de este nivel.</p>
-      <strong><span id="final-score">0</span> / 100 puntos</strong>
+      <p>Has terminado las cinco frases de este nivel.</p>
+      <strong><span id="final-score">0</span> / 50 puntos</strong>
       <div><button id="restart-button" type="button">Practicar de nuevo</button><a href="ejercicios.html?v=11">Volver a ejercicios</a></div>
     </section>
   </main>
   </div>
-  <script type="module" src="../js/escucha-escribe.js?v=2"></script>
+  <script type="module" src="../js/escucha-escribe.js?v=4"></script>
 </body>
 </html>

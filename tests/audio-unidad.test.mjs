@@ -11,7 +11,8 @@ const mapa = JSON.parse(readFileSync(new URL(unidad1.audio.mapa), 'utf8'));
 // Selecciona las demás unidades cuyas grabaciones se van a comprobar.
 const unidadesConAudio = [
   ...[2, 3, 4, 5, 6].map((numero) => ({ hsk: 1, numero })),
-  ...Array.from({ length: 10 }, (_, i) => ({ hsk: 2, numero: i + 1 }))
+  ...Array.from({ length: 10 }, (_, i) => ({ hsk: 2, numero: i + 1 })),
+  { hsk: 3, numero: 7 }
 ];
 // Verifica los archivos, los tiempos sin solapamientos y el texto de los ejemplos.
 for (const { hsk, numero } of unidadesConAudio) {

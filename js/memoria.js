@@ -1,5 +1,6 @@
 // Importa el vocabulario que se utilizará para formar las parejas.
 import { catalogoHSK } from './datos/catalogo-hsk.js?v=2';
+import { obtenerDatosUsuario } from './user-data.js?v=1';
 
 // Relaciona las dificultades con niveles HSK y fija ocho parejas por partida.
 const ranges = {
@@ -9,11 +10,15 @@ const ranges = {
   expert: [6, 7]
 };
 const pairAmount = 8;
-// Elige la dificultad de la URL o del navegador y obtiene sus niveles.
+// Elige la dificultad de la URL o de las preferencias de la cuenta.
 const params = new URLSearchParams(location.search);
 const requested = params.get('dificultad');
-const saved = localStorage.getItem('exercise-difficulty');
+const saved = (await obtenerDatosUsuario()).preferencias.dificultad;
 const difficulty = Object.hasOwn(ranges, requested) ? requested : Object.hasOwn(ranges, saved) ? saved : 'easy';
+const difficultyNames = { easy: 'Fácil', medium: 'Medio', hard: 'Difícil', expert: 'Experto' };
+const difficultyBadge = document.querySelector('#difficulty-badge');
+difficultyBadge.textContent = difficultyNames[difficulty];
+difficultyBadge.dataset.difficulty = difficulty;
 const levels = ranges[difficulty].map((id) => catalogoHSK.find((level) => level.id === id)).filter(Boolean);
 const board = document.querySelector('#memory-board');
 const attempts = document.querySelector('#attempts');
