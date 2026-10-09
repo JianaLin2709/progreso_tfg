@@ -1,0 +1,163 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 92.472,
+  "entradas": {
+    "企业": {
+      "palabra": {
+        "texto": "企业",
+        "inicio": 0,
+        "fin": 2
+      },
+      "ejemplo": {
+        "texto": "这家企业有五百多名员工。",
+        "inicio": 3.057,
+        "fin": 5.557
+      }
+    },
+    "管理": {
+      "palabra": {
+        "texto": "管理",
+        "inicio": 7.113,
+        "fin": 9.113
+      },
+      "ejemplo": {
+        "texto": "她负责管理这个部门。",
+        "inicio": 10.17,
+        "fin": 12.67
+      }
+    },
+    "市场": {
+      "palabra": {
+        "texto": "市场",
+        "inicio": 14.226,
+        "fin": 16.226
+      },
+      "ejemplo": {
+        "texto": "这种产品很受市场欢迎。",
+        "inicio": 17.283,
+        "fin": 19.783
+      }
+    },
+    "经济": {
+      "palabra": {
+        "texto": "经济",
+        "inicio": 21.34,
+        "fin": 23.34
+      },
+      "ejemplo": {
+        "texto": "旅游业促进了当地经济发展。",
+        "inicio": 24.396,
+        "fin": 26.896
+      }
+    },
+    "顾客": {
+      "palabra": {
+        "texto": "顾客",
+        "inicio": 28.453,
+        "fin": 30.453
+      },
+      "ejemplo": {
+        "texto": "顾客对服务非常满意。",
+        "inicio": 31.51,
+        "fin": 34.01
+      }
+    },
+    "投资": {
+      "palabra": {
+        "texto": "投资",
+        "inicio": 35.566,
+        "fin": 37.566
+      },
+      "ejemplo": {
+        "texto": "公司决定投资新能源项目。",
+        "inicio": 38.623,
+        "fin": 41.123
+      }
+    },
+    "利润": {
+      "palabra": {
+        "texto": "利润",
+        "inicio": 42.679,
+        "fin": 44.679
+      },
+      "ejemplo": {
+        "texto": "今年公司的利润增加了。",
+        "inicio": 45.736,
+        "fin": 48.236
+      }
+    },
+    "亏损": {
+      "palabra": {
+        "texto": "亏损",
+        "inicio": 49.793,
+        "fin": 51.793
+      },
+      "ejemplo": {
+        "texto": "这家商店连续两年亏损。",
+        "inicio": 52.849,
+        "fin": 55.349
+      }
+    },
+    "股票": {
+      "palabra": {
+        "texto": "股票",
+        "inicio": 56.906,
+        "fin": 58.906
+      },
+      "ejemplo": {
+        "texto": "他买了一些科技公司的股票。",
+        "inicio": 59.962,
+        "fin": 62.462
+      }
+    },
+    "合同": {
+      "palabra": {
+        "texto": "合同",
+        "inicio": 64.019,
+        "fin": 66.019
+      },
+      "ejemplo": {
+        "texto": "双方已经签署了合同。",
+        "inicio": 67.076,
+        "fin": 69.576
+      }
+    },
+    "产品": {
+      "palabra": {
+        "texto": "产品",
+        "inicio": 71.132,
+        "fin": 73.132
+      },
+      "ejemplo": {
+        "texto": "这款产品的质量很好。",
+        "inicio": 74.189,
+        "fin": 76.689
+      }
+    },
+    "竞争": {
+      "palabra": {
+        "texto": "竞争",
+        "inicio": 78.246,
+        "fin": 80.246
+      },
+      "ejemplo": {
+        "texto": "两家公司之间的竞争很激烈。",
+        "inicio": 81.302,
+        "fin": 83.802
+      }
+    },
+    "经济#2": {
+      "palabra": {
+        "texto": "经济",
+        "inicio": 85.359,
+        "fin": 87.359
+      },
+      "ejemplo": {
+        "texto": "全球经济正在逐渐恢复。",
+        "inicio": 88.415,
+        "fin": 90.915
+      }
+    }
+  }
+}

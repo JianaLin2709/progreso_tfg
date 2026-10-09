@@ -54,7 +54,10 @@ export function prepararAudioUnidad(unidad, obtenerIndice) {
     boton.addEventListener('click', async () => {
       detener();
       const actual = solicitud;
-      const hanzi = unidad.vocabulario[obtenerIndice()].hanzi;
+      const indice = obtenerIndice();
+      const hanzi = unidad.vocabulario[indice].hanzi;
+      const ocurrencia = unidad.vocabulario.slice(0, indice + 1).filter((entrada) => entrada.hanzi === hanzi).length;
+      const clave = ocurrencia === 1 ? hanzi : `${hanzi}#${ocurrencia}`;
       boton.setAttribute('aria-busy', 'true');
       estado.textContent = 'Preparando el audio…';
       try {
@@ -71,7 +74,7 @@ export function prepararAudioUnidad(unidad, obtenerIndice) {
         // Descarta clics cancelados y prepara la reproducción del fragmento solicitado.
         const [, { buffer, mapa }] = await Promise.all([activacion, preparacion]);
         if (actual !== solicitud) return;
-        const fragmento = obtenerFragmento(mapa, hanzi, tipo, buffer.duration);
+        const fragmento = obtenerFragmento(mapa, clave, tipo, buffer.duration);
         fuente = contexto.createBufferSource();
         fuente.buffer = buffer;
         fuente.connect(contexto.destination);

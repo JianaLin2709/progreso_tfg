@@ -4,6 +4,10 @@ export const unidad1 = {
   hsk: 6,
   id: 1,
   titulo: 'Política',
+  // Localiza la grabación y el mapa de fragmentos de esta unidad.
+  audio: {
+    mapa: new URL('../../../audios/hsk6/unidad1/tiempos.json', import.meta.url).href
+  },
   // Lista las palabras: hanzi, pinyin y español, con un ejemplo en los tres formatos.
   vocabulario: [
     {

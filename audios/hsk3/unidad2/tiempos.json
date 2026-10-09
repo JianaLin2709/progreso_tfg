@@ -1,6 +1,127 @@
 {
-  "archivo": "leccion.m4a",
+  "archivo": "leccion.mp3",
   "unidadTiempo": "segundos",
-  "duracion": 41.813333,
-  "entradas": {}
+  "duracion": 69.84,
+  "entradas": {
+    "厨师": {
+      "palabra": {
+        "texto": "厨师",
+        "inicio": 0,
+        "fin": 2
+      },
+      "ejemplo": {
+        "texto": "这位厨师做的菜很好吃。",
+        "inicio": 2.492,
+        "fin": 5.492
+      }
+    },
+    "点菜": {
+      "palabra": {
+        "texto": "点菜",
+        "inicio": 6.984,
+        "fin": 8.984
+      },
+      "ejemplo": {
+        "texto": "服务员，我们要点菜。",
+        "inicio": 9.476,
+        "fin": 12.476
+      }
+    },
+    "服务员": {
+      "palabra": {
+        "texto": "服务员",
+        "inicio": 13.968,
+        "fin": 15.968
+      },
+      "ejemplo": {
+        "texto": "服务员给我们拿来了菜单。",
+        "inicio": 16.46,
+        "fin": 19.46
+      }
+    },
+    "结账": {
+      "palabra": {
+        "texto": "结账",
+        "inicio": 20.952,
+        "fin": 22.952
+      },
+      "ejemplo": {
+        "texto": "吃完饭以后我们去结账。",
+        "inicio": 23.444,
+        "fin": 26.444
+      }
+    },
+    "现金": {
+      "palabra": {
+        "texto": "现金",
+        "inicio": 27.936,
+        "fin": 29.936
+      },
+      "ejemplo": {
+        "texto": "我没有现金，可以刷卡吗？",
+        "inicio": 30.428,
+        "fin": 33.428
+      }
+    },
+    "刷卡": {
+      "palabra": {
+        "texto": "刷卡",
+        "inicio": 34.92,
+        "fin": 36.92
+      },
+      "ejemplo": {
+        "texto": "这家餐馆可以刷卡。",
+        "inicio": 37.412,
+        "fin": 40.412
+      }
+    },
+    "土豆饼": {
+      "palabra": {
+        "texto": "土豆饼",
+        "inicio": 41.904,
+        "fin": 43.904
+      },
+      "ejemplo": {
+        "texto": "西班牙的土豆饼很有名。",
+        "inicio": 44.396,
+        "fin": 47.396
+      }
+    },
+    "海鲜饭": {
+      "palabra": {
+        "texto": "海鲜饭",
+        "inicio": 48.888,
+        "fin": 50.888
+      },
+      "ejemplo": {
+        "texto": "我们点了一份海鲜饭。",
+        "inicio": 51.38,
+        "fin": 54.38
+      }
+    },
+    "火腿": {
+      "palabra": {
+        "texto": "火腿",
+        "inicio": 55.872,
+        "fin": 57.872
+      },
+      "ejemplo": {
+        "texto": "面包里放了一些火腿。",
+        "inicio": 58.364,
+        "fin": 61.364
+      }
+    },
+    "红酒": {
+      "palabra": {
+        "texto": "红酒",
+        "inicio": 62.856,
+        "fin": 64.856
+      },
+      "ejemplo": {
+        "texto": "爸爸晚饭时喝了一杯红酒。",
+        "inicio": 65.348,
+        "fin": 68.348
+      }
+    }
+  }
 }

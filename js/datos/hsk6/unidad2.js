@@ -4,6 +4,10 @@ export const unidad2 = {
   hsk: 6,
   id: 2,
   titulo: 'Adjetivos',
+  // Localiza la grabación y el mapa de fragmentos de esta unidad.
+  audio: {
+    mapa: new URL('../../../audios/hsk6/unidad2/tiempos.json', import.meta.url).href
+  },
   // Lista las palabras: hanzi, pinyin y español, con un ejemplo en los tres formatos.
   vocabulario: [
     {

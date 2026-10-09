@@ -1,0 +1,79 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 42.024,
+  "entradas": {
+    "显著": {
+      "palabra": {
+        "texto": "显著",
+        "inicio": 0,
+        "fin": 2
+      },
+      "ejemplo": {
+        "texto": "新方法取得了显著效果。",
+        "inicio": 2.502,
+        "fin": 5.502
+      }
+    },
+    "潜在": {
+      "palabra": {
+        "texto": "潜在",
+        "inicio": 7.004,
+        "fin": 9.004
+      },
+      "ejemplo": {
+        "texto": "我们必须注意潜在风险。",
+        "inicio": 9.506,
+        "fin": 12.506
+      }
+    },
+    "客观": {
+      "palabra": {
+        "texto": "客观",
+        "inicio": 14.008,
+        "fin": 16.008
+      },
+      "ejemplo": {
+        "texto": "记者应该客观报道事实。",
+        "inicio": 16.51,
+        "fin": 19.51
+      }
+    },
+    "主观": {
+      "palabra": {
+        "texto": "主观",
+        "inicio": 21.012,
+        "fin": 23.012
+      },
+      "ejemplo": {
+        "texto": "这个判断过于主观。",
+        "inicio": 23.514,
+        "fin": 26.514
+      }
+    },
+    "合理": {
+      "palabra": {
+        "texto": "合理",
+        "inicio": 28.016,
+        "fin": 30.016
+      },
+      "ejemplo": {
+        "texto": "资源应该得到合理利用。",
+        "inicio": 30.518,
+        "fin": 33.518
+      }
+    },
+    "全面": {
+      "palabra": {
+        "texto": "全面",
+        "inicio": 35.02,
+        "fin": 37.02
+      },
+      "ejemplo": {
+        "texto": "专家对情况进行了全面分析。",
+        "inicio": 37.522,
+        "fin": 40.522
+      }
+    }
+  }
+}

@@ -4,6 +4,10 @@ export const unidad1 = {
   hsk: 3,
   id: 1,
   titulo: 'Colegio',
+  // Localiza la grabación continua y su configuración de fragmentos.
+  audio: {
+    mapa: new URL('../../../audios/hsk3/unidad1/tiempos.json', import.meta.url).href
+  },
   // Lista las palabras: hanzi, pinyin y español, con un ejemplo en los tres formatos.
   vocabulario: [
     {

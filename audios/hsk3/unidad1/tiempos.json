@@ -1,0 +1,247 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 133.32,
+  "entradas": {
+    "书桌": {
+      "palabra": {
+        "texto": "书桌",
+        "inicio": 0,
+        "fin": 2
+      },
+      "ejemplo": {
+        "texto": "书桌上有一台电脑。",
+        "inicio": 2.833,
+        "fin": 5.333
+      }
+    },
+    "黑板": {
+      "palabra": {
+        "texto": "黑板",
+        "inicio": 6.666,
+        "fin": 8.666
+      },
+      "ejemplo": {
+        "texto": "老师在黑板上写字。",
+        "inicio": 9.499,
+        "fin": 11.999
+      }
+    },
+    "粉笔": {
+      "palabra": {
+        "texto": "粉笔",
+        "inicio": 13.332,
+        "fin": 15.332
+      },
+      "ejemplo": {
+        "texto": "讲台上有一支粉笔。",
+        "inicio": 16.165,
+        "fin": 18.665
+      }
+    },
+    "铅笔": {
+      "palabra": {
+        "texto": "铅笔",
+        "inicio": 19.998,
+        "fin": 21.998
+      },
+      "ejemplo": {
+        "texto": "我用铅笔写作业。",
+        "inicio": 22.831,
+        "fin": 25.331
+      }
+    },
+    "圆珠笔": {
+      "palabra": {
+        "texto": "圆珠笔",
+        "inicio": 26.664,
+        "fin": 28.664
+      },
+      "ejemplo": {
+        "texto": "请借给我一支圆珠笔。",
+        "inicio": 29.497,
+        "fin": 31.997
+      }
+    },
+    "作业本": {
+      "palabra": {
+        "texto": "作业本",
+        "inicio": 33.33,
+        "fin": 35.33
+      },
+      "ejemplo": {
+        "texto": "请打开你的作业本。",
+        "inicio": 36.163,
+        "fin": 38.663
+      }
+    },
+    "书": {
+      "palabra": {
+        "texto": "书",
+        "inicio": 39.996,
+        "fin": 41.996
+      },
+      "ejemplo": {
+        "texto": "这本书很有意思。",
+        "inicio": 42.829,
+        "fin": 45.329
+      }
+    },
+    "学生": {
+      "palabra": {
+        "texto": "学生",
+        "inicio": 46.662,
+        "fin": 48.662
+      },
+      "ejemplo": {
+        "texto": "教室里有二十个学生。",
+        "inicio": 49.495,
+        "fin": 51.995
+      }
+    },
+    "老师": {
+      "palabra": {
+        "texto": "老师",
+        "inicio": 53.328,
+        "fin": 55.328
+      },
+      "ejemplo": {
+        "texto": "王老师教我们汉语。",
+        "inicio": 56.161,
+        "fin": 58.661
+      }
+    },
+    "课目": {
+      "palabra": {
+        "texto": "课目",
+        "inicio": 59.994,
+        "fin": 61.994
+      },
+      "ejemplo": {
+        "texto": "今天的课目是数学。",
+        "inicio": 62.827,
+        "fin": 65.327
+      }
+    },
+    "考试": {
+      "palabra": {
+        "texto": "考试",
+        "inicio": 66.66,
+        "fin": 68.66
+      },
+      "ejemplo": {
+        "texto": "明天我们有考试。",
+        "inicio": 69.493,
+        "fin": 71.993
+      }
+    },
+    "语文": {
+      "palabra": {
+        "texto": "语文",
+        "inicio": 73.326,
+        "fin": 75.326
+      },
+      "ejemplo": {
+        "texto": "我最喜欢语文课。",
+        "inicio": 76.159,
+        "fin": 78.659
+      }
+    },
+    "数学": {
+      "palabra": {
+        "texto": "数学",
+        "inicio": 79.992,
+        "fin": 81.992
+      },
+      "ejemplo": {
+        "texto": "这道数学题很难。",
+        "inicio": 82.825,
+        "fin": 85.325
+      }
+    },
+    "英语": {
+      "palabra": {
+        "texto": "英语",
+        "inicio": 86.658,
+        "fin": 88.658
+      },
+      "ejemplo": {
+        "texto": "她的英语说得很好。",
+        "inicio": 89.491,
+        "fin": 91.991
+      }
+    },
+    "历史": {
+      "palabra": {
+        "texto": "历史",
+        "inicio": 93.324,
+        "fin": 95.324
+      },
+      "ejemplo": {
+        "texto": "我对中国历史感兴趣。",
+        "inicio": 96.157,
+        "fin": 98.657
+      }
+    },
+    "物理": {
+      "palabra": {
+        "texto": "物理",
+        "inicio": 99.99,
+        "fin": 101.99
+      },
+      "ejemplo": {
+        "texto": "哥哥正在学习物理。",
+        "inicio": 102.823,
+        "fin": 105.323
+      }
+    },
+    "生物": {
+      "palabra": {
+        "texto": "生物",
+        "inicio": 106.656,
+        "fin": 108.656
+      },
+      "ejemplo": {
+        "texto": "生物课九点开始。",
+        "inicio": 109.489,
+        "fin": 111.989
+      }
+    },
+    "美术": {
+      "palabra": {
+        "texto": "美术",
+        "inicio": 113.322,
+        "fin": 115.322
+      },
+      "ejemplo": {
+        "texto": "妹妹正在上美术课。",
+        "inicio": 116.155,
+        "fin": 118.655
+      }
+    },
+    "物理#2": {
+      "palabra": {
+        "texto": "物理",
+        "inicio": 119.988,
+        "fin": 121.988
+      },
+      "ejemplo": {
+        "texto": "物理老师做了一个实验。",
+        "inicio": 122.821,
+        "fin": 125.321
+      }
+    },
+    "生物#2": {
+      "palabra": {
+        "texto": "生物",
+        "inicio": 126.654,
+        "fin": 128.654
+      },
+      "ejemplo": {
+        "texto": "她想在大学学习生物。",
+        "inicio": 129.487,
+        "fin": 131.987
+      }
+    }
+  }
+}

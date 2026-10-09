@@ -1,0 +1,307 @@
+{
+  "archivo": "leccion.mp3",
+  "unidadTiempo": "segundos",
+  "duracion": 179.904,
+  "entradas": {
+    "国家": {
+      "palabra": {
+        "texto": "国家",
+        "inicio": 0,
+        "fin": 2
+      },
+      "ejemplo": {
+        "texto": "每个国家都有自己的法律。",
+        "inicio": 2.598,
+        "fin": 5.598
+      }
+    },
+    "政治": {
+      "palabra": {
+        "texto": "政治",
+        "inicio": 7.196,
+        "fin": 9.196
+      },
+      "ejemplo": {
+        "texto": "他在大学学习政治。",
+        "inicio": 9.794,
+        "fin": 12.794
+      }
+    },
+    "政府": {
+      "palabra": {
+        "texto": "政府",
+        "inicio": 14.392,
+        "fin": 16.392
+      },
+      "ejemplo": {
+        "texto": "政府公布了新的经济计划。",
+        "inicio": 16.99,
+        "fin": 19.99
+      }
+    },
+    "政策": {
+      "palabra": {
+        "texto": "政策",
+        "inicio": 21.588,
+        "fin": 23.588
+      },
+      "ejemplo": {
+        "texto": "这项政策将于明年实施。",
+        "inicio": 24.187,
+        "fin": 27.187
+      }
+    },
+    "社会": {
+      "palabra": {
+        "texto": "社会",
+        "inicio": 28.785,
+        "fin": 30.785
+      },
+      "ejemplo": {
+        "texto": "教育对社会发展非常重要。",
+        "inicio": 31.383,
+        "fin": 34.383
+      }
+    },
+    "法律": {
+      "palabra": {
+        "texto": "法律",
+        "inicio": 35.981,
+        "fin": 37.981
+      },
+      "ejemplo": {
+        "texto": "所有公民都必须遵守法律。",
+        "inicio": 38.579,
+        "fin": 41.579
+      }
+    },
+    "制度": {
+      "palabra": {
+        "texto": "制度",
+        "inicio": 43.177,
+        "fin": 45.177
+      },
+      "ejemplo": {
+        "texto": "公司建立了严格的管理制度。",
+        "inicio": 45.775,
+        "fin": 48.775
+      }
+    },
+    "总统": {
+      "palabra": {
+        "texto": "总统",
+        "inicio": 50.373,
+        "fin": 52.373
+      },
+      "ejemplo": {
+        "texto": "总统发表了电视讲话。",
+        "inicio": 52.971,
+        "fin": 55.971
+      }
+    },
+    "公民": {
+      "palabra": {
+        "texto": "公民",
+        "inicio": 57.569,
+        "fin": 59.569
+      },
+      "ejemplo": {
+        "texto": "公民有权参与公共事务。",
+        "inicio": 60.167,
+        "fin": 63.167
+      }
+    },
+    "官员": {
+      "palabra": {
+        "texto": "官员",
+        "inicio": 64.765,
+        "fin": 66.765
+      },
+      "ejemplo": {
+        "texto": "政府官员回答了记者的问题。",
+        "inicio": 67.364,
+        "fin": 70.364
+      }
+    },
+    "公民#2": {
+      "palabra": {
+        "texto": "公民",
+        "inicio": 71.962,
+        "fin": 73.962
+      },
+      "ejemplo": {
+        "texto": "保护环境是每个公民的责任。",
+        "inicio": 74.56,
+        "fin": 77.56
+      }
+    },
+    "部门": {
+      "palabra": {
+        "texto": "部门",
+        "inicio": 79.158,
+        "fin": 81.158
+      },
+      "ejemplo": {
+        "texto": "这个问题由相关部门负责。",
+        "inicio": 81.756,
+        "fin": 84.756
+      }
+    },
+    "权利": {
+      "palabra": {
+        "texto": "权利",
+        "inicio": 86.354,
+        "fin": 88.354
+      },
+      "ejemplo": {
+        "texto": "每个人都有表达意见的权利。",
+        "inicio": 88.952,
+        "fin": 91.952
+      }
+    },
+    "义务": {
+      "palabra": {
+        "texto": "义务",
+        "inicio": 93.55,
+        "fin": 95.55
+      },
+      "ejemplo": {
+        "texto": "父母有照顾孩子的义务。",
+        "inicio": 96.148,
+        "fin": 99.148
+      }
+    },
+    "自由": {
+      "palabra": {
+        "texto": "自由",
+        "inicio": 100.746,
+        "fin": 102.746
+      },
+      "ejemplo": {
+        "texto": "人人都应该享有言论自由。",
+        "inicio": 103.344,
+        "fin": 106.344
+      }
+    },
+    "平等": {
+      "palabra": {
+        "texto": "平等",
+        "inicio": 107.942,
+        "fin": 109.942
+      },
+      "ejemplo": {
+        "texto": "法律面前人人平等。",
+        "inicio": 110.54,
+        "fin": 113.54
+      }
+    },
+    "公平": {
+      "palabra": {
+        "texto": "公平",
+        "inicio": 115.139,
+        "fin": 117.139
+      },
+      "ejemplo": {
+        "texto": "裁判必须保证比赛公平。",
+        "inicio": 117.737,
+        "fin": 120.737
+      }
+    },
+    "利益": {
+      "palabra": {
+        "texto": "利益",
+        "inicio": 122.335,
+        "fin": 124.335
+      },
+      "ejemplo": {
+        "texto": "我们要保护消费者的利益。",
+        "inicio": 124.933,
+        "fin": 127.933
+      }
+    },
+    "和平": {
+      "palabra": {
+        "texto": "和平",
+        "inicio": 129.531,
+        "fin": 131.531
+      },
+      "ejemplo": {
+        "texto": "各国人民都渴望和平。",
+        "inicio": 132.129,
+        "fin": 135.129
+      }
+    },
+    "战争": {
+      "palabra": {
+        "texto": "战争",
+        "inicio": 136.727,
+        "fin": 138.727
+      },
+      "ejemplo": {
+        "texto": "战争给人民带来了巨大痛苦。",
+        "inicio": 139.325,
+        "fin": 142.325
+      }
+    },
+    "冲突": {
+      "palabra": {
+        "texto": "冲突",
+        "inicio": 143.923,
+        "fin": 145.923
+      },
+      "ejemplo": {
+        "texto": "双方希望通过谈判解决冲突。",
+        "inicio": 146.521,
+        "fin": 149.521
+      }
+    },
+    "外交": {
+      "palabra": {
+        "texto": "外交",
+        "inicio": 151.119,
+        "fin": 153.119
+      },
+      "ejemplo": {
+        "texto": "两国建立了正式外交关系。",
+        "inicio": 153.717,
+        "fin": 156.717
+      }
+    },
+    "协议": {
+      "palabra": {
+        "texto": "协议",
+        "inicio": 158.316,
+        "fin": 160.316
+      },
+      "ejemplo": {
+        "texto": "双方终于达成了协议。",
+        "inicio": 160.914,
+        "fin": 163.914
+      }
+    },
+    "关系": {
+      "palabra": {
+        "texto": "关系",
+        "inicio": 165.512,
+        "fin": 167.512
+      },
+      "ejemplo": {
+        "texto": "两国之间的关系正在改善。",
+        "inicio": 168.11,
+        "fin": 171.11
+      }
+    },
+    "措施": {
+      "palabra": {
+        "texto": "措施",
+        "inicio": 172.708,
+        "fin": 174.708
+      },
+      "ejemplo": {
+        "texto": "政府采取了紧急措施。",
+        "inicio": 175.306,
+        "fin": 178.306
+      }
+    }
+  }
+}
